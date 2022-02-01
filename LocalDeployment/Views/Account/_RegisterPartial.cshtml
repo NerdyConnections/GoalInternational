@@ -1,0 +1,165 @@
+﻿
+@using GoalInternational.Util
+@model GoalInternational.Models.UserModel
+<script type="text/javascript">
+    $('.btn-back').on('click', function (e) {
+        console.log('back is click');
+        window.history.back();
+       });
+
+
+</script> 
+@using (Html.BeginForm("Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+   
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.UserType);
+    @Html.HiddenFor(model => model.ParentUserID);
+    <input type="hidden" value="@Session["Language"].ToString()" id="Language" />
+    <div class="pnl-login">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- <h1 id="lblTitle"></h1>-->
+                <h1>@GoalInternational.Languages.RegisterPartial.G1</h1>
+                <div class="lead1">
+                   @GoalInternational.Languages.RegisterPartial.G2
+                </div>
+                <div class="btn-back"><span class="glyphicon glyphicon-chevron-left"></span><span>@GoalInternational.Languages.Common.BACK</span></div>
+                <!--<div class="lead1" style="color: #534d4d"></div>-->
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="row"></div>
+
+
+
+        <div class="row">
+            <div class="form-group form-group-sm col-sm-4">
+                <label class="" style="font-size: 18px" title="First Name">@GoalInternational.Languages.RegisterPartial.G3</label>
+               @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @id = "txtFirstName", @placeholder = "" })
+              <br/>  @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "errorMssg" })
+            </div>
+            <div class="form-group form-group-sm col-sm-4">
+                <label class="" style="font-size: 18px" title="Last Name">@GoalInternational.Languages.RegisterPartial.G4</label>@Html.TextBoxFor(model => model.LastName, new { @class = "form-control", @id = "txtLastName", @placeholder = "" })
+                <br />  @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "errorMssg" })
+            </div>
+            <div class="form-group form-group-sm col-sm-4">
+                <label class="" style="font-size: 18px" title="Middle Name">@GoalInternational.Languages.RegisterPartial.G24</label>
+                <br/>@Html.TextBoxFor(model => model.MiddleName, new { @class = "form-control", @id = "txtMiddleName", @placeholder = "" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group form-group-sm col-sm-4">
+                <label class="" style="font-size: 18px" title="Cheque Payable To">@GoalInternational.Languages.RegisterPartial.G25</label>
+                @Html.TextBoxFor(model => model.ChequePayableTo, new { @class = "form-control", @id = "txtChequePayableTo", @placeholder = "" })
+                 @Html.ValidationMessageFor(m => m.ChequePayableTo, "", new { @class = "errorMssg" })
+            </div>
+            <div class="form-group form-group-sm col-sm-4">
+                <label class="" style="font-size: 18px" title="Institution Name">@GoalInternational.Languages.RegisterPartial.G5</label>
+               @Html.TextBoxFor(model => model.ClinicName, new { @class = "form-control", @id = "txtClinicName", @placeholder = "" })
+            </div>
+
+            <div class="form-group form-group-sm col-sm-4">
+                <label class="" style="font-size: 18px" title="Address1">@GoalInternational.Languages.RegisterPartial.G6</label>
+                @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @id = "txtAddress", @placeholder = "" })
+             @Html.ValidationMessageFor(m => m.Address, "", new { @class = "errorMssg" })
+            </div>
+           
+        </div>
+        <div class="row">
+            <div class="form-group form-group-sm col-sm-2">
+                <label class="" style="font-size: 18px" title="City">@GoalInternational.Languages.RegisterPartial.G8</label>
+                @Html.TextBoxFor(model => model.City, new { @class = "form-control", @id = "txtCity", @placeholder = "" })
+            </div>
+           
+            <div class="form-group form-group-sm col-sm-2">
+                <label class="" style="font-size: 18px" title="PostalCode">@GoalInternational.Languages.RegisterPartial.G10</label>
+               @Html.TextBoxFor(model => model.PostalCode, new { @class = "form-control", @id = "txtPostalCode", @placeholder = "" })
+            </div>
+            <div class="form-group form-group-sm col-sm-2">
+                <label class="" style="font-size: 18px" title="Country">@GoalInternational.Languages.RegisterPartial.G11</label>
+             <br/>   @Html.DropDownListFor(model => model.CountryID, new SelectList(ListHelper.GetCountryList(), "Value", "Text"), GoalInternational.Languages.RegisterPartial.G12, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.CountryID, "", new { @class = "errorMssg" })
+            </div>
+
+            <div class="form-group form-group-sm col-sm-2">
+                <label class="" style="font-size: 18px" title="phone Number">@GoalInternational.Languages.RegisterPartial.G13 </label>
+                @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", @id = "txtPhone", @placeholder = "" })
+            </div>
+            <div class="form-group form-group-sm col-sm-2">
+                <label class="" style="font-size: 18px" title="Cell Phone/Pager">@GoalInternational.Languages.RegisterPartial.G14 </label>
+                @Html.TextBoxFor(model => model.CellPhone, new { @class = "form-control", @id = "txtCellPhone", @placeholder = "" })
+            </div>
+            <div class="form-group form-group-sm col-sm-2">
+                <label class="" style="font-size: 18px" title="Fax">@GoalInternational.Languages.RegisterPartial.G15</label>
+                @Html.TextBoxFor(model => model.Fax, new { @class = "form-control", @id = "txtFax", @placeholder = "" })
+            </div>
+
+        </div>
+      
+
+        <div class="row" style="padding-bottom:15px"> <h3 class="col-sm-12 hdr">@GoalInternational.Languages.RegisterPartial.G17</h3></div>
+
+        <div class="row">
+            <div class="form-group form-group-sm col-sm-4">
+                <label class="" style="font-size: 18px;" title="Username">@GoalInternational.Languages.RegisterPartial.G18</label>
+                @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @id = "txtUsername", @placeholder = "", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.Username, "", new { @class = "errorMssg" })
+            </div>
+            <div class="form-group form-group-sm col-sm-4">
+                <label class="" style="font-size: 18px;" title="password">@GoalInternational.Languages.RegisterPartial.G19</label>
+                @Html.PasswordFor(model => model.Password, new { @class = "form-control", @id = "txtPassword", @placeholder = "" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "errorMssg" })
+            </div>
+
+            <div class="form-group form-group-sm col-sm-4">
+                <label class="" style="font-size: 18px;" title="re-enter password">@GoalInternational.Languages.RegisterPartial.G20</label>
+                @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control", @id = "txtConfirmPassword", @placeholder = "" })
+                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "errorMssg" })
+            </div>
+
+
+            <h4 class="col-sm-12">@Html.CheckBoxFor(model => model.ConsentCHRCShareName, htmlAttributes: new { @checked = true })&nbsp;&nbsp;<strong> @GoalInternational.Languages.RegisterPartial.G21</strong></h4>
+            <h5 class="col-sm-10" style="margin-top:0px; padding-bottom:20px">@GoalInternational.Languages.RegisterPartial.G22 </h5><br>
+        </div>
+        <div class="row">
+            <div class="form-group form-group-lg col-sm-2 pull-right">
+                <!-- Trigger the modal with a button -->
+                <button type="submit" class="form-control btn btn-primary btn-sm">@GoalInternational.Languages.RegisterPartial.G23</button>
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+
+
+
+
+        $(document).ready(function () {
+            function SubmitForm(form) {
+
+                $.validator.unobtrusive.parse(form);
+                if ($(form).valid()) {
+                    $.ajax({
+
+                        type: "POST",
+                        url: form.action,
+                        data: form.serialize(),
+                        datatype: 'json',
+
+
+                    }).done(function (partialViewResult) {
+                        
+                    });//end of ajax call
+                }
+                return false;
+            }//end of submit form
+        });//end of document.ready
+</script>

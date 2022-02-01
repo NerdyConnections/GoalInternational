@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Dr" xml:space="preserve">
+    <value>Dr.</value>
+  </data>
+  <data name="G1" xml:space="preserve">
+    <value>Registro</value>
+  </data>
+  <data name="G10" xml:space="preserve">
+    <value>Código Postal:</value>
+  </data>
+  <data name="G11" xml:space="preserve">
+    <value>País:</value>
+  </data>
+  <data name="G12" xml:space="preserve">
+    <value>Por favor seleccione un país</value>
+  </data>
+  <data name="G13" xml:space="preserve">
+    <value>Número de Teléfono:</value>
+  </data>
+  <data name="G14" xml:space="preserve">
+    <value>Teléfono Celular/Localizador:</value>
+  </data>
+  <data name="G15" xml:space="preserve">
+    <value>Fax:</value>
+  </data>
+  <data name="G16" xml:space="preserve">
+    <value>Correo Electrónico:</value>
+  </data>
+  <data name="G17" xml:space="preserve">
+    <value>Por favor crea tu nombre de usuario (tu dirección de correo electrónico preferente) y contraseña.</value>
+  </data>
+  <data name="G18" xml:space="preserve">
+    <value>Nombre de Usuario: (tu dirección de correo electrónico)</value>
+  </data>
+  <data name="G19" xml:space="preserve">
+    <value>Contraseña:</value>
+  </data>
+  <data name="G2" xml:space="preserve">
+    <value>POR FAVOR REVISE LA EXACTITUD DE LA INFORMACIÓN. ACTUALICE Y COMPLETE LOS CAMPOS EN BLANCO DONDE CORRESPONDA</value>
+  </data>
+  <data name="G20" xml:space="preserve">
+    <value>Escriba su contraseña nuevamente:</value>
+  </data>
+  <data name="G21" xml:space="preserve">
+    <value>¿Le gustaría recibir correspondencia por correo electrónico (opt-in) del Canadian Heart Research Centre para futuras iniciativas y eventos?</value>
+  </data>
+  <data name="G22" xml:space="preserve">
+    <value>El Canadian Heart Research Centre respeta su responsabilidad de proteger la privacidad de sus colaboradores y clientes. Almacenaremos su información de contacto en nuestra base de datos interna y segura. La información de contacto no se vende ni se comparte con personas o entidades externas y solo será utilizada con el fin de que los interesados ​​estén al tanto de las iniciativas y eventos futuros. Usted siempre tendrá la opción de darse de baja.</value>
+  </data>
+  <data name="G23" xml:space="preserve">
+    <value>REGISTRO COMPLETO</value>
+  </data>
+  <data name="G24" xml:space="preserve">
+    <value>Segundo Nombre</value>
+  </data>
+  <data name="G25" xml:space="preserve">
+    <value>Cheque a nombre de</value>
+  </data>
+  <data name="G3" xml:space="preserve">
+    <value>Primer Nombre:</value>
+  </data>
+  <data name="G4" xml:space="preserve">
+    <value>Apellido:</value>
+  </data>
+  <data name="G5" xml:space="preserve">
+    <value>Nombre de la Institución:</value>
+  </data>
+  <data name="G6" xml:space="preserve">
+    <value>Dirección Línea 1: (Nombre de la calle)</value>
+  </data>
+  <data name="G7" xml:space="preserve">
+    <value>Dirección Línea 2: (Departamento, Oficina, Unidad, etc.)</value>
+  </data>
+  <data name="G8" xml:space="preserve">
+    <value>Ciudad:</value>
+  </data>
+  <data name="G9" xml:space="preserve">
+    <value>Provincia/Región:</value>
+  </data>
+  <data name="RegistrationEmailSubject" xml:space="preserve">
+    <value>GOAL International - Confirmación de Registro</value>
+  </data>
+  <data name="RegistrationEmailToUserContent" xml:space="preserve">
+    <value>&lt;p&gt;Estimado {firstName} {lastName}, &lt;/p&gt;
+
+&lt;p&gt;En nombre del Canadian Heart Research Centre, te agradecemos por tu interés en el &lt;strong&gt;Programa Internacional GOAL&lt;/strong&gt; y por tomarte el tiempo de realizar tu registro en línea.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Toma nota de tu nombre de usuario y contraseña, que deberás ingresar cada vez que accedas a tu portal personal en línea en: &lt;a href="{BaseURL}"&gt;{BaseURL}&lt;/a&gt;. Por favor, asegúrate de que esta información se mantenga confidencial y no compartas ni envíes tu nombre de usuario y contraseña.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;strong&gt;
+  &lt;li&gt;Tu nombre de usuario: &lt;a href="mailto:{userName}"&gt;{userName}&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Tu contraseña: {password}&lt;/li&gt;
+  &lt;/strong&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+  &lt;strong&gt;Siguiente paso: &lt;/strong&gt;inicia sesión con tu nombre de usuario y contraseña en &lt;a href="{BaseURL}"&gt;{BaseURL}&lt;/a&gt; para revisar el Protocolo y completar los Formularios Electrónicos de Reporte de Casos (e-CRF).
+&lt;/p&gt;
+
+&lt;p&gt;
+  Si tienes alguna pregunta, no dudes en ponerte en contacto con nosotros por correo electrónico a la dirección &lt;a href="mailto:info@goalinternational.info"&gt;info@goalinternational.info&lt;/a&gt;
+&lt;/p&gt;
+
+
+&lt;p&gt;Estamos entusiasmados en poder trabajar contigo.&lt;/p&gt;
+
+&lt;p&gt;Con un atento saludo,&lt;/p&gt;
+
+&lt;p&gt;El CHRC&lt;/p&gt;</value>
+  </data>
+</root>

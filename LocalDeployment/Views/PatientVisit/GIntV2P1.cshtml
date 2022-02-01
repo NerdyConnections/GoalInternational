@@ -1,0 +1,327 @@
+﻿@model GoalInternational.Models.GIntV2P1Model
+@using GoalInternational.Util
+@{
+    ViewBag.Title = "GIntV2P1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
+
+<script src="~/Scripts/datepicker-es-MX.js"></script>
+<script src="~/Scripts/datepicker-pt-BR.js"></script>
+<script src="~/Scripts/datepicker-en-US.js"></script>
+@using (Html.BeginForm("SaveValidateV2P1", "PatientVisit", FormMethod.Post, new { @id = "frmV2P1" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.PatientID)
+    @Html.HiddenFor(model => model.SignOff)
+
+    @Html.HiddenFor(model => model.VisitDate)
+
+
+
+    <div class="1">
+
+        <!-- <div class="link-blue"><a class="link-blue" href="javascript:void(0)">Download Process Document</a></div>-->
+
+
+        <h1>@GoalInternational.Languages.GIntV2P1.G1</h1>
+        <h3>
+            <strong>
+               
+            </strong>@GoalInternational.Languages.GIntV2P1.G2 @Model.PatientID<br>
+            <br>
+        </h3>
+        <div class="panel panel-default" style="background-color: #036;color: #FFF;">
+            <div class="panel-body">
+                @Html.Raw(GoalInternational.Languages.Common.Introduction)
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-top:15px">
+        <div class="form-group form-group-sm col-sm-12">@GoalInternational.Languages.GIntV2P1.G3</div>
+
+        <div class="form-group form-group-sm col-sm-12">
+
+
+            <label>
+                @Html.RadioButtonFor(m => m.IsPatientLFU, "Yes")
+                @GoalInternational.Languages.Common.Yes  &nbsp;&nbsp;&nbsp;
+            </label>
+            <label>
+                @Html.RadioButtonFor(m => m.IsPatientLFU, "No")
+            </label>
+            @GoalInternational.Languages.Common.No
+        </div>
+
+        <div class="form-group form-group-sm col-sm-12">
+
+            @Html.ValidationMessageFor(m => m.IsPatientLFU, "", new { @class = "text-danger" })
+           
+        </div>
+
+        <div id="LFUReasonsDiv" style="display:none">
+            <div class="form-group form-group-sm col-sm-12">@GoalInternational.Languages.GIntV2P1.G7</div>
+            <div class="form-group form-group-sm col-sm-6">
+                @Html.DropDownListFor(model => model.LFUReason, new SelectList(ListHelper.GetLFUReasons(), "Value", "Text"), @GoalInternational.Languages.Common.PleaseSelect, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.LFUReason, "", new { @class = "text-danger" })
+            </div>
+            <p>&nbsp;</p>        <div style="padding:15px"></div>
+        </div>
+
+        <div style="padding:15px" id="experiencesTable">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th style="text-align:left; color:#FFF" bgcolor="#000000">
+                            <span class="smWhite">@GoalInternational.Languages.GIntV2P1.G4</span><br>
+                            @GoalInternational.Languages.GIntV2P1.G5
+                        </th>
+                        <th style="color: #FFF; text-align:center" bgcolor="#000000">@GoalInternational.Languages.Common.Yes</th>
+                        <th style="color: #FFF; text-align:center" bgcolor="#000000">@GoalInternational.Languages.Common.No</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align:left">
+                            @GoalInternational.Languages.GIntV2P1.G6
+                            <br />@Html.ValidationMessageFor(m => m.Experience1, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.Experience1, "Yes")
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.Experience1, "No")
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left">
+                            @GoalInternational.Languages.GIntV2P1.G8   <br />@Html.ValidationMessageFor(m => m.Experience2, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.Experience2, "Yes")
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.Experience2, "No")
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left">
+                            @GoalInternational.Languages.GIntV2P1.G9   <br />@Html.ValidationMessageFor(m => m.Experience3, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.Experience3, "Yes")
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.Experience3, "No")
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left">
+                            @GoalInternational.Languages.GIntV2P1.G10   <br />@Html.ValidationMessageFor(m => m.Experience4, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.Experience4, "Yes")
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.Experience4, "No")
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left">
+                            @GoalInternational.Languages.GIntV2P1.G11   <br />@Html.ValidationMessageFor(m => m.Experience5, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.Experience5, "Yes")
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.Experience5, "No")
+                            </label>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+      
+      
+
+    </div>
+    <div class="form-group form-group-sm col-sm-12" id="visitDateDiv">
+        <label class="" title="@GoalInternational.Languages.GIntV1P1.G25">@GoalInternational.Languages.GIntV1P1.G25</label>
+        <div>
+            <label>
+               @Html.RadioButtonFor(m => m.LDLCYesNo, "Yes")
+                &nbsp;&nbsp;@GoalInternational.Languages.Common.Yes
+            </label>
+        </div>
+        <div>
+            <label>
+                @Html.RadioButtonFor(m => m.LDLCYesNo, "No")
+                &nbsp;&nbsp;@GoalInternational.Languages.Common.No
+            </label>
+        </div>
+
+        <div>@Html.ValidationMessageFor(m => m.LDLCYesNo, "", new { @class = "errorMssg" })</div>
+        <br />
+        <label class="">@GoalInternational.Languages.GIntV1P1.G20</label>
+        <input type="image" onclick="return false;" src="~/Images/calendar.png" id="imgVisitDate" style="vertical-align:middle;" />
+        &nbsp;&nbsp;
+        @Html.TextBoxFor(m => m.VisitDate, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.VisitDate, "", new { @class = "errorMssg" })
+
+    </div>
+
+    <div class="row">
+
+
+        <div class="form-group form-group-md col-sm-2 pull-right">
+            <label class="" title="">&nbsp;</label>
+            @if (@Model.SignOff ?? false)
+            {
+                if (Model.IsPatientLFU == "No")
+                {
+                <input class="form-control btn btn-default btn-sm" id="btnAdvance" value="@GoalInternational.Languages.Common.NEXT" style="bottom:0px" type="button">
+                }
+            }
+            else
+            {
+                <input class="form-control btn btn-default btn-d" id="btnNext" value="@GoalInternational.Languages.Common.NEXT" style="bottom:0px" type="submit">
+            }
+
+        </div>
+        <div class="form-group form-group-md col-sm-2 pull-right">
+            <label class="" title="">&nbsp;</label>
+            <input type="button" class="form-control btn btn-default btn-md" id="btnSave" value="SAVE" style="display:none;bottom:0px">
+        </div>
+
+
+    </div>
+    <div class="row">
+
+        <span id="spanResult" style="color:red"></span>
+    </div>
+}
+@section Scripts {
+
+
+
+    <script type="text/javascript">
+        $('#btnAdvance').on('click', function (e) {
+            window.location.href = "/PatientVisit/GIntV2?PatientID=@Model.PatientID" + "&Page=2";
+        });
+        //datepick code
+        $(document).ready(function () {
+            var options = $.extend(
+                {},  // empty object
+                $.datepicker.regional["@Session["SpecifiedCulture"]"],       // Dynamically
+                {
+                    altField: $("input[id$='VisitDate']"),
+                       numberOfMonths: 1,
+                       changeMonth: true,
+                       changeYear: true,
+                      dateFormat: "yy/mm/dd",
+                    yearRange: "2000:2030"
+
+                } // your custom options
+            );
+
+            $("input[id$='imgVisitDate']").datepicker(options);
+
+            //$("input[id$='imgVisitDate']").datepicker({
+
+            //    altField: $("input[id$='VisitDate']"),
+            //    numberOfMonths: 1,
+            //    changeMonth: true,
+            //    changeYear: true,
+            //    dateFormat: "yy/mm/dd",
+            //    yearRange: "2000:2030"
+            //});
+
+            var SignOff = '@Model.SignOff';
+
+            if (SignOff === 'True') {
+                $("#btn-submit").attr('disabled', 'disabled').css('opacity', 0.5);
+                $("#CompanyInstructions").attr('disabled', 'disabled').css('opacity', 0.5);
+
+
+                $('input[type = radio], input[type = checkbox], input[type = text], input[type = textarea], select').attr('disabled', 'disabled').attr('readonly', 'readonly');
+                $('#btnSave').hide();
+
+            }
+            $("#btnSave").click(function () {
+
+                $.ajax({
+                    type: "POST",
+                    url: '/PatientVisit/SaveV2P1',     //your action
+                    data: $('#frmV2P1').serialize(),   //your form name.it takes all the values of model
+                    dataType: 'json',
+                    success: function (data) {
+                        debugger;
+                        $("#spanResult").html(data.success.msg);
+                        console.log(data);
+                    },
+                    error: function (xhr, httpStatusMessage, customErrorMessage) {
+                        debugger;
+
+                        if (xhr.status === 410) {
+                            $("#spanResult").html(customErrorMessage);
+
+                        }
+                    }
+                })
+                return false;
+            });
+
+
+            hideAndShowLFUReasons();
+         
+            $("input:radio[name='IsPatientLFU']").click(function () {
+                hideAndShowLFUReasons();
+                $("#LFUReason").val("");
+                $("#experiencesTable").find("input:radio").prop("checked", false);
+                $("#visitDateDiv").val("");
+            });
+
+
+        });
+
+        function hideAndShowLFUReasons() {
+            if ($("input:radio[name='IsPatientLFU']:checked").val() == "Yes") {
+                $("#LFUReasonsDiv").show();
+                $("#experiencesTable").hide();
+                $("#visitDateDiv").hide();
+            } else {
+                $("#LFUReasonsDiv").hide();
+                $("#experiencesTable").show();
+                $("#visitDateDiv").show();
+            }
+        }
+
+    </script>
+    <style>
+        .ui-datepicker {
+            width: 19em;
+        }
+    </style>
+
+}

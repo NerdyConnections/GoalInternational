@@ -1,0 +1,106 @@
+﻿@model List<GoalInternational.Data.InviteesMaster>
+
+@{
+    ViewBag.Title = GoalInternational.Languages.Support.G21;
+}
+
+<h1>@GoalInternational.Languages.Support.G21</h1>
+<h3>@GoalInternational.Languages.Support.G2</h3>
+<ol>
+    <li>@GoalInternational.Languages.Support.G22</li>
+</ol><br>
+
+
+
+
+    @Html.AntiForgeryToken()
+
+    <table width="100%" border="1" cellspacing="0" cellpadding="5px">
+        <tbody>
+            <tr>
+                <td colspan="3" bgcolor="#003366" style="padding:10px; font-weight: bold; color: #FFF;">@GoalInternational.Languages.Support.G23</td>
+            </tr>
+            <tr>
+                <td width="35%" align="center" bgcolor="#CCCCCC" style="padding:5px; font-weight: bold;">@GoalInternational.Languages.Support.G9</td>
+                <td width="44%" align="center" bgcolor="#CCCCCC" style="padding:5px; font-weight: bold;">@GoalInternational.Languages.Support.G8</td>
+                <td width="21%" align="center" bgcolor="#CCCCCC" style="padding:5px; font-weight: bold;">@GoalInternational.Languages.Common.REMOVE</td>
+            </tr>
+            <tr>
+                <td align="center" style="padding:10px">              
+                        <label for="textfield"></label>
+                        <input name="textfield" type="text" id="searchLastName" placeholder="@GoalInternational.Languages.Support.G24" size="30">                   
+                </td>
+                <td align="center" style="padding:10px">              
+                        <label for="textfield2"></label>
+                        <input name="textfield2" type="text" id="searchFirstName" placeholder="@GoalInternational.Languages.Support.G25" size="30">                  
+                </td>
+                <td style="padding:10px">&nbsp;</td>
+            </tr>
+            
+            @if (Model != null)
+            {
+                foreach (var invited in Model)              
+                {
+                    <tr align="center" class="inviteeRow">
+                        <td style="padding:10px" class="inviteeLastName">@Html.DisplayFor(m => invited.LastName)</td>
+                        <td style="padding:10px" class="inviteeFirstName">@Html.DisplayFor(m => invited.FirstName)</td>
+                        <td style="padding:10px"><button type="button" class="form-control btn btn-danger btn-sm" data-id="@invited.id" onclick="removeInvitee(this)">@GoalInternational.Languages.Common.REMOVE</button><br></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">@GoalInternational.Languages.Support.G26</h4>
+                </div>
+                <div class="modal-body">
+                    <p>@GoalInternational.Languages.Support.G27</p>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                        <tbody>
+                            <tr>
+                                <td width="10%"><input type="button" class="form-control btn btn-default btn-sm" id="btnView" value="@GoalInternational.Languages.Common.Yes" onclick="confirmRemove(this)"></td>
+                                <td width="1%"></td>
+                                <td width="10%"><input type="button" class="form-control btn btn-default btn-sm" id="btnView" value="@GoalInternational.Languages.Common.No" data-dismiss="modal"></td>
+                                <td width="86%">&nbsp;</td>
+                            </tr>
+                            <tr></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@GoalInternational.Languages.Common.Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="modalFailed" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p style="color:red">@GoalInternational.Languages.Support.G28</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@GoalInternational.Languages.Common.Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+<script src="~/Scripts/modifyInvitees.js"></script>

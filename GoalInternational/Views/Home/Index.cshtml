@@ -1,0 +1,232 @@
+﻿@using GoalInternational.Util;
+@{
+    ViewBag.Title = GoalInternational.Languages.Common.Index;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<button id="btn-modalRegCompleted" type="button" class="btn btn-info btn-lg hide" data-toggle="modal" data-target="#myModal2">@GoalInternational.Languages.GIntV1Submit.G1</button>
+<!-- Modal -->
+<div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">ENROLMENT OF NEW PATIENTS IS NOW CLOSED.</h4>
+            </div>
+            <div class="modal-body">
+                <p>ENROLMENT OF NEW PATIENTS IS NOW CLOSED.  PLEASE CONITNUE TO ENTER FOLLOW UP VISIT INFORMATION FOR YOUR CURRENTLY ENROLED SUBJECTS.</p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">@GoalInternational.Languages.Common.Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var showpopup = @(ViewBag.DisplayEndOfProject ? 1:0);
+        debugger;
+        if (showpopup)
+        {
+            debugger;
+           
+            $("#btn-modalRegCompleted").click();
+        }
+        
+    });
+</script>
+<!--display pop registration is over-->
+
+        <div class="col-md-9" style="margin-bottom: 2px; color: #2b2b2b; padding-left:20px; padding-right:20px">
+            <div class="1">
+
+                <!-- <div class="link-blue"><a class="link-blue" href="javascript:void(0)">Download Process Document</a></div>-->
+
+
+               
+                 <h1>@GoalInternational.Languages.HomeIndex.G1</h1>
+                <p>Dear Colleague,</p>
+                <p>
+                   @GoalInternational.Languages.HomeIndex.G2
+                </p>
+                <p>
+                    @GoalInternational.Languages.HomeIndex.G3 &nbsp;
+                </p>
+                <p>
+                    @GoalInternational.Languages.HomeIndex.G4
+                </p>
+                <p>
+                    @GoalInternational.Languages.HomeIndex.G5
+                </p>
+                <p>
+                    @GoalInternational.Languages.HomeIndex.G6 <strong><a href="http://www.wikihow.com/Enable-Cookies-in-Your-Internet-Web-Browser" target="_new">@GoalInternational.Languages.HomeIndex.G7</a></strong>
+                </p>
+                <p>@GoalInternational.Languages.HomeIndex.G8 </p>
+                <p>
+                    <strong>
+                        @GoalInternational.Languages.HomeIndex.G9<br>
+
+                    </strong>
+                </p>
+                <p>
+                    <strong>
+                        <u>
+                            @GoalInternational.Languages.HomeIndex.G10
+                        </u>
+                    </strong>
+                </p>
+                <ul>
+                    <li>
+                        &nbsp;<strong>
+                            <em>
+                                @GoalInternational.Languages.Common.INSTRUCTIONS
+                            </em>
+                        </strong>
+                        <ul>
+                            <li>
+                                @GoalInternational.Languages.HomeIndex.G11<br>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong><em>@GoalInternational.Languages.HomeIndex.G12</em></strong> – <strong>@GoalInternational.Languages.HomeIndex.G13</strong><em>
+                            <br>
+                        </em>
+                    </li>
+                    <li>
+                        <strong>
+                            <em>
+                                @GoalInternational.Languages.HomeIndex.G14<br>
+                            </em>
+                        </strong>
+                        <ul>
+                            <li>
+                                @GoalInternational.Languages.HomeIndex.G15<br>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>
+                            <em>
+                                @GoalInternational.Languages.HomeIndex.G16<br>
+                            </em>
+                        </strong><strong><u>@GoalInternational.Languages.HomeIndex.G17</u></strong> <strong>:</strong><strong> @GoalInternational.Languages.HomeIndex.G18</strong>
+                    </li>
+                </ul>
+                <p>
+                    <br>
+                    @GoalInternational.Languages.HomeIndex.G19 <strong><a href="mailto:clinicaltrials@chrc.net">@GoalInternational.Languages.HomeIndex.G20</a></strong>
+                    @GoalInternational.Languages.HomeIndex.G21
+                </p>
+                <p>@GoalInternational.Languages.HomeIndex.G22</p>
+                <p>
+                    @GoalInternational.Languages.HomeIndex.G23<br>
+                    @GoalInternational.Languages.HomeIndex.G24<br>
+                    @GoalInternational.Languages.HomeIndex.G25 <br>
+                    @GoalInternational.Languages.HomeIndex.G26
+                </p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+            </div>
+
+
+
+
+            <!-- <div class="2 margin-top-24">
+                <h3>Program Description</h3>
+                <div style="border: 3px solid #fff; height: 100px; width: 95%"></div>
+            </div>-->
+            <!--<div class="3 margin-top-24">
+                <div style="border: 3px solid #fff; width: 95%">
+                    <table style="width: 100%">
+                        <tr>
+                            <td style="background: #333; color: #fff; padding: 2px 0px 2px 5px">PROVINCE</td>
+                            <td style="width: 220px; background: #24c878; color: #fff; padding: 2px 0px 2px 5px">ACTIVE</td>
+                            <td style="width: 220px; background: #3d7f9c; color: #fff; padding: 2px 0px 2px 5px">COMPLETED</td>
+                            <td style="width: 220px; background: #e60c41; color: #fff; padding: 2px 0px 2px 5px">CANCELLED</td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding: 2px 0px 2px 5px">BC</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding: 2px 0px 2px 5px">AB</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding: 2px 0px 2px 5px">SK</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding: 2px 0px 2px 5px">MB</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding: 2px 0px 2px 5px">ON</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding: 2px 0px 2px 5px">QC</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding: 2px 0px 2px 5px">NS</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding: 2px 0px 2px 5px">NB</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding: 2px 0px 2px 5px">NFLD</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding: 2px 0px 2px 5px">PEI</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>-->
+
+
+        </div>
+   
+   
+

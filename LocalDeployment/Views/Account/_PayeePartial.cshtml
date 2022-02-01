@@ -1,0 +1,151 @@
+﻿
+@using GoalInternational.Util
+@model GoalInternational.Models.PayeeModel
+@using (Html.BeginForm("SetPayee", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+
+    @Html.AntiForgeryToken()
+    <input type="hidden" value="@Session["Language"].ToString()" id="Language" />
+    <div class="pnl-login">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- <h1 id="lblTitle"></h1>-->
+                <h1>@GoalInternational.Languages.PayeePartial.G1</h1>
+                <div class="lead1"></div>
+                <div class="btn-back"><span class="glyphicon glyphicon-chevron-left"></span><span>@GoalInternational.Languages.Common.BACK</span></div>
+                <!--<div class="lead1" style="color: #534d4d"></div>-->
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="row"></div>
+
+        <div class="row">
+            <div class="col-sm-12" style="padding-bottom:30px">
+                <span style="font-size: 24px; font-weight: bold;">@GoalInternational.Languages.Common.INSTRUCTIONS</span>
+                <ul>
+                    <li>@Html.Raw(@GoalInternational.Languages.PayeePartial.G4)</li>
+                    <li>@Html.Raw(@GoalInternational.Languages.PayeePartial.G5)</li>
+                    <li>@Html.Raw(@GoalInternational.Languages.PayeePartial.G6)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row" style="font-size:18px">
+            <div class="form-group form-group-sm col-sm-6">
+                @GoalInternational.Languages.PayeePartial.G7 @GoalInternational.Languages.PayeePartial.G8
+                <div>
+                    @Html.RadioButtonFor(model => model.PaymentMethod, @GoalInternational.Languages.PayeePartial.G2) &nbsp;&nbsp;@GoalInternational.Languages.PayeePartial.G9 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    @Html.RadioButtonFor(model => model.PaymentMethod, @GoalInternational.Languages.PayeePartial.G3) &nbsp;&nbsp;@GoalInternational.Languages.PayeePartial.G10
+                    &nbsp;
+                </div>
+                @Html.ValidationMessageFor(m => m.PaymentMethod, "", new { @class = "errorMssg" })
+            </div>
+
+            <div class="form-group form-group-sm col-sm-4">
+                @GoalInternational.Languages.PayeePartial.G11:
+                @Html.TextBoxFor(model => model.ChequePayableTo, new { @class = "form-control", @id = "txtChequePayableTo", @placeholder = "" })
+               @Html.ValidationMessageFor(m => m.ChequePayableTo, "", new { @class = "errorMssg" })
+            </div>
+            <div class="form-group form-group-sm col-sm-2">
+                @GoalInternational.Languages.PayeePartial.G12:
+                @Html.TextBoxFor(model => model.InternalRefNum, new { @class = "form-control", @id = "txtInternalRefNum", @placeholder = "" })
+            </div>
+            <div class="row">
+                <div class="form-group form-group-sm col-sm-6">
+                    @GoalInternational.Languages.PayeePartial.G13*:
+                    @Html.TextBoxFor(model => model.MailingAddr1, new { @class = "form-control", @id = "txtMailingAddr1", @placeholder = "" })
+                      @Html.ValidationMessageFor(m => m.MailingAddr1, "", new { @class = "errorMssg" })
+                </div>
+                <div class="form-group form-group-sm col-sm-6">
+                    @GoalInternational.Languages.PayeePartial.G14:
+                    @Html.TextBoxFor(model => model.MailingAddr2, new { @class = "form-control", @id = "txtMailingAddr2", @placeholder = "" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group form-group-sm col-sm-2">
+                    @GoalInternational.Languages.PayeePartial.G15:
+                    @Html.TextBoxFor(model => model.AttentionTo, new { @class = "form-control", @id = "txtAttentionTo", @placeholder = "" })
+                </div>
+                <div class="form-group form-group-sm col-sm-2">
+                    @GoalInternational.Languages.PayeePartial.G16:
+                    @Html.TextBoxFor(model => model.City, new { @class = "form-control", @id = "txtCity", @placeholder = "" })
+                    @Html.ValidationMessageFor(m => m.City, "", new { @class = "errorMssg" })
+                </div>
+
+                <div class="form-group form-group-sm col-sm-2">
+                    @GoalInternational.Languages.PayeePartial.G17:
+                    @Html.TextBoxFor(model => model.Province, new { @class = "form-control", @id = "txtProvince", @placeholder = "" })
+                    @Html.ValidationMessageFor(m => m.Province, "", new { @class = "errorMssg" })
+                </div>
+
+
+                <div class="form-group form-group-sm col-sm-2">
+                    @GoalInternational.Languages.PayeePartial.G18:
+                    @Html.TextBoxFor(model => model.PostalCode, new { @class = "form-control", @id = "txtPostalCode", @placeholder = "" })
+                    @Html.ValidationMessageFor(m => m.PostalCode, "", new { @class = "errorMssg" })
+                </div>
+
+                <div class="form-group form-group-sm col-sm-2">
+                    @GoalInternational.Languages.PayeePartial.G19:
+                    @Html.TextBoxFor(model => model.TaxNumber, new { @class = "form-control", @id = "txtTaxNumber", @placeholder = "" })
+
+                </div>
+
+
+            </div>
+            <div class="row" style="font-size:18px">
+
+
+                <div class="form-group form-group-sm col-sm-8">
+                    @GoalInternational.Languages.PayeePartial.G20:
+                    @Html.TextAreaFor(model => model.AdditionalInformation, new { @class = "form-control", @id = "txtAdditionalInformation", @placeholder = "" })
+
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="form-group form-group-lg col-sm-2 pull-right">
+                    <!-- Trigger the modal with a button -->
+                    <button type="submit" class="form-control btn btn-primary btn-sm">@GoalInternational.Languages.Common.NEXT</button>
+                </div>
+            </div>
+            <div class="row">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+
+
+
+
+    $(document).ready(function () {
+        function SubmitForm(form) {
+            console.log("starting to submit form");
+            $.validator.unobtrusive.parse(form);
+            if ($(form).valid()) {
+                $.ajax({
+
+                    type: "POST",
+                    url: form.action,
+                    data: form.serialize(),
+                    datatype: 'json',
+
+
+                }).done(function (partialViewResult) {
+                    debugger;
+                    console.log("ajax call is done");
+                    $("#ContentContainer").html(partialViewResult);
+                });//end of ajax call
+            }
+            return false;
+        }//end of submit form
+    });//end of document.ready
+</script>

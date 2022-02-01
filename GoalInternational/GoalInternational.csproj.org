@@ -1,0 +1,1166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FE96D96E-F34A-40B1-B918-DED1F592E3F9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GoalInternational</RootNamespace>
+    <AssemblyName>GoalInternational</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.5.3.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.3.1\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\Resource.Designer.cs" />
+    <Compile Include="App_GlobalResources\Resource.fr-CA.Designer.cs" />
+    <Compile Include="App_GlobalResources\Resource.fr-CA1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr-CA.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\PatientVisitController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SupportController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="CustomValidation\ValidateCoMorbidities.cs" />
+    <Compile Include="CustomValidation\ValidateConsentDate.cs" />
+    <Compile Include="CustomValidation\ValidateV1HDLC.cs" />
+    <Compile Include="CustomValidation\ValidateV1LabDate.cs" />
+    <Compile Include="CustomValidation\ValidateV1LDLC.cs" />
+    <Compile Include="CustomValidation\ValidateV1NHDLC.cs" />
+    <Compile Include="CustomValidation\ValidateV1P1VisitDate.cs" />
+    <Compile Include="CustomValidation\ValidateV1TotalCholesterol.cs" />
+    <Compile Include="CustomValidation\ValidateV1Triglycerides.cs" />
+    <Compile Include="CustomValidation\ValidateV2HDLC.cs" />
+    <Compile Include="CustomValidation\ValidateV2LDLC.cs" />
+    <Compile Include="CustomValidation\ValidateV2NHDLC.cs" />
+    <Compile Include="CustomValidation\ValidateV2P1Required.cs" />
+    <Compile Include="CustomValidation\ValidateStatinDose.cs" />
+    <Compile Include="CustomValidation\ValidateAge.cs" />
+    <Compile Include="CustomValidation\ValidateAntiHyperGlycemic10.cs" />
+    <Compile Include="CustomValidation\ValidateAntiHyperGlycemic9.cs" />
+    <Compile Include="CustomValidation\ValidateAntiHyperGlycemic8.cs" />
+    <Compile Include="CustomValidation\ValidateAntiHyperGlycemic7.cs" />
+    <Compile Include="CustomValidation\ValidateAntiHyperGlycemic6.cs" />
+    <Compile Include="CustomValidation\ValidateAntiHyperGlycemic5.cs" />
+    <Compile Include="CustomValidation\ValidateAntiHyperGlycemic4.cs" />
+    <Compile Include="CustomValidation\ValidateAntiHyperGlycemic3.cs" />
+    <Compile Include="CustomValidation\ValidateAntiHyperGlycemic2.cs" />
+    <Compile Include="CustomValidation\ValidateApoB.cs" />
+    <Compile Include="CustomValidation\ValidateAntiHyperGlycemic1.cs" />
+    <Compile Include="CustomValidation\ValidateDate.cs" />
+    <Compile Include="CustomValidation\ValidateT2DM.cs" />
+    <Compile Include="CustomValidation\ValidateInsuranceTypeIfOther.cs" />
+    <Compile Include="CustomValidation\ValidateInsuranceTypeIfPrivate.cs" />
+    <Compile Include="CustomValidation\ValidateV1ApoB.cs" />
+    <Compile Include="CustomValidation\ValidateV1Diastolic.cs" />
+    <Compile Include="CustomValidation\ValidateV2Diastolic.cs" />
+    <Compile Include="CustomValidation\ValidateV2Height.cs" />
+    <Compile Include="CustomValidation\ValidateV2ApoB.cs" />
+    <Compile Include="CustomValidation\ValidateV2CurrentLDLTherapy6.cs" />
+    <Compile Include="CustomValidation\ValidateV2CurrentLDLTherapy5.cs" />
+    <Compile Include="CustomValidation\ValidateV2CurrentLDLTherapy4.cs" />
+    <Compile Include="CustomValidation\ValidateV2CurrentLDLTherapy3.cs" />
+    <Compile Include="CustomValidation\ValidateV2CurrentLDLTherapy2.cs" />
+    <Compile Include="CustomValidation\ValidateV2CurrentLDLTherapy1.cs" />
+    <Compile Include="CustomValidation\ValidateHeight.cs" />
+    <Compile Include="CustomValidation\ValidateReasonNotPCSK9i.cs" />
+    <Compile Include="CustomValidation\ValidateReasonNotEzetimibe.cs" />
+    <Compile Include="CustomValidation\ValidateLipidTherapy6.cs" />
+    <Compile Include="CustomValidation\ValidateLipidTherapy5.cs" />
+    <Compile Include="CustomValidation\ValidateLipidTherapy4.cs" />
+    <Compile Include="CustomValidation\ValidateLipidTherapy3.cs" />
+    <Compile Include="CustomValidation\ValidateLipidTherapy2.cs" />
+    <Compile Include="CustomValidation\ValidateLipidTherapy1.cs" />
+    <Compile Include="CustomValidation\ValidateNHDLC.cs" />
+    <Compile Include="CustomValidation\ValidateTriglycerides.cs" />
+    <Compile Include="CustomValidation\ValidateHDLC.cs" />
+    <Compile Include="CustomValidation\ValidateLDLC.cs" />
+    <Compile Include="CustomValidation\ValidateTotalCholesterol.cs" />
+    <Compile Include="CustomValidation\ValidateMaximalStatin.cs" />
+    <Compile Include="CustomValidation\ValidateCurrentLDLTherapy2.cs" />
+    <Compile Include="CustomValidation\ValidateCurrentLDLTherapy3.cs" />
+    <Compile Include="CustomValidation\ValidateCurrentLDLTherapy4.cs" />
+    <Compile Include="CustomValidation\ValidateCurrentLDLTherapy5.cs" />
+    <Compile Include="CustomValidation\ValidateCurrentLDLTherapy1.cs" />
+    <Compile Include="CustomValidation\ValidateCurrentMedication11.cs" />
+    <Compile Include="CustomValidation\ValidateCurrentMedication10.cs" />
+    <Compile Include="CustomValidation\ValidateCurrentMedication9.cs" />
+    <Compile Include="CustomValidation\ValidateCurrentMedication8.cs" />
+    <Compile Include="CustomValidation\ValidateCurrentMedication7.cs" />
+    <Compile Include="CustomValidation\ValidateCurrentMedication6.cs" />
+    <Compile Include="CustomValidation\ValidateCurrentMedication5.cs" />
+    <Compile Include="CustomValidation\ValidateCurrentMedication4.cs" />
+    <Compile Include="CustomValidation\ValidateCurrentMedication3.cs" />
+    <Compile Include="CustomValidation\ValidateCurrentMedication2.cs" />
+    <Compile Include="CustomValidation\ValidateCurrentMedication1.cs" />
+    <Compile Include="CustomValidation\ValidateCoMorbidities11.cs" />
+    <Compile Include="CustomValidation\ValidateCoMorbidities12.cs" />
+    <Compile Include="CustomValidation\ValidateCoMorbidities13.cs" />
+    <Compile Include="CustomValidation\ValidateCoMorbidities14.cs" />
+    <Compile Include="CustomValidation\ValidateCoMorbidities10.cs" />
+    <Compile Include="CustomValidation\ValidateCoMorbidities9.cs" />
+    <Compile Include="CustomValidation\ValidateCoMorbidities8.cs" />
+    <Compile Include="CustomValidation\ValidateCoMorbidities7.cs" />
+    <Compile Include="CustomValidation\ValidateCoMorbidities6.cs" />
+    <Compile Include="CustomValidation\ValidateCoMorbidities5.cs" />
+    <Compile Include="CustomValidation\ValidateCoMorbidities4.cs" />
+    <Compile Include="CustomValidation\ValidateCoMorbidities3.cs" />
+    <Compile Include="CustomValidation\ValidateCoMorbidities2.cs" />
+    <Compile Include="CustomValidation\ValidateCoMorbidities1.cs" />
+    <Compile Include="CustomValidation\ValidateGender.cs" />
+    <Compile Include="CustomValidation\ValidateFH.cs" />
+    <Compile Include="CustomValidation\ValidateMicrovascularDisease.cs" />
+    <Compile Include="CustomValidation\ValidateCeVD.cs" />
+    <Compile Include="CustomValidation\ValidateCAD.cs" />
+    <Compile Include="CustomValidation\ValidateExclusionCriteria.cs" />
+    <Compile Include="CustomValidation\ValidateInclusionCriteria.cs" />
+    <Compile Include="CustomValidation\ValidateV2LabValues.cs" />
+    <Compile Include="CustomValidation\ValidateV2LFUReason.cs" />
+    <Compile Include="CustomValidation\ValidateV2LipidTherapy1.cs" />
+    <Compile Include="CustomValidation\ValidateV2LipidTherapy2.cs" />
+    <Compile Include="CustomValidation\ValidateV2LipidTherapy3.cs" />
+    <Compile Include="CustomValidation\ValidateV2LipidTherapy4.cs" />
+    <Compile Include="CustomValidation\ValidateV2LipidTherapy5.cs" />
+    <Compile Include="CustomValidation\ValidateV2LipidTherapy6.cs" />
+    <Compile Include="CustomValidation\ValidateV2ReasonNotEzetimibe.cs" />
+    <Compile Include="CustomValidation\ValidateV2ReasonNotPCSK9i.cs" />
+    <Compile Include="CustomValidation\ValidateV2StatinDose.cs" />
+    <Compile Include="CustomValidation\ValidateV2TotalCholesterol.cs" />
+    <Compile Include="CustomValidation\ValidateV2Triglycerides.cs" />
+    <Compile Include="CustomValidation\ValidateV2V3V4LDLC.cs" />
+    <Compile Include="CustomValidation\ValidateV2V3V4NHDLC.cs" />
+    <Compile Include="CustomValidation\ValidateV2V3V4TotalCholesterol.cs" />
+    <Compile Include="CustomValidation\ValidateV2WaistCircumference.cs" />
+    <Compile Include="CustomValidation\ValidateV3ApoB.cs" />
+    <Compile Include="CustomValidation\ValidateV3CurrentLDLTherapy1.cs" />
+    <Compile Include="CustomValidation\ValidateV3CurrentLDLTherapy2.cs" />
+    <Compile Include="CustomValidation\ValidateV3CurrentLDLTherapy3.cs" />
+    <Compile Include="CustomValidation\ValidateV3CurrentLDLTherapy4.cs" />
+    <Compile Include="CustomValidation\ValidateV3CurrentLDLTherapy5.cs" />
+    <Compile Include="CustomValidation\ValidateV3CurrentLDLTherapy6.cs" />
+    <Compile Include="CustomValidation\ValidateV3Diastolic.cs" />
+    <Compile Include="CustomValidation\ValidateV3HDLC.cs" />
+    <Compile Include="CustomValidation\ValidateV3Height.cs" />
+    <Compile Include="CustomValidation\ValidateV3LabValues.cs" />
+    <Compile Include="CustomValidation\ValidateV3LDLC.cs" />
+    <Compile Include="CustomValidation\ValidateV3LFUReason.cs" />
+    <Compile Include="CustomValidation\ValidateV3LipidTherapy1.cs" />
+    <Compile Include="CustomValidation\ValidateV3LipidTherapy2.cs" />
+    <Compile Include="CustomValidation\ValidateV3LipidTherapy3.cs" />
+    <Compile Include="CustomValidation\ValidateV3LipidTherapy4.cs" />
+    <Compile Include="CustomValidation\ValidateV3LipidTherapy5.cs" />
+    <Compile Include="CustomValidation\ValidateV3LipidTherapy6.cs" />
+    <Compile Include="CustomValidation\ValidateV3NHDLC.cs" />
+    <Compile Include="CustomValidation\ValidateV3P1Required.cs" />
+    <Compile Include="CustomValidation\ValidateV3ReasonNotEzetimibe.cs" />
+    <Compile Include="CustomValidation\ValidateV3ReasonNotPCSK9i.cs" />
+    <Compile Include="CustomValidation\ValidateV3StatinDose.cs" />
+    <Compile Include="CustomValidation\ValidateV3TotalCholesterol.cs" />
+    <Compile Include="CustomValidation\ValidateV3Triglycerides.cs" />
+    <Compile Include="CustomValidation\ValidateV3WaistCircumference.cs" />
+    <Compile Include="CustomValidation\ValidateV3Weight.cs" />
+    <Compile Include="CustomValidation\ValidateV2Waist.cs" />
+    <Compile Include="CustomValidation\ValidateV4ApoB.cs" />
+    <Compile Include="CustomValidation\ValidateV4CurrentLDLTherapy1.cs" />
+    <Compile Include="CustomValidation\ValidateV4CurrentLDLTherapy2.cs" />
+    <Compile Include="CustomValidation\ValidateV4CurrentLDLTherapy3.cs" />
+    <Compile Include="CustomValidation\ValidateV4CurrentLDLTherapy4.cs" />
+    <Compile Include="CustomValidation\ValidateV4CurrentLDLTherapy5.cs" />
+    <Compile Include="CustomValidation\ValidateV4CurrentLDLTherapy6.cs" />
+    <Compile Include="CustomValidation\ValidateV4Diastolic.cs" />
+    <Compile Include="CustomValidation\ValidateV4HDLC.cs" />
+    <Compile Include="CustomValidation\ValidateV4Height.cs" />
+    <Compile Include="CustomValidation\ValidateV4LabValues.cs" />
+    <Compile Include="CustomValidation\ValidateV4LDLC.cs" />
+    <Compile Include="CustomValidation\ValidateV4LFUReason.cs" />
+    <Compile Include="CustomValidation\ValidateV4LipidTherapy1.cs" />
+    <Compile Include="CustomValidation\ValidateV4LipidTherapy2.cs" />
+    <Compile Include="CustomValidation\ValidateV4LipidTherapy3.cs" />
+    <Compile Include="CustomValidation\ValidateV4LipidTherapy4.cs" />
+    <Compile Include="CustomValidation\ValidateV4LipidTherapy5.cs" />
+    <Compile Include="CustomValidation\ValidateV4LipidTherapy6.cs" />
+    <Compile Include="CustomValidation\ValidateV4NHDLC.cs" />
+    <Compile Include="CustomValidation\ValidateV4P1Required.cs" />
+    <Compile Include="CustomValidation\ValidateV4ReasonNotEzetimibe.cs" />
+    <Compile Include="CustomValidation\ValidateV4ReasonNotPCSK9i.cs" />
+    <Compile Include="CustomValidation\ValidateV4StatinDose.cs" />
+    <Compile Include="CustomValidation\ValidateV4TotalCholesterol.cs" />
+    <Compile Include="CustomValidation\ValidateV4Triglycerides.cs" />
+    <Compile Include="CustomValidation\ValidateV4WaistCircumference.cs" />
+    <Compile Include="CustomValidation\ValidateV4Weight.cs" />
+    <Compile Include="CustomValidation\ValidateWaist.cs" />
+    <Compile Include="CustomValidation\ValidateV2Weight.cs" />
+    <Compile Include="CustomValidation\ValidateWeight.cs" />
+    <Compile Include="DAL\AccountRepository.cs" />
+    <Compile Include="DAL\AdminRepository.cs" />
+    <Compile Include="DAL\BaseRepository.cs" />
+    <Compile Include="DAL\SupportRepository.cs" />
+    <Compile Include="DAL\UtilityRepository.cs" />
+    <Compile Include="DAL\PatientVisitRepository.cs" />
+    <Compile Include="DAL\UserRepository.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\Admin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Admin.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\Admin.es-MX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Admin.es-MX.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\Admin.pt-BR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Admin.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\Common.es-MX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Common.es-MX.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\Common.pt-BR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Common.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\ConfirmPartial.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConfirmPartial.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV1P1.es-MX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV1P1.es-MX.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV1P1.pt-BR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV1P1.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV1P2.es-MX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV1P2.es-MX.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV1P2.pt-BR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV1P2.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV1P3.es-MX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV1P3.es-MX.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV1P3.pt-BR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV1P3.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV1P4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV1P4.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV1P4.es-MX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV1P4.es-MX.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV1P4.pt-BR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV1P4.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV1Submit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV1Submit.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV1Submit.es-MX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV1Submit.es-MX.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV1Submit.pt-BR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV1Submit.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV2P1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV2P1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV2P1.es-MX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV2P1.es-MX.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV2P1.pt-BR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV2P1.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV2P2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV2P2.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV2P2.es-MX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV2P2.es-MX.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV2P2.pt-BR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV2P2.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV2P3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV2P3.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV2P3.es-MX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV2P3.es-MX.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV2P3.pt-BR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV2P3.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\HomeIndex.Designer.cs" />
+    <Compile Include="Languages\HomeIndex.es-MX.Designer.cs" />
+    <Compile Include="Languages\HomeIndex.pt-BR.Designer.cs" />
+    <Compile Include="Languages\LoginPartial.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginPartial.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\LoginPartial.pt-BR.Designer.cs">
+      <DependentUpon>LoginPartial.pt-BR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Languages\LoginPartial.es-MX.Designer.cs">
+      <DependentUpon>LoginPartial.es-MX.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Languages\NotMePartial.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotMePartial.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\NotMePartial.es-MX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotMePartial.es-MX.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\NotMePartial.pt-BR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotMePartial.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\PatientVisit.es-MX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PatientVisit.es-MX.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\PatientVisit.pt-BR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PatientVisit.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\PayeePartial.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PayeePartial.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\PayeePartial.pt-BR.Designer.cs">
+      <DependentUpon>PayeePartial.pt-BR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Languages\PayeePartial.es-MX.Designer.cs">
+      <DependentUpon>PayeePartial.es-MX.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Languages\Common.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Common.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\ConfirmPartial.pt-BR.Designer.cs">
+      <DependentUpon>ConfirmPartial.pt-BR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Languages\ConfirmPartial.es-MX.Designer.cs">
+      <DependentUpon>ConfirmPartial.es-MX.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Languages\GIntV1P1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV1P1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV1P2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV1P2.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\PatientVisit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PatientVisit.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\GIntV1P3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GIntV1P3.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\RegisterPartial.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegisterPartial.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\RegisterPartial.es-MX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegisterPartial.es-MX.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\RegisterPartial.pt-BR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegisterPartial.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\Shared_Layout.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Shared_Layout.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\Shared_Layout.es-MX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Shared_Layout.es-MX.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\Shared_Layout.pt-BR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Shared_Layout.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\Support.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Support.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\Support.es-MX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Support.es-MX.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\Support.pt-BR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Support.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\Technical.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Technical.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\Technical.es-MX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Technical.es-MX.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\Technical.pt-BR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Technical.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AdminReportModel.cs" />
+    <Compile Include="Models\ConfirmMeModel.cs" />
+    <Compile Include="Models\CountryModel.cs" />
+    <Compile Include="Models\GIntV2SubmitModel.cs" />
+    <Compile Include="Models\GIntSubmitModel.cs" />
+    <Compile Include="Models\GIntV2P2Model.cs" />
+    <Compile Include="Models\GIntV2P1Model.cs" />
+    <Compile Include="Models\GIntV1P4Model.cs" />
+    <Compile Include="Models\GIntV1P3Model.cs" />
+    <Compile Include="Models\GIntV1P2Model.cs" />
+    <Compile Include="Models\GIntV2P3Model.cs" />
+    <Compile Include="Models\GIntV3P1Model.cs" />
+    <Compile Include="Models\GIntV3P2Model.cs" />
+    <Compile Include="Models\GIntV3P3Model.cs" />
+    <Compile Include="Models\GIntV3SubmitModel.cs" />
+    <Compile Include="Models\GIntV4P1Model.cs" />
+    <Compile Include="Models\GIntV4P2Model.cs" />
+    <Compile Include="Models\GIntV4P3Model.cs" />
+    <Compile Include="Models\GIntV4SubmitModel.cs" />
+    <Compile Include="Models\NotMeModel.cs" />
+    <Compile Include="Models\PatientVisitModel.cs" />
+    <Compile Include="Models\GIntV1P1Model.cs" />
+    <Compile Include="Models\PayeeModel.cs" />
+    <Compile Include="Models\SupportModel.cs" />
+    <Compile Include="Models\TechnicalModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Constants.cs" />
+    <Compile Include="Util\CultureHelper.cs" />
+    <Compile Include="Util\Encryptor.cs" />
+    <Compile Include="Util\ListHelper.cs" />
+    <Compile Include="Util\UserHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Login.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\zebra_tooltips.css" />
+    <Content Include="Images\CustomGILogo.png" />
+    <Content Include="Images\GICHRCLogo.png" />
+    <Content Include="Scripts\CustomClientValidation.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\1.jpg" />
+    <Content Include="Images\1bk.jpg" />
+    <Content Include="Images\1px_grey.gif" />
+    <Content Include="Images\2.jpg" />
+    <Content Include="Images\2a.jpg" />
+    <Content Include="Images\3.jpg" />
+    <Content Include="Images\4.jpg" />
+    <Content Include="Images\5.jpg" />
+    <Content Include="Images\6.jpg" />
+    <Content Include="Images\alpha.gif" />
+    <Content Include="Images\Amgen.svg" />
+    <Content Include="Images\bell.png" />
+    <Content Include="Images\calendar.png" />
+    <Content Include="Images\CAPTURElogo.svg" />
+    <Content Include="Images\case1.png" />
+    <Content Include="Images\case2.png" />
+    <Content Include="Images\case3.png" />
+    <Content Include="Images\case4.png" />
+    <Content Include="Images\CCPD.svg" />
+    <Content Include="Images\Choi.png" />
+    <Content Include="Images\CHRC.svg" />
+    <Content Include="Images\CHRClogo.svg" />
+    <Content Include="Images\CHRClogos_mer.png" />
+    <Content Include="Images\CHRClogos_mer.svg" />
+    <Content Include="Images\CHRClogos_mer_grey.svg" />
+    <Content Include="Images\ec0ddc3c64be1bbbc5340ff91bd7dff2.png" />
+    <Content Include="Images\excel-icon-3390-free-icons-and-png-backgrounds-with-regard-to-excel-download-icon.jpg" />
+    <Content Include="Images\GOALint-logo.svg" />
+    <Content Include="Images\Goal_bg.jpg" />
+    <Content Include="Images\kisspng-adobe-acrobat-adobe-reader-computer-icons-pdf-down-pdf-5ae844fd6f06c2.9327843915251714534548.png" />
+    <Content Include="Images\Mah.png" />
+    <Content Include="Images\mealExpenses.jpg" />
+    <Content Include="Images\ngui.png" />
+    <Content Include="Images\Noronha.png" />
+    <Content Include="Images\notebook.jpg" />
+    <Content Include="Images\notebook.png" />
+    <Content Include="Images\notebook1st.jpg" />
+    <Content Include="Images\O%27Shaughnessy.png" />
+    <Content Include="Images\pdf.png" />
+    <Content Include="Images\ph.jpg" />
+    <Content Include="Images\ph2.jpg" />
+    <Content Include="Images\ppt.png" />
+    <Content Include="Images\prog1.jpg" />
+    <Content Include="Images\prog2.jpg" />
+    <Content Include="Images\square.svg" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <EmbeddedResource Include="Languages\Admin.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Admin.es-MX.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\Admin.pt-BR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Admin.pt-BR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\Admin.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Admin.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\Common.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Common.es-MX.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\ConfirmPartial.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ConfirmPartial.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV1P4.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV1P4.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV1Submit.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV1Submit.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV2P1.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV2P1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV2P2.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV2P2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV2P3.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV2P3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\HomeIndex.es-MX.resx" />
+    <EmbeddedResource Include="Languages\HomeIndex.pt-BR.resx" />
+    <EmbeddedResource Include="Languages\HomeIndex.resx" />
+    <EmbeddedResource Include="Languages\LoginPartial.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LoginPartial.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\NotMePartial.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>NotMePartial.es-MX.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\NotMePartial.pt-BR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>NotMePartial.pt-BR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="pdf\2018_Guidelines.pdf" />
+    <EmbeddedResource Include="Languages\PayeePartial.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PayeePartial.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\RegisterPartial.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RegisterPartial.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\Shared_Layout.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Shared_Layout.es-MX.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\Shared_Layout.pt-BR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Shared_Layout.pt-BR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\Shared_Layout.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Shared_Layout.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\Support.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Support.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\Support.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Support.es-MX.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\Support.pt-BR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Support.pt-BR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\Common.pt-BR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Common.pt-BR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\Technical.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Technical.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\Technical.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Technical.es-MX.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\Technical.pt-BR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Technical.pt-BR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV1P2.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV1P2.es-MX.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV1P2.pt-BR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV1P2.pt-BR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV1P3.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV1P3.es-MX.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV1P3.pt-BR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV1P3.pt-BR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV1P4.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV1P4.es-MX.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV1P4.pt-BR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV1P4.pt-BR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV1Submit.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV1Submit.es-MX.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV1Submit.pt-BR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV1Submit.pt-BR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV2P1.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV2P1.es-MX.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV2P1.pt-BR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV2P1.pt-BR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV2P2.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV2P2.es-MX.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV2P2.pt-BR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV2P2.pt-BR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV2P3.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV2P3.es-MX.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV2P3.pt-BR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV2P3.pt-BR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV1P1.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV1P1.es-MX.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV1P1.pt-BR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV1P1.pt-BR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\PatientVisit.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PatientVisit.es-MX.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\PatientVisit.pt-BR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PatientVisit.pt-BR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\RegisterPartial.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RegisterPartial.es-MX.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\RegisterPartial.pt-BR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RegisterPartial.pt-BR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="Doc\Protocol\ENG\Protocol.pdf" />
+    <Content Include="Doc\Protocol\POR\Protocol.pdf" />
+    <Content Include="Doc\Protocol\SPA\Protocol.pdf" />
+    <Content Include="Doc\Tutorial\ENG\Tutorial.pdf" />
+    <Content Include="Doc\Tutorial\POR\Tutorial.pdf" />
+    <Content Include="Doc\Tutorial\SPA\Tutorial.pdf" />
+    <Content Include="Doc\ICF\ENG\ICF.doc" />
+    <Content Include="Doc\ICF\ENG\KSAICF.docx" />
+    <Content Include="Doc\ICF\ENG\KuwaitICF18To21.docx" />
+    <Content Include="Doc\ICF\ENG\KuwaitICF21AndOver.docx" />
+    <Content Include="Doc\ICF\ENG\UAEICF.docx" />
+    <Content Include="Doc\ICF\POR\ICF.doc" />
+    <Content Include="Doc\ICF\SPA\ICF.docx" />
+    <Content Include="pdf\Protocol\POR\Protocol.pdf" />
+    <Content Include="pdf\Protocol\ENG\Protocol.pdf" />
+    <Content Include="pdf\SAE\SAEReporting_English.pdf" />
+    <Content Include="pdf\SAE\SAEReporting_Portuguese.pdf" />
+    <Content Include="pdf\SAE\SAEReporting_Spanish.pdf" />
+    <Content Include="pptx\GoalInternationalSlides.pptx" />
+    <Content Include="pdf\2019_EuropeanGuidelines.pdf" />
+    <None Include="Properties\PublishProfiles\Production.pubxml" />
+    <None Include="Properties\PublishProfiles\UAT.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\circleCharts.js" />
+    <Content Include="Scripts\datepicker-en-US.js" />
+    <Content Include="Scripts\datepicker-es-MX.js" />
+    <Content Include="Scripts\datepicker-pt-BR.js" />
+    <Content Include="Scripts\helper.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-3.1.0.min.js" />
+    <Content Include="Scripts\jquery-ui-1.9.2.custom.js" />
+    <Content Include="Scripts\jquery.easing.min.js" />
+    <Content Include="Scripts\jquery.mask.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\modernizr-2.8.3.min.js" />
+    <Content Include="Scripts\modifyInvitees.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\zebra_tooltips.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Videos\WhiteboardEng.mp4" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Shared\_LoginMaster.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\_LanguageSelectPartial.cshtml" />
+    <Content Include="Views\Account\_ConfirmPartial.cshtml" />
+    <Content Include="Views\Account\_RegisterPartial.cshtml" />
+    <Content Include="Views\Account\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_PayeePartial.cshtml" />
+    <Content Include="Views\PatientVisit\Index.cshtml" />
+    <Content Include="Views\PatientVisit\RemovePatientVisit.cshtml" />
+    <Content Include="Views\PatientVisit\GIntV1P1.cshtml" />
+    <Content Include="Views\PatientVisit\GIntV1P2.cshtml" />
+    <Content Include="Views\PatientVisit\GIntV1P3.cshtml" />
+    <Content Include="Views\PatientVisit\GIntV1P4.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\_ForgotPasswordPartial.cshtml" />
+    <Content Include="Views\PatientVisit\GIntV1Submit.cshtml" />
+    <Content Include="Views\Account\NotMe.cshtml" />
+    <Content Include="Views\Account\_NotMePartial.cshtml" />
+    <Content Include="Views\Home\ECRFTutorial.cshtml" />
+    <Content Include="Views\Support\AddSubInvestigator.cshtml" />
+    <Content Include="Views\Support\AddStudyCoordinator.cshtml" />
+    <Content Include="Views\Account\Technical.cshtml" />
+    <Content Include="Views\Support\ModSubInvestigator.cshtml" />
+    <Content Include="Views\Support\ModStudyCoordinator.cshtml" />
+    <Content Include="Views\PatientVisit\GIntV2P1.cshtml" />
+    <Content Include="Views\PatientVisit\GIntV2P2.cshtml" />
+    <Content Include="Views\PatientVisit\GIntV2P3.cshtml" />
+    <Content Include="Views\PatientVisit\GIntV2Submit.cshtml" />
+    <Content Include="Views\PatientVisit\GIntV3P1.cshtml" />
+    <Content Include="Views\PatientVisit\GIntV3P2.cshtml" />
+    <Content Include="Views\PatientVisit\GIntV3P3.cshtml" />
+    <Content Include="Views\PatientVisit\GIntV4P1.cshtml" />
+    <Content Include="Views\PatientVisit\GIntV4P2.cshtml" />
+    <Content Include="Views\PatientVisit\GIntV4P3.cshtml" />
+    <Content Include="Views\PatientVisit\GIntV4Submit.cshtml" />
+    <Content Include="Views\PatientVisit\GIntV3Submit.cshtml" />
+    <Content Include="Views\Support\SteeringCommittee.cshtml" />
+    <Content Include="Views\Support\InvestigatorMeeting.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="pdf\ICF\ENG\" />
+    <Folder Include="pdf\ICF\POR\" />
+    <Folder Include="pdf\ICF\SPA\" />
+    <Folder Include="pdf\Protocol\SPA\" />
+    <Folder Include="Videos\Slide1\" />
+    <Folder Include="Videos\Slide4\" />
+    <Folder Include="Videos\Slide5\" />
+    <Folder Include="Videos\Slide6\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="Views\User\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Resource.fr-CA.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.fr-CA1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GoalInternational.Data\GoalInternational.Data.csproj">
+      <Project>{fcc2dd56-fc82-4378-97d0-3954a57e7d7a}</Project>
+      <Name>GoalInternational.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Languages\LoginPartial.pt-BR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LoginPartial.pt-BR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\LoginPartial.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LoginPartial.es-MX.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\NotMePartial.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>NotMePartial.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\PayeePartial.pt-BR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PayeePartial.pt-BR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\PayeePartial.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PayeePartial.es-MX.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\Common.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Common.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\ConfirmPartial.pt-BR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ConfirmPartial.pt-BR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\ConfirmPartial.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ConfirmPartial.es-MX.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV1P1.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV1P1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV1P2.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV1P2.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\PatientVisit.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PatientVisit.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\GIntV1P3.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GIntV1P3.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52316</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52316/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

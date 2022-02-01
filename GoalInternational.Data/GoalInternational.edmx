@@ -1,0 +1,1861 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GoalInternationalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="int" Nullable="false" />
+          <Property Name="CountryName" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="InviteesMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AssignedPassword" Type="varchar" MaxLength="50" />
+          <Property Name="CHRCPhysicianID" Type="int" />
+          <Property Name="ParentUserID" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="UserType" Type="varchar" MaxLength="2" />
+          <Property Name="Rank" Type="int" />
+          <Property Name="Specialty" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+          <Property Name="PayableTo" Type="nvarchar" MaxLength="250" />
+          <Property Name="Institution" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address" Type="nvarchar" MaxLength="150" />
+          <Property Name="Suite" Type="nvarchar" MaxLength="100" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" />
+          <Property Name="Province" Type="nvarchar" MaxLength="100" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+          <Property Name="CellNumber" Type="varchar" MaxLength="50" />
+          <Property Name="FaxNumber" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Interest" Type="nvarchar" MaxLength="200" />
+          <Property Name="RegistrationCode" Type="varchar" MaxLength="200" />
+          <Property Name="RegistrationStatus" Type="int" />
+          <Property Name="Comments" Type="varchar" MaxLength="512" />
+          <Property Name="InvitedCHRC" Type="bit" />
+          <Property Name="InvitationSentDate" Type="datetime" />
+          <Property Name="InvitationTier" Type="varchar" MaxLength="50" />
+          <Property Name="ConsentCHRCShareName" Type="bit" />
+          <Property Name="LastUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PatientInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="FirstName" Type="varchar" MaxLength="250" />
+          <Property Name="LastName" Type="varchar" MaxLength="250" />
+          <Property Name="Initials" Type="varchar" MaxLength="250" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="DOC" Type="datetime" />
+          <Property Name="PatientType" Type="int" />
+        </EntityType>
+        <EntityType Name="PatientVisit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="GIntV1Status" Type="int" />
+          <Property Name="GIntV1CompletionDate" Type="datetime" />
+          <Property Name="GIntV1SavedPage" Type="int" />
+          <Property Name="GIntV2Status" Type="int" />
+          <Property Name="GIntV2CompletionDate" Type="datetime" />
+          <Property Name="GIntV2SavedPage" Type="int" />
+          <Property Name="GIntV2LFUReason" Type="varchar" MaxLength="100" />
+          <Property Name="GIntV3Status" Type="int" />
+          <Property Name="GIntV3CompletionDate" Type="datetime" />
+          <Property Name="GIntV3SavedPage" Type="int" />
+          <Property Name="GIntV3LFUReason" Type="varchar" MaxLength="100" />
+          <Property Name="GIntV4Status" Type="int" />
+          <Property Name="GIntV4CompletionDate" Type="datetime" />
+          <Property Name="GIntV4SavedPage" Type="int" />
+          <Property Name="GIntV4LFUReason" Type="varchar" MaxLength="100" />
+          <Property Name="GIntVisit2ReminderSent" Type="int" />
+          <Property Name="GIntVisit3ReminderSent" Type="int" />
+          <Property Name="GIntVisit4ReminderSent" Type="int" />
+          <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV1P1">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientID" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="250" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="250" />
+          <Property Name="Initials" Type="nvarchar" MaxLength="250" />
+          <Property Name="Phone" Type="varchar" MaxLength="25" />
+          <Property Name="AdditionalPhone" Type="varchar" MaxLength="25" />
+          <Property Name="Inclusion_1" Type="bit" />
+          <Property Name="Inclusion_2" Type="bit" />
+          <Property Name="Inclusion_3" Type="bit" />
+          <Property Name="Inclusion_4" Type="bit" />
+          <Property Name="Inclusion_5" Type="bit" />
+          <Property Name="Exclusion" Type="bit" />
+          <Property Name="PatientConsentDate" Type="nvarchar" MaxLength="250" />
+          <Property Name="VisitDate" Type="nvarchar" MaxLength="250" />
+          <Property Name="LDLCYesNo" Type="varchar" MaxLength="3" />
+          <Property Name="SignOff" Type="bit" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="LastUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV1P2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Ethnicity" Type="varchar" MaxLength="100" />
+          <Property Name="SmokingHistory" Type="varchar" MaxLength="50" />
+          <Property Name="MedicationInsuranceCoverage" Type="varchar" MaxLength="50" />
+          <Property Name="InsuranceTypeIfPrivate" Type="varchar" MaxLength="250" />
+          <Property Name="InsuranceTypeIfOther" Type="varchar" MaxLength="250" />
+          <Property Name="CoMorbidities1" Type="varchar" MaxLength="3" />
+          <Property Name="CoMorbidities2" Type="varchar" MaxLength="3" />
+          <Property Name="CoMorbidities3" Type="varchar" MaxLength="3" />
+          <Property Name="CoMorbidities4" Type="varchar" MaxLength="3" />
+          <Property Name="CoMorbidities5" Type="varchar" MaxLength="3" />
+          <Property Name="CoMorbidities6" Type="varchar" MaxLength="3" />
+          <Property Name="CoMorbidities7" Type="varchar" MaxLength="3" />
+          <Property Name="CoMorbidities8" Type="varchar" MaxLength="3" />
+          <Property Name="CoMorbidities9" Type="varchar" MaxLength="3" />
+          <Property Name="CoMorbidities10" Type="varchar" MaxLength="3" />
+          <Property Name="CoMorbidities11" Type="varchar" MaxLength="3" />
+          <Property Name="CoMorbidities12" Type="varchar" MaxLength="3" />
+          <Property Name="CoMorbidities13" Type="varchar" MaxLength="3" />
+          <Property Name="CoMorbidities14" Type="varchar" MaxLength="3" />
+          <Property Name="CAD1" Type="bit" />
+          <Property Name="CAD2" Type="bit" />
+          <Property Name="CAD3" Type="bit" />
+          <Property Name="CAD4" Type="bit" />
+          <Property Name="CeVD1" Type="bit" />
+          <Property Name="CeVD2" Type="bit" />
+          <Property Name="CeVD3" Type="bit" />
+          <Property Name="T2DM" Type="varchar" MaxLength="50" />
+          <Property Name="MicrovascularDisease1" Type="bit" />
+          <Property Name="MicrovascularDisease2" Type="bit" />
+          <Property Name="MicrovascularDisease3" Type="bit" />
+          <Property Name="MicrovascularDisease4" Type="bit" />
+          <Property Name="FH1" Type="bit" />
+          <Property Name="FH2" Type="bit" />
+          <Property Name="FH3" Type="bit" />
+          <Property Name="LastUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV1P3">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="CurrentMedication1" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentMedication2" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentMedication3" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentMedication4" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentMedication5" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentMedication6" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentMedication7" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentMedication8" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentMedication9" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentMedication10" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentMedication11" Type="varchar" MaxLength="3" />
+          <Property Name="AntiHyperGlycemic1" Type="varchar" MaxLength="3" />
+          <Property Name="AntiHyperGlycemic2" Type="varchar" MaxLength="3" />
+          <Property Name="AntiHyperGlycemic3" Type="varchar" MaxLength="3" />
+          <Property Name="AntiHyperGlycemic4" Type="varchar" MaxLength="3" />
+          <Property Name="AntiHyperGlycemic5" Type="varchar" MaxLength="3" />
+          <Property Name="AntiHyperGlycemic6" Type="varchar" MaxLength="3" />
+          <Property Name="AntiHyperGlycemic7" Type="varchar" MaxLength="3" />
+          <Property Name="AntiHyperGlycemic8" Type="varchar" MaxLength="3" />
+          <Property Name="AntiHyperGlycemic9" Type="varchar" MaxLength="3" />
+          <Property Name="AntiHyperGlycemic10" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentLDLTherapy1" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentLDLTherapy2" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentLDLTherapy3" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentLDLTherapy4" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentLDLTherapy5" Type="varchar" MaxLength="3" />
+          <Property Name="MaximalStatin" Type="varchar" MaxLength="3" />
+          <Property Name="Systolic" Type="int" />
+          <Property Name="Diastolic" Type="int" />
+          <Property Name="HeartRate" Type="int" />
+          <Property Name="Weight" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WeightUnit" Type="varchar" MaxLength="3" />
+          <Property Name="Height" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="HeightUnit" Type="varchar" MaxLength="3" />
+          <Property Name="WaistCircumference" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WaistCircumferenceUnit" Type="varchar" MaxLength="3" />
+          <Property Name="LastUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV1P4">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="LabDate" Type="datetime" />
+          <Property Name="TotalCholesterol" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalCholesterolUnit" Type="varchar" MaxLength="6" />
+          <Property Name="LDLC" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="LDLCUnit" Type="varchar" MaxLength="6" />
+          <Property Name="HDLC" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="HDLCUnit" Type="varchar" MaxLength="6" />
+          <Property Name="NHDLC" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="NHDLCUnit" Type="varchar" MaxLength="6" />
+          <Property Name="Triglycerides" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TriglyceridesUnit" Type="varchar" MaxLength="6" />
+          <Property Name="ApoB" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ApoBUnit" Type="varchar" MaxLength="5" />
+          <Property Name="StatinTherapy" Type="varchar" MaxLength="250" />
+          <Property Name="StatinDose" Type="varchar" MaxLength="50" />
+          <Property Name="LipidTherapy1" Type="varchar" MaxLength="3" />
+          <Property Name="LipidTherapy2" Type="varchar" MaxLength="3" />
+          <Property Name="LipidTherapy3" Type="varchar" MaxLength="3" />
+          <Property Name="LipidTherapy4" Type="varchar" MaxLength="3" />
+          <Property Name="LipidTherapy5" Type="varchar" MaxLength="3" />
+          <Property Name="LipidTherapy6" Type="varchar" MaxLength="3" />
+          <Property Name="ReasonNotEzetimibe" Type="varchar" MaxLength="250" />
+          <Property Name="ReasonNotPCSK9i" Type="varchar" MaxLength="250" />
+          <Property Name="LastUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV2P1">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="IsPatientLFU" Type="varchar" MaxLength="3" />
+          <Property Name="LFUReason" Type="varchar" MaxLength="200" />
+          <Property Name="VisitDate" Type="nvarchar" MaxLength="250" />
+          <Property Name="Experience1" Type="varchar" MaxLength="3" />
+          <Property Name="Experience2" Type="varchar" MaxLength="3" />
+          <Property Name="Experience3" Type="varchar" MaxLength="3" />
+          <Property Name="Experience4" Type="varchar" MaxLength="3" />
+          <Property Name="Experience5" Type="varchar" MaxLength="3" />
+          <Property Name="LDLCYesNo" Type="varchar" MaxLength="3" />
+          <Property Name="SignOff" Type="bit" />
+          <Property Name="LastUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV2P2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="CurrentLDLTherapy1" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentLDLTherapy2" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentLDLTherapy3" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentLDLTherapy4" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentLDLTherapy5" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentLDLTherapy6" Type="varchar" MaxLength="3" />
+          <Property Name="Systolic" Type="int" />
+          <Property Name="Diastolic" Type="int" />
+          <Property Name="HeartRate" Type="int" />
+          <Property Name="Weight" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WeightUnit" Type="varchar" MaxLength="3" />
+          <Property Name="Height" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="HeightUnit" Type="varchar" MaxLength="3" />
+          <Property Name="WaistCircumference" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WaistCircumferenceUnit" Type="varchar" MaxLength="3" />
+          <Property Name="LastUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV2P3">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="LabDate" Type="datetime" />
+          <Property Name="TotalCholesterol" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalCholesterolUnit" Type="varchar" MaxLength="6" />
+          <Property Name="LDLC" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="LDLCUnit" Type="varchar" MaxLength="6" />
+          <Property Name="HDLC" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="HDLCUnit" Type="varchar" MaxLength="6" />
+          <Property Name="NHDLC" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="NHDLCUnit" Type="varchar" MaxLength="6" />
+          <Property Name="Triglycerides" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TriglyceridesUnit" Type="varchar" MaxLength="6" />
+          <Property Name="ApoB" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ApoBUnit" Type="varchar" MaxLength="5" />
+          <Property Name="StatinTherapy" Type="varchar" MaxLength="250" />
+          <Property Name="StatinDose" Type="varchar" MaxLength="50" />
+          <Property Name="LipidTherapy1" Type="varchar" MaxLength="3" />
+          <Property Name="LipidTherapy2" Type="varchar" MaxLength="3" />
+          <Property Name="LipidTherapy3" Type="varchar" MaxLength="3" />
+          <Property Name="LipidTherapy4" Type="varchar" MaxLength="3" />
+          <Property Name="LipidTherapy5" Type="varchar" MaxLength="3" />
+          <Property Name="LipidTherapy6" Type="varchar" MaxLength="3" />
+          <Property Name="ReasonNotEzetimibe" Type="varchar" MaxLength="250" />
+          <Property Name="ReasonNotPCSK9i" Type="varchar" MaxLength="250" />
+          <Property Name="LastUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV3P1">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="IsPatientLFU" Type="varchar" MaxLength="3" />
+          <Property Name="LFUReason" Type="varchar" MaxLength="200" />
+          <Property Name="VisitDate" Type="nvarchar" MaxLength="250" />
+          <Property Name="Experience1" Type="varchar" MaxLength="3" />
+          <Property Name="Experience2" Type="varchar" MaxLength="3" />
+          <Property Name="Experience3" Type="varchar" MaxLength="3" />
+          <Property Name="Experience4" Type="varchar" MaxLength="3" />
+          <Property Name="Experience5" Type="varchar" MaxLength="3" />
+          <Property Name="LDLCYesNo" Type="varchar" MaxLength="3" />
+          <Property Name="SignOff" Type="bit" />
+          <Property Name="LastUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV3P2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="CurrentLDLTherapy1" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentLDLTherapy2" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentLDLTherapy3" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentLDLTherapy4" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentLDLTherapy5" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentLDLTherapy6" Type="varchar" MaxLength="3" />
+          <Property Name="Systolic" Type="int" />
+          <Property Name="Diastolic" Type="int" />
+          <Property Name="HeartRate" Type="int" />
+          <Property Name="Weight" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WeightUnit" Type="varchar" MaxLength="3" />
+          <Property Name="Height" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="HeightUnit" Type="varchar" MaxLength="3" />
+          <Property Name="WaistCircumference" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WaistCircumferenceUnit" Type="varchar" MaxLength="3" />
+          <Property Name="LastUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV3P3">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="LabDate" Type="datetime" />
+          <Property Name="TotalCholesterol" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalCholesterolUnit" Type="varchar" MaxLength="6" />
+          <Property Name="LDLC" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="LDLCUnit" Type="varchar" MaxLength="6" />
+          <Property Name="HDLC" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="HDLCUnit" Type="varchar" MaxLength="6" />
+          <Property Name="NHDLC" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="NHDLCUnit" Type="varchar" MaxLength="6" />
+          <Property Name="Triglycerides" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TriglyceridesUnit" Type="varchar" MaxLength="6" />
+          <Property Name="ApoB" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ApoBUnit" Type="varchar" MaxLength="5" />
+          <Property Name="StatinTherapy" Type="varchar" MaxLength="250" />
+          <Property Name="StatinDose" Type="varchar" MaxLength="50" />
+          <Property Name="LipidTherapy1" Type="varchar" MaxLength="3" />
+          <Property Name="LipidTherapy2" Type="varchar" MaxLength="3" />
+          <Property Name="LipidTherapy3" Type="varchar" MaxLength="3" />
+          <Property Name="LipidTherapy4" Type="varchar" MaxLength="3" />
+          <Property Name="LipidTherapy5" Type="varchar" MaxLength="3" />
+          <Property Name="LipidTherapy6" Type="varchar" MaxLength="3" />
+          <Property Name="ReasonNotEzetimibe" Type="varchar" MaxLength="250" />
+          <Property Name="ReasonNotPCSK9i" Type="varchar" MaxLength="250" />
+          <Property Name="LastUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV4P1">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="IsPatientLFU" Type="varchar" MaxLength="3" />
+          <Property Name="LFUReason" Type="varchar" MaxLength="200" />
+          <Property Name="VisitDate" Type="nvarchar" MaxLength="250" />
+          <Property Name="Experience1" Type="varchar" MaxLength="3" />
+          <Property Name="Experience2" Type="varchar" MaxLength="3" />
+          <Property Name="Experience3" Type="varchar" MaxLength="3" />
+          <Property Name="Experience4" Type="varchar" MaxLength="3" />
+          <Property Name="Experience5" Type="varchar" MaxLength="3" />
+          <Property Name="LDLCYesNo" Type="varchar" MaxLength="3" />
+          <Property Name="SignOff" Type="bit" />
+          <Property Name="LastUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV4P2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="CurrentLDLTherapy1" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentLDLTherapy2" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentLDLTherapy3" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentLDLTherapy4" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentLDLTherapy5" Type="varchar" MaxLength="3" />
+          <Property Name="CurrentLDLTherapy6" Type="varchar" MaxLength="3" />
+          <Property Name="Systolic" Type="int" />
+          <Property Name="Diastolic" Type="int" />
+          <Property Name="HeartRate" Type="int" />
+          <Property Name="Weight" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WeightUnit" Type="varchar" MaxLength="3" />
+          <Property Name="Height" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="HeightUnit" Type="varchar" MaxLength="3" />
+          <Property Name="WaistCircumference" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WaistCircumferenceUnit" Type="varchar" MaxLength="3" />
+          <Property Name="LastUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV4P3">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="LabDate" Type="datetime" />
+          <Property Name="TotalCholesterol" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalCholesterolUnit" Type="varchar" MaxLength="6" />
+          <Property Name="LDLC" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="LDLCUnit" Type="varchar" MaxLength="6" />
+          <Property Name="HDLC" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="HDLCUnit" Type="varchar" MaxLength="6" />
+          <Property Name="NHDLC" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="NHDLCUnit" Type="varchar" MaxLength="6" />
+          <Property Name="Triglycerides" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TriglyceridesUnit" Type="varchar" MaxLength="6" />
+          <Property Name="ApoB" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ApoBUnit" Type="varchar" MaxLength="5" />
+          <Property Name="StatinTherapy" Type="varchar" MaxLength="250" />
+          <Property Name="StatinDose" Type="varchar" MaxLength="50" />
+          <Property Name="LipidTherapy1" Type="varchar" MaxLength="3" />
+          <Property Name="LipidTherapy2" Type="varchar" MaxLength="3" />
+          <Property Name="LipidTherapy3" Type="varchar" MaxLength="3" />
+          <Property Name="LipidTherapy4" Type="varchar" MaxLength="3" />
+          <Property Name="LipidTherapy5" Type="varchar" MaxLength="3" />
+          <Property Name="LipidTherapy6" Type="varchar" MaxLength="3" />
+          <Property Name="ReasonNotEzetimibe" Type="varchar" MaxLength="250" />
+          <Property Name="ReasonNotPCSK9i" Type="varchar" MaxLength="250" />
+          <Property Name="LastUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PayeeInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="PaymentMethod" Type="varchar" MaxLength="25" />
+          <Property Name="ChequePayableTo" Type="varchar" MaxLength="100" />
+          <Property Name="InternalRefNum" Type="varchar" MaxLength="50" />
+          <Property Name="MailingAddr1" Type="varchar" MaxLength="250" />
+          <Property Name="MailingAddr2" Type="varchar" MaxLength="250" />
+          <Property Name="AttentionTo" Type="varchar" MaxLength="100" />
+          <Property Name="City" Type="varchar" MaxLength="75" />
+          <Property Name="Province" Type="varchar" MaxLength="250" />
+          <Property Name="PostalCode" Type="varchar" MaxLength="10" />
+          <Property Name="TaxNumber" Type="varchar" MaxLength="50" />
+          <Property Name="AdditionalInstructions" Type="varchar" MaxLength="255" />
+          <Property Name="LastUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Provinces">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RegistrationCode">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="8" />
+          <Property Name="Used" Type="bit" />
+        </EntityType>
+        <EntityType Name="RegistrationStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StatinTherapyDosageLookup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatinTherapy" Type="varchar" MaxLength="50" />
+          <Property Name="Dosage" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="FirstLogin" Type="bit" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="LanguagePref" Type="varchar" MaxLength="50" />
+          <Property Name="PatientMainReminder" Type="bit" />
+          <Property Name="MaxPatientsAllowed" Type="int" />
+          <Property Name="CurrentPatientCount" Type="int" />
+          <Property Name="ActivationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="UserTypeID" />
+          </Key>
+          <Property Name="UserTypeID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_InviteesMaster_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="InviteesMaster" Type="Self.InviteesMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="InviteesMaster">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PayeeInfo_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="PayeeInfo" Type="Self.PayeeInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="PayeeInfo">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GoalInternationalModelStoreContainer">
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InviteesMaster" EntityType="Self.InviteesMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientInfo" EntityType="Self.PatientInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientVisit" EntityType="Self.PatientVisit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientVisitDetailsV1P1" EntityType="Self.PatientVisitDetailsV1P1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientVisitDetailsV1P2" EntityType="Self.PatientVisitDetailsV1P2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientVisitDetailsV1P3" EntityType="Self.PatientVisitDetailsV1P3" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientVisitDetailsV1P4" EntityType="Self.PatientVisitDetailsV1P4" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientVisitDetailsV2P1" EntityType="Self.PatientVisitDetailsV2P1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientVisitDetailsV2P2" EntityType="Self.PatientVisitDetailsV2P2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientVisitDetailsV2P3" EntityType="Self.PatientVisitDetailsV2P3" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientVisitDetailsV3P1" EntityType="Self.PatientVisitDetailsV3P1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientVisitDetailsV3P2" EntityType="Self.PatientVisitDetailsV3P2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientVisitDetailsV3P3" EntityType="Self.PatientVisitDetailsV3P3" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientVisitDetailsV4P1" EntityType="Self.PatientVisitDetailsV4P1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientVisitDetailsV4P2" EntityType="Self.PatientVisitDetailsV4P2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientVisitDetailsV4P3" EntityType="Self.PatientVisitDetailsV4P3" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PayeeInfo" EntityType="Self.PayeeInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Provinces" EntityType="Self.Provinces" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegistrationCode" EntityType="Self.RegistrationCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegistrationStatus" EntityType="Self.RegistrationStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatinTherapyDosageLookup" EntityType="Self.StatinTherapyDosageLookup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_InviteesMaster_Country" Association="Self.FK_InviteesMaster_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="InviteesMaster" EntitySet="InviteesMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PayeeInfo_User" Association="Self.FK_PayeeInfo_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="PayeeInfo" EntitySet="PayeeInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_Role" Association="Self.FK_UserRole_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_User" Association="Self.FK_UserRole_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GoalInternationalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="GoalInternationalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Countries" EntityType="GoalInternationalModel.Country" />
+          <EntitySet Name="PatientInfoes" EntityType="GoalInternationalModel.PatientInfo" />
+          <EntitySet Name="PatientVisits" EntityType="GoalInternationalModel.PatientVisit" />
+          <EntitySet Name="PatientVisitDetailsV1P2" EntityType="GoalInternationalModel.PatientVisitDetailsV1P2" />
+          <EntitySet Name="PatientVisitDetailsV1P3" EntityType="GoalInternationalModel.PatientVisitDetailsV1P3" />
+          <EntitySet Name="PayeeInfoes" EntityType="GoalInternationalModel.PayeeInfo" />
+          <EntitySet Name="Provinces" EntityType="GoalInternationalModel.Province" />
+          <EntitySet Name="RegistrationCodes" EntityType="GoalInternationalModel.RegistrationCode" />
+          <EntitySet Name="RegistrationStatus" EntityType="GoalInternationalModel.RegistrationStatu" />
+          <EntitySet Name="Roles" EntityType="GoalInternationalModel.Role" />
+          <EntitySet Name="StatinTherapyDosageLookups" EntityType="GoalInternationalModel.StatinTherapyDosageLookup" />
+          <EntitySet Name="Users" EntityType="GoalInternationalModel.User" />
+          <EntitySet Name="UserTypes" EntityType="GoalInternationalModel.UserType" />
+          <AssociationSet Name="FK_PayeeInfo_User" Association="GoalInternationalModel.FK_PayeeInfo_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="PayeeInfo" EntitySet="PayeeInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="UserRole" Association="GoalInternationalModel.UserRole">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="PatientVisitDetailsV2P2" EntityType="GoalInternationalModel.PatientVisitDetailsV2P2" />
+          <EntitySet Name="PatientVisitDetailsV3P2" EntityType="GoalInternationalModel.PatientVisitDetailsV3P2" />
+          <EntitySet Name="PatientVisitDetailsV4P2" EntityType="GoalInternationalModel.PatientVisitDetailsV4P2" />
+          <EntitySet Name="PatientVisitDetailsV2P1" EntityType="GoalInternationalModel.PatientVisitDetailsV2P1" />
+          <EntitySet Name="PatientVisitDetailsV3P1" EntityType="GoalInternationalModel.PatientVisitDetailsV3P1" />
+          <EntitySet Name="PatientVisitDetailsV4P1" EntityType="GoalInternationalModel.PatientVisitDetailsV4P1" />
+          <EntitySet Name="PatientVisitDetailsV1P4" EntityType="GoalInternationalModel.PatientVisitDetailsV1P4" />
+          <EntitySet Name="PatientVisitDetailsV2P3" EntityType="GoalInternationalModel.PatientVisitDetailsV2P3" />
+          <EntitySet Name="PatientVisitDetailsV3P3" EntityType="GoalInternationalModel.PatientVisitDetailsV3P3" />
+          <EntitySet Name="PatientVisitDetailsV4P3" EntityType="GoalInternationalModel.PatientVisitDetailsV4P3" />
+          <EntitySet Name="PatientVisitDetailsV1P1" EntityType="GoalInternationalModel.PatientVisitDetailsV1P1" />
+          <EntitySet Name="InviteesMasters" EntityType="GoalInternationalModel.InviteesMaster" />
+          <AssociationSet Name="FK_InviteesMaster_Country" Association="GoalInternationalModel.FK_InviteesMaster_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="InviteesMaster" EntitySet="InviteesMasters" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="Int32" Nullable="false" />
+          <Property Name="CountryName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="InviteesMasters" Relationship="GoalInternationalModel.FK_InviteesMaster_Country" FromRole="Country" ToRole="InviteesMaster" />
+        </EntityType>
+        <EntityType Name="PatientInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="FirstName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="DOC" Type="DateTime" Precision="3" />
+          <Property Name="PatientType" Type="Int32" />
+          <Property Name="Initials" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PatientVisit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="GIntV1Status" Type="Int32" />
+          <Property Name="GIntV1CompletionDate" Type="DateTime" Precision="3" />
+          <Property Name="GIntV1SavedPage" Type="Int32" />
+          <Property Name="GIntV2Status" Type="Int32" />
+          <Property Name="GIntV2CompletionDate" Type="DateTime" Precision="3" />
+          <Property Name="GIntV2SavedPage" Type="Int32" />
+          <Property Name="GIntV2LFUReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GIntV3Status" Type="Int32" />
+          <Property Name="GIntV3CompletionDate" Type="DateTime" Precision="3" />
+          <Property Name="GIntV3SavedPage" Type="Int32" />
+          <Property Name="GIntV3LFUReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GIntV4Status" Type="Int32" />
+          <Property Name="GIntV4CompletionDate" Type="DateTime" Precision="3" />
+          <Property Name="GIntV4SavedPage" Type="Int32" />
+          <Property Name="GIntV4LFUReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GIntVisit2ReminderSent" Type="Int32" />
+          <Property Name="GIntVisit3ReminderSent" Type="Int32" />
+          <Property Name="GIntVisit4ReminderSent" Type="Int32" />
+          <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV1P2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Ethnicity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SmokingHistory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MedicationInsuranceCoverage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InsuranceTypeIfPrivate" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="InsuranceTypeIfOther" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CoMorbidities1" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CoMorbidities2" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CoMorbidities3" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CoMorbidities4" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CoMorbidities5" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CoMorbidities6" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CoMorbidities7" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CoMorbidities8" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CoMorbidities9" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CoMorbidities10" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CoMorbidities11" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CoMorbidities12" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CoMorbidities13" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CoMorbidities14" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CAD1" Type="Boolean" />
+          <Property Name="CAD2" Type="Boolean" />
+          <Property Name="CAD3" Type="Boolean" />
+          <Property Name="CAD4" Type="Boolean" />
+          <Property Name="CeVD1" Type="Boolean" />
+          <Property Name="CeVD2" Type="Boolean" />
+          <Property Name="CeVD3" Type="Boolean" />
+          <Property Name="T2DM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MicrovascularDisease1" Type="Boolean" />
+          <Property Name="MicrovascularDisease2" Type="Boolean" />
+          <Property Name="MicrovascularDisease3" Type="Boolean" />
+          <Property Name="MicrovascularDisease4" Type="Boolean" />
+          <Property Name="FH1" Type="Boolean" />
+          <Property Name="FH2" Type="Boolean" />
+          <Property Name="FH3" Type="Boolean" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV1P3">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="CurrentMedication1" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentMedication2" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentMedication3" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentMedication4" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentMedication5" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentMedication6" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentMedication7" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentMedication8" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentMedication9" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentMedication10" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentMedication11" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="AntiHyperGlycemic1" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="AntiHyperGlycemic2" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="AntiHyperGlycemic3" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="AntiHyperGlycemic4" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="AntiHyperGlycemic5" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="AntiHyperGlycemic6" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="AntiHyperGlycemic7" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="AntiHyperGlycemic8" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="AntiHyperGlycemic9" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="AntiHyperGlycemic10" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentLDLTherapy1" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentLDLTherapy2" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentLDLTherapy3" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentLDLTherapy4" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentLDLTherapy5" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="MaximalStatin" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Systolic" Type="Int32" />
+          <Property Name="Diastolic" Type="Int32" />
+          <Property Name="HeartRate" Type="Int32" />
+          <Property Name="Weight" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WeightUnit" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Height" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="HeightUnit" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="WaistCircumference" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WaistCircumferenceUnit" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PayeeInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ChequePayableTo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="InternalRefNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MailingAddr1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="MailingAddr2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="AttentionTo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="Province" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TaxNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdditionalInstructions" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="User" Relationship="GoalInternationalModel.FK_PayeeInfo_User" FromRole="PayeeInfo" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RegistrationCode">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Used" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="RegistrationStatu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="GoalInternationalModel.UserRole" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="StatinTherapyDosageLookup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatinTherapy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dosage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FirstLogin" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="LanguagePref" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PatientMainReminder" Type="Boolean" />
+          <Property Name="MaxPatientsAllowed" Type="Int32" />
+          <Property Name="CurrentPatientCount" Type="Int32" />
+          <Property Name="ActivationDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="PayeeInfoes" Relationship="GoalInternationalModel.FK_PayeeInfo_User" FromRole="User" ToRole="PayeeInfo" />
+          <NavigationProperty Name="Roles" Relationship="GoalInternationalModel.UserRole" FromRole="User" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="UserTypeID" />
+          </Key>
+          <Property Name="UserTypeID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_PayeeInfo_User">
+          <End Type="GoalInternationalModel.User" Role="User" Multiplicity="1" />
+          <End Type="GoalInternationalModel.PayeeInfo" Role="PayeeInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="PayeeInfo">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserRole">
+          <End Type="GoalInternationalModel.Role" Role="Role" Multiplicity="*" />
+          <End Type="GoalInternationalModel.User" Role="User" Multiplicity="*" />
+        </Association>
+        <EntityType Name="PatientVisitDetailsV2P2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="CurrentLDLTherapy1" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentLDLTherapy2" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentLDLTherapy3" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentLDLTherapy4" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentLDLTherapy5" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentLDLTherapy6" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Systolic" Type="Int32" />
+          <Property Name="Diastolic" Type="Int32" />
+          <Property Name="HeartRate" Type="Int32" />
+          <Property Name="Weight" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WeightUnit" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Height" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="HeightUnit" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="WaistCircumference" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WaistCircumferenceUnit" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV3P2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="CurrentLDLTherapy1" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentLDLTherapy2" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentLDLTherapy3" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentLDLTherapy4" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentLDLTherapy5" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentLDLTherapy6" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Systolic" Type="Int32" />
+          <Property Name="Diastolic" Type="Int32" />
+          <Property Name="HeartRate" Type="Int32" />
+          <Property Name="Weight" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WeightUnit" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Height" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="HeightUnit" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="WaistCircumference" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WaistCircumferenceUnit" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV4P2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="CurrentLDLTherapy1" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentLDLTherapy2" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentLDLTherapy3" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentLDLTherapy4" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentLDLTherapy5" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentLDLTherapy6" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Systolic" Type="Int32" />
+          <Property Name="Diastolic" Type="Int32" />
+          <Property Name="HeartRate" Type="Int32" />
+          <Property Name="Weight" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WeightUnit" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Height" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="HeightUnit" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="WaistCircumference" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WaistCircumferenceUnit" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV2P1">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="IsPatientLFU" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LFUReason" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="VisitDate" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Experience1" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Experience2" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Experience3" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Experience4" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Experience5" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="SignOff" Type="Boolean" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+          <Property Name="LDLCYesNo" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV3P1">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="IsPatientLFU" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LFUReason" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="VisitDate" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Experience1" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Experience2" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Experience3" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Experience4" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Experience5" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="SignOff" Type="Boolean" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+          <Property Name="LDLCYesNo" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV4P1">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="IsPatientLFU" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LFUReason" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="VisitDate" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Experience1" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Experience2" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Experience3" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Experience4" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Experience5" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="SignOff" Type="Boolean" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+          <Property Name="LDLCYesNo" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV1P4">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="LabDate" Type="DateTime" Precision="3" />
+          <Property Name="TotalCholesterol" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="LDLC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="HDLC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NHDLC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Triglycerides" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ApoB" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ApoBUnit" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="StatinTherapy" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="StatinDose" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy1" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy2" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy3" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy4" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy5" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy6" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="ReasonNotEzetimibe" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ReasonNotPCSK9i" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+          <Property Name="TotalCholesterolUnit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="LDLCUnit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="HDLCUnit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="NHDLCUnit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="TriglyceridesUnit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV2P3">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="LabDate" Type="DateTime" Precision="3" />
+          <Property Name="TotalCholesterol" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="LDLC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="HDLC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NHDLC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Triglycerides" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ApoB" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ApoBUnit" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="StatinTherapy" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="StatinDose" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy1" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy2" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy3" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy4" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy5" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy6" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="ReasonNotEzetimibe" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ReasonNotPCSK9i" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+          <Property Name="TotalCholesterolUnit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="LDLCUnit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="HDLCUnit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="NHDLCUnit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="TriglyceridesUnit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV3P3">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="LabDate" Type="DateTime" Precision="3" />
+          <Property Name="TotalCholesterol" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="LDLC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="HDLC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NHDLC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Triglycerides" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ApoB" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ApoBUnit" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="StatinTherapy" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="StatinDose" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy1" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy2" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy3" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy4" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy5" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy6" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="ReasonNotEzetimibe" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ReasonNotPCSK9i" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+          <Property Name="TotalCholesterolUnit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="LDLCUnit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="HDLCUnit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="NHDLCUnit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="TriglyceridesUnit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV4P3">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="LabDate" Type="DateTime" Precision="3" />
+          <Property Name="TotalCholesterol" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="LDLC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="HDLC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NHDLC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Triglycerides" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ApoB" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ApoBUnit" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="StatinTherapy" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="StatinDose" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy1" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy2" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy3" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy4" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy5" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LipidTherapy6" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="ReasonNotEzetimibe" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ReasonNotPCSK9i" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+          <Property Name="TotalCholesterolUnit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="LDLCUnit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="HDLCUnit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="NHDLCUnit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="TriglyceridesUnit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PatientVisitDetailsV1P1">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="FirstName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Initials" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="AdditionalPhone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Inclusion_1" Type="Boolean" />
+          <Property Name="Inclusion_2" Type="Boolean" />
+          <Property Name="Inclusion_3" Type="Boolean" />
+          <Property Name="Inclusion_4" Type="Boolean" />
+          <Property Name="Inclusion_5" Type="Boolean" />
+          <Property Name="Exclusion" Type="Boolean" />
+          <Property Name="PatientConsentDate" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VisitDate" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SignOff" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+          <Property Name="LDLCYesNo" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="InviteesMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AssignedPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CHRCPhysicianID" Type="Int32" />
+          <Property Name="ParentUserID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="UserType" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Rank" Type="Int32" />
+          <Property Name="Specialty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PayableTo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Institution" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Suite" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Province" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CountryID" Type="Int32" />
+          <Property Name="PostalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CellNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FaxNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Interest" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="RegistrationCode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="RegistrationStatus" Type="Int32" />
+          <Property Name="Comments" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="InvitedCHRC" Type="Boolean" />
+          <Property Name="InvitationSentDate" Type="DateTime" Precision="3" />
+          <Property Name="InvitationTier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ConsentCHRCShareName" Type="Boolean" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Country" Relationship="GoalInternationalModel.FK_InviteesMaster_Country" FromRole="InviteesMaster" ToRole="Country" />
+        </EntityType>
+        <Association Name="FK_InviteesMaster_Country">
+          <End Type="GoalInternationalModel.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="GoalInternationalModel.InviteesMaster" Role="InviteesMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="InviteesMaster">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GoalInternationalModelStoreContainer" CdmEntityContainer="GoalInternationalEntities">
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="GoalInternationalModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientInfoes">
+            <EntityTypeMapping TypeName="GoalInternationalModel.PatientInfo">
+              <MappingFragment StoreEntitySet="PatientInfo">
+                <ScalarProperty Name="Initials" ColumnName="Initials" />
+                <ScalarProperty Name="PatientType" ColumnName="PatientType" />
+                <ScalarProperty Name="DOC" ColumnName="DOC" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientVisits">
+            <EntityTypeMapping TypeName="GoalInternationalModel.PatientVisit">
+              <MappingFragment StoreEntitySet="PatientVisit">
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="GIntVisit4ReminderSent" ColumnName="GIntVisit4ReminderSent" />
+                <ScalarProperty Name="GIntVisit3ReminderSent" ColumnName="GIntVisit3ReminderSent" />
+                <ScalarProperty Name="GIntVisit2ReminderSent" ColumnName="GIntVisit2ReminderSent" />
+                <ScalarProperty Name="GIntV4LFUReason" ColumnName="GIntV4LFUReason" />
+                <ScalarProperty Name="GIntV4SavedPage" ColumnName="GIntV4SavedPage" />
+                <ScalarProperty Name="GIntV4CompletionDate" ColumnName="GIntV4CompletionDate" />
+                <ScalarProperty Name="GIntV4Status" ColumnName="GIntV4Status" />
+                <ScalarProperty Name="GIntV3LFUReason" ColumnName="GIntV3LFUReason" />
+                <ScalarProperty Name="GIntV3SavedPage" ColumnName="GIntV3SavedPage" />
+                <ScalarProperty Name="GIntV3CompletionDate" ColumnName="GIntV3CompletionDate" />
+                <ScalarProperty Name="GIntV3Status" ColumnName="GIntV3Status" />
+                <ScalarProperty Name="GIntV2LFUReason" ColumnName="GIntV2LFUReason" />
+                <ScalarProperty Name="GIntV2SavedPage" ColumnName="GIntV2SavedPage" />
+                <ScalarProperty Name="GIntV2CompletionDate" ColumnName="GIntV2CompletionDate" />
+                <ScalarProperty Name="GIntV2Status" ColumnName="GIntV2Status" />
+                <ScalarProperty Name="GIntV1SavedPage" ColumnName="GIntV1SavedPage" />
+                <ScalarProperty Name="GIntV1CompletionDate" ColumnName="GIntV1CompletionDate" />
+                <ScalarProperty Name="GIntV1Status" ColumnName="GIntV1Status" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientVisitDetailsV1P2">
+            <EntityTypeMapping TypeName="GoalInternationalModel.PatientVisitDetailsV1P2">
+              <MappingFragment StoreEntitySet="PatientVisitDetailsV1P2">
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="FH3" ColumnName="FH3" />
+                <ScalarProperty Name="FH2" ColumnName="FH2" />
+                <ScalarProperty Name="FH1" ColumnName="FH1" />
+                <ScalarProperty Name="MicrovascularDisease4" ColumnName="MicrovascularDisease4" />
+                <ScalarProperty Name="MicrovascularDisease3" ColumnName="MicrovascularDisease3" />
+                <ScalarProperty Name="MicrovascularDisease2" ColumnName="MicrovascularDisease2" />
+                <ScalarProperty Name="MicrovascularDisease1" ColumnName="MicrovascularDisease1" />
+                <ScalarProperty Name="T2DM" ColumnName="T2DM" />
+                <ScalarProperty Name="CeVD3" ColumnName="CeVD3" />
+                <ScalarProperty Name="CeVD2" ColumnName="CeVD2" />
+                <ScalarProperty Name="CeVD1" ColumnName="CeVD1" />
+                <ScalarProperty Name="CAD4" ColumnName="CAD4" />
+                <ScalarProperty Name="CAD3" ColumnName="CAD3" />
+                <ScalarProperty Name="CAD2" ColumnName="CAD2" />
+                <ScalarProperty Name="CAD1" ColumnName="CAD1" />
+                <ScalarProperty Name="CoMorbidities14" ColumnName="CoMorbidities14" />
+                <ScalarProperty Name="CoMorbidities13" ColumnName="CoMorbidities13" />
+                <ScalarProperty Name="CoMorbidities12" ColumnName="CoMorbidities12" />
+                <ScalarProperty Name="CoMorbidities11" ColumnName="CoMorbidities11" />
+                <ScalarProperty Name="CoMorbidities10" ColumnName="CoMorbidities10" />
+                <ScalarProperty Name="CoMorbidities9" ColumnName="CoMorbidities9" />
+                <ScalarProperty Name="CoMorbidities8" ColumnName="CoMorbidities8" />
+                <ScalarProperty Name="CoMorbidities7" ColumnName="CoMorbidities7" />
+                <ScalarProperty Name="CoMorbidities6" ColumnName="CoMorbidities6" />
+                <ScalarProperty Name="CoMorbidities5" ColumnName="CoMorbidities5" />
+                <ScalarProperty Name="CoMorbidities4" ColumnName="CoMorbidities4" />
+                <ScalarProperty Name="CoMorbidities3" ColumnName="CoMorbidities3" />
+                <ScalarProperty Name="CoMorbidities2" ColumnName="CoMorbidities2" />
+                <ScalarProperty Name="CoMorbidities1" ColumnName="CoMorbidities1" />
+                <ScalarProperty Name="InsuranceTypeIfOther" ColumnName="InsuranceTypeIfOther" />
+                <ScalarProperty Name="InsuranceTypeIfPrivate" ColumnName="InsuranceTypeIfPrivate" />
+                <ScalarProperty Name="MedicationInsuranceCoverage" ColumnName="MedicationInsuranceCoverage" />
+                <ScalarProperty Name="SmokingHistory" ColumnName="SmokingHistory" />
+                <ScalarProperty Name="Ethnicity" ColumnName="Ethnicity" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientVisitDetailsV1P3">
+            <EntityTypeMapping TypeName="GoalInternationalModel.PatientVisitDetailsV1P3">
+              <MappingFragment StoreEntitySet="PatientVisitDetailsV1P3">
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="WaistCircumferenceUnit" ColumnName="WaistCircumferenceUnit" />
+                <ScalarProperty Name="WaistCircumference" ColumnName="WaistCircumference" />
+                <ScalarProperty Name="HeightUnit" ColumnName="HeightUnit" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="WeightUnit" ColumnName="WeightUnit" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="HeartRate" ColumnName="HeartRate" />
+                <ScalarProperty Name="Diastolic" ColumnName="Diastolic" />
+                <ScalarProperty Name="Systolic" ColumnName="Systolic" />
+                <ScalarProperty Name="MaximalStatin" ColumnName="MaximalStatin" />
+                <ScalarProperty Name="CurrentLDLTherapy5" ColumnName="CurrentLDLTherapy5" />
+                <ScalarProperty Name="CurrentLDLTherapy4" ColumnName="CurrentLDLTherapy4" />
+                <ScalarProperty Name="CurrentLDLTherapy3" ColumnName="CurrentLDLTherapy3" />
+                <ScalarProperty Name="CurrentLDLTherapy2" ColumnName="CurrentLDLTherapy2" />
+                <ScalarProperty Name="CurrentLDLTherapy1" ColumnName="CurrentLDLTherapy1" />
+                <ScalarProperty Name="AntiHyperGlycemic10" ColumnName="AntiHyperGlycemic10" />
+                <ScalarProperty Name="AntiHyperGlycemic9" ColumnName="AntiHyperGlycemic9" />
+                <ScalarProperty Name="AntiHyperGlycemic8" ColumnName="AntiHyperGlycemic8" />
+                <ScalarProperty Name="AntiHyperGlycemic7" ColumnName="AntiHyperGlycemic7" />
+                <ScalarProperty Name="AntiHyperGlycemic6" ColumnName="AntiHyperGlycemic6" />
+                <ScalarProperty Name="AntiHyperGlycemic5" ColumnName="AntiHyperGlycemic5" />
+                <ScalarProperty Name="AntiHyperGlycemic4" ColumnName="AntiHyperGlycemic4" />
+                <ScalarProperty Name="AntiHyperGlycemic3" ColumnName="AntiHyperGlycemic3" />
+                <ScalarProperty Name="AntiHyperGlycemic2" ColumnName="AntiHyperGlycemic2" />
+                <ScalarProperty Name="AntiHyperGlycemic1" ColumnName="AntiHyperGlycemic1" />
+                <ScalarProperty Name="CurrentMedication11" ColumnName="CurrentMedication11" />
+                <ScalarProperty Name="CurrentMedication10" ColumnName="CurrentMedication10" />
+                <ScalarProperty Name="CurrentMedication9" ColumnName="CurrentMedication9" />
+                <ScalarProperty Name="CurrentMedication8" ColumnName="CurrentMedication8" />
+                <ScalarProperty Name="CurrentMedication7" ColumnName="CurrentMedication7" />
+                <ScalarProperty Name="CurrentMedication6" ColumnName="CurrentMedication6" />
+                <ScalarProperty Name="CurrentMedication5" ColumnName="CurrentMedication5" />
+                <ScalarProperty Name="CurrentMedication4" ColumnName="CurrentMedication4" />
+                <ScalarProperty Name="CurrentMedication3" ColumnName="CurrentMedication3" />
+                <ScalarProperty Name="CurrentMedication2" ColumnName="CurrentMedication2" />
+                <ScalarProperty Name="CurrentMedication1" ColumnName="CurrentMedication1" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayeeInfoes">
+            <EntityTypeMapping TypeName="GoalInternationalModel.PayeeInfo">
+              <MappingFragment StoreEntitySet="PayeeInfo">
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="AdditionalInstructions" ColumnName="AdditionalInstructions" />
+                <ScalarProperty Name="TaxNumber" ColumnName="TaxNumber" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="AttentionTo" ColumnName="AttentionTo" />
+                <ScalarProperty Name="MailingAddr2" ColumnName="MailingAddr2" />
+                <ScalarProperty Name="MailingAddr1" ColumnName="MailingAddr1" />
+                <ScalarProperty Name="InternalRefNum" ColumnName="InternalRefNum" />
+                <ScalarProperty Name="ChequePayableTo" ColumnName="ChequePayableTo" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provinces">
+            <EntityTypeMapping TypeName="GoalInternationalModel.Province">
+              <MappingFragment StoreEntitySet="Provinces">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegistrationCodes">
+            <EntityTypeMapping TypeName="GoalInternationalModel.RegistrationCode">
+              <MappingFragment StoreEntitySet="RegistrationCode">
+                <ScalarProperty Name="Used" ColumnName="Used" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegistrationStatus">
+            <EntityTypeMapping TypeName="GoalInternationalModel.RegistrationStatu">
+              <MappingFragment StoreEntitySet="RegistrationStatus">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="GoalInternationalModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatinTherapyDosageLookups">
+            <EntityTypeMapping TypeName="GoalInternationalModel.StatinTherapyDosageLookup">
+              <MappingFragment StoreEntitySet="StatinTherapyDosageLookup">
+                <ScalarProperty Name="Dosage" ColumnName="Dosage" />
+                <ScalarProperty Name="StatinTherapy" ColumnName="StatinTherapy" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="GoalInternationalModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ActivationDate" ColumnName="ActivationDate" />
+                <ScalarProperty Name="CurrentPatientCount" ColumnName="CurrentPatientCount" />
+                <ScalarProperty Name="MaxPatientsAllowed" ColumnName="MaxPatientsAllowed" />
+                <ScalarProperty Name="PatientMainReminder" ColumnName="PatientMainReminder" />
+                <ScalarProperty Name="LanguagePref" ColumnName="LanguagePref" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="FirstLogin" ColumnName="FirstLogin" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="GoalInternationalModel.UserType">
+              <MappingFragment StoreEntitySet="UserType">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="UserRole" TypeName="GoalInternationalModel.UserRole" StoreEntitySet="UserRole">
+            <EndProperty Name="User">
+              <ScalarProperty Name="UserID" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="Role">
+              <ScalarProperty Name="RoleID" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="PatientVisitDetailsV2P2">
+            <EntityTypeMapping TypeName="GoalInternationalModel.PatientVisitDetailsV2P2">
+              <MappingFragment StoreEntitySet="PatientVisitDetailsV2P2">
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="WaistCircumferenceUnit" ColumnName="WaistCircumferenceUnit" />
+                <ScalarProperty Name="WaistCircumference" ColumnName="WaistCircumference" />
+                <ScalarProperty Name="HeightUnit" ColumnName="HeightUnit" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="WeightUnit" ColumnName="WeightUnit" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="HeartRate" ColumnName="HeartRate" />
+                <ScalarProperty Name="Diastolic" ColumnName="Diastolic" />
+                <ScalarProperty Name="Systolic" ColumnName="Systolic" />
+                <ScalarProperty Name="CurrentLDLTherapy6" ColumnName="CurrentLDLTherapy6" />
+                <ScalarProperty Name="CurrentLDLTherapy5" ColumnName="CurrentLDLTherapy5" />
+                <ScalarProperty Name="CurrentLDLTherapy4" ColumnName="CurrentLDLTherapy4" />
+                <ScalarProperty Name="CurrentLDLTherapy3" ColumnName="CurrentLDLTherapy3" />
+                <ScalarProperty Name="CurrentLDLTherapy2" ColumnName="CurrentLDLTherapy2" />
+                <ScalarProperty Name="CurrentLDLTherapy1" ColumnName="CurrentLDLTherapy1" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientVisitDetailsV3P2">
+            <EntityTypeMapping TypeName="GoalInternationalModel.PatientVisitDetailsV3P2">
+              <MappingFragment StoreEntitySet="PatientVisitDetailsV3P2">
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="WaistCircumferenceUnit" ColumnName="WaistCircumferenceUnit" />
+                <ScalarProperty Name="WaistCircumference" ColumnName="WaistCircumference" />
+                <ScalarProperty Name="HeightUnit" ColumnName="HeightUnit" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="WeightUnit" ColumnName="WeightUnit" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="HeartRate" ColumnName="HeartRate" />
+                <ScalarProperty Name="Diastolic" ColumnName="Diastolic" />
+                <ScalarProperty Name="Systolic" ColumnName="Systolic" />
+                <ScalarProperty Name="CurrentLDLTherapy6" ColumnName="CurrentLDLTherapy6" />
+                <ScalarProperty Name="CurrentLDLTherapy5" ColumnName="CurrentLDLTherapy5" />
+                <ScalarProperty Name="CurrentLDLTherapy4" ColumnName="CurrentLDLTherapy4" />
+                <ScalarProperty Name="CurrentLDLTherapy3" ColumnName="CurrentLDLTherapy3" />
+                <ScalarProperty Name="CurrentLDLTherapy2" ColumnName="CurrentLDLTherapy2" />
+                <ScalarProperty Name="CurrentLDLTherapy1" ColumnName="CurrentLDLTherapy1" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientVisitDetailsV4P2">
+            <EntityTypeMapping TypeName="GoalInternationalModel.PatientVisitDetailsV4P2">
+              <MappingFragment StoreEntitySet="PatientVisitDetailsV4P2">
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="WaistCircumferenceUnit" ColumnName="WaistCircumferenceUnit" />
+                <ScalarProperty Name="WaistCircumference" ColumnName="WaistCircumference" />
+                <ScalarProperty Name="HeightUnit" ColumnName="HeightUnit" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="WeightUnit" ColumnName="WeightUnit" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="HeartRate" ColumnName="HeartRate" />
+                <ScalarProperty Name="Diastolic" ColumnName="Diastolic" />
+                <ScalarProperty Name="Systolic" ColumnName="Systolic" />
+                <ScalarProperty Name="CurrentLDLTherapy6" ColumnName="CurrentLDLTherapy6" />
+                <ScalarProperty Name="CurrentLDLTherapy5" ColumnName="CurrentLDLTherapy5" />
+                <ScalarProperty Name="CurrentLDLTherapy4" ColumnName="CurrentLDLTherapy4" />
+                <ScalarProperty Name="CurrentLDLTherapy3" ColumnName="CurrentLDLTherapy3" />
+                <ScalarProperty Name="CurrentLDLTherapy2" ColumnName="CurrentLDLTherapy2" />
+                <ScalarProperty Name="CurrentLDLTherapy1" ColumnName="CurrentLDLTherapy1" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientVisitDetailsV2P1">
+            <EntityTypeMapping TypeName="GoalInternationalModel.PatientVisitDetailsV2P1">
+              <MappingFragment StoreEntitySet="PatientVisitDetailsV2P1">
+                <ScalarProperty Name="LDLCYesNo" ColumnName="LDLCYesNo" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="SignOff" ColumnName="SignOff" />
+                <ScalarProperty Name="Experience5" ColumnName="Experience5" />
+                <ScalarProperty Name="Experience4" ColumnName="Experience4" />
+                <ScalarProperty Name="Experience3" ColumnName="Experience3" />
+                <ScalarProperty Name="Experience2" ColumnName="Experience2" />
+                <ScalarProperty Name="Experience1" ColumnName="Experience1" />
+                <ScalarProperty Name="VisitDate" ColumnName="VisitDate" />
+                <ScalarProperty Name="LFUReason" ColumnName="LFUReason" />
+                <ScalarProperty Name="IsPatientLFU" ColumnName="IsPatientLFU" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientVisitDetailsV3P1">
+            <EntityTypeMapping TypeName="GoalInternationalModel.PatientVisitDetailsV3P1">
+              <MappingFragment StoreEntitySet="PatientVisitDetailsV3P1">
+                <ScalarProperty Name="LDLCYesNo" ColumnName="LDLCYesNo" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="SignOff" ColumnName="SignOff" />
+                <ScalarProperty Name="Experience5" ColumnName="Experience5" />
+                <ScalarProperty Name="Experience4" ColumnName="Experience4" />
+                <ScalarProperty Name="Experience3" ColumnName="Experience3" />
+                <ScalarProperty Name="Experience2" ColumnName="Experience2" />
+                <ScalarProperty Name="Experience1" ColumnName="Experience1" />
+                <ScalarProperty Name="VisitDate" ColumnName="VisitDate" />
+                <ScalarProperty Name="LFUReason" ColumnName="LFUReason" />
+                <ScalarProperty Name="IsPatientLFU" ColumnName="IsPatientLFU" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientVisitDetailsV4P1">
+            <EntityTypeMapping TypeName="GoalInternationalModel.PatientVisitDetailsV4P1">
+              <MappingFragment StoreEntitySet="PatientVisitDetailsV4P1">
+                <ScalarProperty Name="LDLCYesNo" ColumnName="LDLCYesNo" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="SignOff" ColumnName="SignOff" />
+                <ScalarProperty Name="Experience5" ColumnName="Experience5" />
+                <ScalarProperty Name="Experience4" ColumnName="Experience4" />
+                <ScalarProperty Name="Experience3" ColumnName="Experience3" />
+                <ScalarProperty Name="Experience2" ColumnName="Experience2" />
+                <ScalarProperty Name="Experience1" ColumnName="Experience1" />
+                <ScalarProperty Name="VisitDate" ColumnName="VisitDate" />
+                <ScalarProperty Name="LFUReason" ColumnName="LFUReason" />
+                <ScalarProperty Name="IsPatientLFU" ColumnName="IsPatientLFU" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientVisitDetailsV1P4">
+            <EntityTypeMapping TypeName="GoalInternationalModel.PatientVisitDetailsV1P4">
+              <MappingFragment StoreEntitySet="PatientVisitDetailsV1P4">
+                <ScalarProperty Name="TriglyceridesUnit" ColumnName="TriglyceridesUnit" />
+                <ScalarProperty Name="NHDLCUnit" ColumnName="NHDLCUnit" />
+                <ScalarProperty Name="HDLCUnit" ColumnName="HDLCUnit" />
+                <ScalarProperty Name="LDLCUnit" ColumnName="LDLCUnit" />
+                <ScalarProperty Name="TotalCholesterolUnit" ColumnName="TotalCholesterolUnit" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="ReasonNotPCSK9i" ColumnName="ReasonNotPCSK9i" />
+                <ScalarProperty Name="ReasonNotEzetimibe" ColumnName="ReasonNotEzetimibe" />
+                <ScalarProperty Name="LipidTherapy6" ColumnName="LipidTherapy6" />
+                <ScalarProperty Name="LipidTherapy5" ColumnName="LipidTherapy5" />
+                <ScalarProperty Name="LipidTherapy4" ColumnName="LipidTherapy4" />
+                <ScalarProperty Name="LipidTherapy3" ColumnName="LipidTherapy3" />
+                <ScalarProperty Name="LipidTherapy2" ColumnName="LipidTherapy2" />
+                <ScalarProperty Name="LipidTherapy1" ColumnName="LipidTherapy1" />
+                <ScalarProperty Name="StatinDose" ColumnName="StatinDose" />
+                <ScalarProperty Name="StatinTherapy" ColumnName="StatinTherapy" />
+                <ScalarProperty Name="ApoBUnit" ColumnName="ApoBUnit" />
+                <ScalarProperty Name="ApoB" ColumnName="ApoB" />
+                <ScalarProperty Name="Triglycerides" ColumnName="Triglycerides" />
+                <ScalarProperty Name="NHDLC" ColumnName="NHDLC" />
+                <ScalarProperty Name="HDLC" ColumnName="HDLC" />
+                <ScalarProperty Name="LDLC" ColumnName="LDLC" />
+                <ScalarProperty Name="TotalCholesterol" ColumnName="TotalCholesterol" />
+                <ScalarProperty Name="LabDate" ColumnName="LabDate" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientVisitDetailsV2P3">
+            <EntityTypeMapping TypeName="GoalInternationalModel.PatientVisitDetailsV2P3">
+              <MappingFragment StoreEntitySet="PatientVisitDetailsV2P3">
+                <ScalarProperty Name="TriglyceridesUnit" ColumnName="TriglyceridesUnit" />
+                <ScalarProperty Name="NHDLCUnit" ColumnName="NHDLCUnit" />
+                <ScalarProperty Name="HDLCUnit" ColumnName="HDLCUnit" />
+                <ScalarProperty Name="LDLCUnit" ColumnName="LDLCUnit" />
+                <ScalarProperty Name="TotalCholesterolUnit" ColumnName="TotalCholesterolUnit" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="ReasonNotPCSK9i" ColumnName="ReasonNotPCSK9i" />
+                <ScalarProperty Name="ReasonNotEzetimibe" ColumnName="ReasonNotEzetimibe" />
+                <ScalarProperty Name="LipidTherapy6" ColumnName="LipidTherapy6" />
+                <ScalarProperty Name="LipidTherapy5" ColumnName="LipidTherapy5" />
+                <ScalarProperty Name="LipidTherapy4" ColumnName="LipidTherapy4" />
+                <ScalarProperty Name="LipidTherapy3" ColumnName="LipidTherapy3" />
+                <ScalarProperty Name="LipidTherapy2" ColumnName="LipidTherapy2" />
+                <ScalarProperty Name="LipidTherapy1" ColumnName="LipidTherapy1" />
+                <ScalarProperty Name="StatinDose" ColumnName="StatinDose" />
+                <ScalarProperty Name="StatinTherapy" ColumnName="StatinTherapy" />
+                <ScalarProperty Name="ApoBUnit" ColumnName="ApoBUnit" />
+                <ScalarProperty Name="ApoB" ColumnName="ApoB" />
+                <ScalarProperty Name="Triglycerides" ColumnName="Triglycerides" />
+                <ScalarProperty Name="NHDLC" ColumnName="NHDLC" />
+                <ScalarProperty Name="HDLC" ColumnName="HDLC" />
+                <ScalarProperty Name="LDLC" ColumnName="LDLC" />
+                <ScalarProperty Name="TotalCholesterol" ColumnName="TotalCholesterol" />
+                <ScalarProperty Name="LabDate" ColumnName="LabDate" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientVisitDetailsV3P3">
+            <EntityTypeMapping TypeName="GoalInternationalModel.PatientVisitDetailsV3P3">
+              <MappingFragment StoreEntitySet="PatientVisitDetailsV3P3">
+                <ScalarProperty Name="TriglyceridesUnit" ColumnName="TriglyceridesUnit" />
+                <ScalarProperty Name="NHDLCUnit" ColumnName="NHDLCUnit" />
+                <ScalarProperty Name="HDLCUnit" ColumnName="HDLCUnit" />
+                <ScalarProperty Name="LDLCUnit" ColumnName="LDLCUnit" />
+                <ScalarProperty Name="TotalCholesterolUnit" ColumnName="TotalCholesterolUnit" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="ReasonNotPCSK9i" ColumnName="ReasonNotPCSK9i" />
+                <ScalarProperty Name="ReasonNotEzetimibe" ColumnName="ReasonNotEzetimibe" />
+                <ScalarProperty Name="LipidTherapy6" ColumnName="LipidTherapy6" />
+                <ScalarProperty Name="LipidTherapy5" ColumnName="LipidTherapy5" />
+                <ScalarProperty Name="LipidTherapy4" ColumnName="LipidTherapy4" />
+                <ScalarProperty Name="LipidTherapy3" ColumnName="LipidTherapy3" />
+                <ScalarProperty Name="LipidTherapy2" ColumnName="LipidTherapy2" />
+                <ScalarProperty Name="LipidTherapy1" ColumnName="LipidTherapy1" />
+                <ScalarProperty Name="StatinDose" ColumnName="StatinDose" />
+                <ScalarProperty Name="StatinTherapy" ColumnName="StatinTherapy" />
+                <ScalarProperty Name="ApoBUnit" ColumnName="ApoBUnit" />
+                <ScalarProperty Name="ApoB" ColumnName="ApoB" />
+                <ScalarProperty Name="Triglycerides" ColumnName="Triglycerides" />
+                <ScalarProperty Name="NHDLC" ColumnName="NHDLC" />
+                <ScalarProperty Name="HDLC" ColumnName="HDLC" />
+                <ScalarProperty Name="LDLC" ColumnName="LDLC" />
+                <ScalarProperty Name="TotalCholesterol" ColumnName="TotalCholesterol" />
+                <ScalarProperty Name="LabDate" ColumnName="LabDate" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientVisitDetailsV4P3">
+            <EntityTypeMapping TypeName="GoalInternationalModel.PatientVisitDetailsV4P3">
+              <MappingFragment StoreEntitySet="PatientVisitDetailsV4P3">
+                <ScalarProperty Name="TriglyceridesUnit" ColumnName="TriglyceridesUnit" />
+                <ScalarProperty Name="NHDLCUnit" ColumnName="NHDLCUnit" />
+                <ScalarProperty Name="HDLCUnit" ColumnName="HDLCUnit" />
+                <ScalarProperty Name="LDLCUnit" ColumnName="LDLCUnit" />
+                <ScalarProperty Name="TotalCholesterolUnit" ColumnName="TotalCholesterolUnit" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="ReasonNotPCSK9i" ColumnName="ReasonNotPCSK9i" />
+                <ScalarProperty Name="ReasonNotEzetimibe" ColumnName="ReasonNotEzetimibe" />
+                <ScalarProperty Name="LipidTherapy6" ColumnName="LipidTherapy6" />
+                <ScalarProperty Name="LipidTherapy5" ColumnName="LipidTherapy5" />
+                <ScalarProperty Name="LipidTherapy4" ColumnName="LipidTherapy4" />
+                <ScalarProperty Name="LipidTherapy3" ColumnName="LipidTherapy3" />
+                <ScalarProperty Name="LipidTherapy2" ColumnName="LipidTherapy2" />
+                <ScalarProperty Name="LipidTherapy1" ColumnName="LipidTherapy1" />
+                <ScalarProperty Name="StatinDose" ColumnName="StatinDose" />
+                <ScalarProperty Name="StatinTherapy" ColumnName="StatinTherapy" />
+                <ScalarProperty Name="ApoBUnit" ColumnName="ApoBUnit" />
+                <ScalarProperty Name="ApoB" ColumnName="ApoB" />
+                <ScalarProperty Name="Triglycerides" ColumnName="Triglycerides" />
+                <ScalarProperty Name="NHDLC" ColumnName="NHDLC" />
+                <ScalarProperty Name="HDLC" ColumnName="HDLC" />
+                <ScalarProperty Name="LDLC" ColumnName="LDLC" />
+                <ScalarProperty Name="TotalCholesterol" ColumnName="TotalCholesterol" />
+                <ScalarProperty Name="LabDate" ColumnName="LabDate" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientVisitDetailsV1P1">
+            <EntityTypeMapping TypeName="GoalInternationalModel.PatientVisitDetailsV1P1">
+              <MappingFragment StoreEntitySet="PatientVisitDetailsV1P1">
+                <ScalarProperty Name="LDLCYesNo" ColumnName="LDLCYesNo" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="SignOff" ColumnName="SignOff" />
+                <ScalarProperty Name="VisitDate" ColumnName="VisitDate" />
+                <ScalarProperty Name="PatientConsentDate" ColumnName="PatientConsentDate" />
+                <ScalarProperty Name="Exclusion" ColumnName="Exclusion" />
+                <ScalarProperty Name="Inclusion_5" ColumnName="Inclusion_5" />
+                <ScalarProperty Name="Inclusion_4" ColumnName="Inclusion_4" />
+                <ScalarProperty Name="Inclusion_3" ColumnName="Inclusion_3" />
+                <ScalarProperty Name="Inclusion_2" ColumnName="Inclusion_2" />
+                <ScalarProperty Name="Inclusion_1" ColumnName="Inclusion_1" />
+                <ScalarProperty Name="AdditionalPhone" ColumnName="AdditionalPhone" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Initials" ColumnName="Initials" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InviteesMasters">
+            <EntityTypeMapping TypeName="GoalInternationalModel.InviteesMaster">
+              <MappingFragment StoreEntitySet="InviteesMaster">
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="ConsentCHRCShareName" ColumnName="ConsentCHRCShareName" />
+                <ScalarProperty Name="InvitationTier" ColumnName="InvitationTier" />
+                <ScalarProperty Name="InvitationSentDate" ColumnName="InvitationSentDate" />
+                <ScalarProperty Name="InvitedCHRC" ColumnName="InvitedCHRC" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="RegistrationStatus" ColumnName="RegistrationStatus" />
+                <ScalarProperty Name="RegistrationCode" ColumnName="RegistrationCode" />
+                <ScalarProperty Name="Interest" ColumnName="Interest" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+                <ScalarProperty Name="CellNumber" ColumnName="CellNumber" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Suite" ColumnName="Suite" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Institution" ColumnName="Institution" />
+                <ScalarProperty Name="PayableTo" ColumnName="PayableTo" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Specialty" ColumnName="Specialty" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ParentUserID" ColumnName="ParentUserID" />
+                <ScalarProperty Name="CHRCPhysicianID" ColumnName="CHRCPhysicianID" />
+                <ScalarProperty Name="AssignedPassword" ColumnName="AssignedPassword" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

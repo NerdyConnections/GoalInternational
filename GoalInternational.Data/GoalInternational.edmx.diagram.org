@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="deb2618904d24aeaac47a7f9d814b6a1" Name="Diagram1" ZoomLevel="80">
+        <EntityTypeShape EntityType="GoalInternationalModel.Country" Width="1.5" PointX="0.75" PointY="8.875" />
+        <EntityTypeShape EntityType="GoalInternationalModel.InviteesMaster" Width="1.5" PointX="3" PointY="6.125" />
+        <EntityTypeShape EntityType="GoalInternationalModel.PatientInfo" Width="1.5" PointX="5.75" PointY="5.75" />
+        <EntityTypeShape EntityType="GoalInternationalModel.PatientVisit" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GoalInternationalModel.PatientVisitDetailsV1P1" Width="1.5" PointX="7.75" PointY="6.75" />
+        <EntityTypeShape EntityType="GoalInternationalModel.PatientVisitDetailsV1P2" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GoalInternationalModel.PatientVisitDetailsV1P3" Width="1.5" PointX="9.75" PointY="10.75" />
+        <EntityTypeShape EntityType="GoalInternationalModel.PatientVisitDetailsV1P4" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GoalInternationalModel.PatientVisitDetailsV2P1" Width="1.5" PointX="11.75" PointY="6.75" />
+        <EntityTypeShape EntityType="GoalInternationalModel.PayeeInfo" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="GoalInternationalModel.Province" Width="1.5" PointX="11.75" PointY="11.75" />
+        <EntityTypeShape EntityType="GoalInternationalModel.RegistrationCode" Width="1.5" PointX="5.75" PointY="12.75" />
+        <EntityTypeShape EntityType="GoalInternationalModel.RegistrationStatu" Width="1.5" PointX="13.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GoalInternationalModel.Role" Width="1.5" PointX="0.75" PointY="2.125" />
+        <EntityTypeShape EntityType="GoalInternationalModel.StatinTherapyDosageLookup" Width="1.5" PointX="13.75" PointY="3.75" />
+        <EntityTypeShape EntityType="GoalInternationalModel.User" Width="1.5" PointX="3" PointY="1.25" />
+        <EntityTypeShape EntityType="GoalInternationalModel.UserType" Width="1.5" PointX="13.75" PointY="6.75" />
+        <EntityTypeShape EntityType="GoalInternationalModel.PatientVisitDetailsV2P2" Width="1.5" PointX="13.75" PointY="9.75" />
+        <EntityTypeShape EntityType="GoalInternationalModel.PatientVisitDetailsV2P3" Width="1.5" PointX="0.75" PointY="14.75" />
+        <AssociationConnector Association="GoalInternationalModel.FK_InviteesMaster_Country" />
+        <AssociationConnector Association="GoalInternationalModel.FK_PayeeInfo_User" />
+        <AssociationConnector Association="GoalInternationalModel.UserRole" />
+        <EntityTypeShape EntityType="GoalInternationalModel.PatientVisitDetailsV4P1" Width="1.5" PointX="5.125" PointY="9" />
+        <EntityTypeShape EntityType="GoalInternationalModel.PatientVisitDetailsV4P2" Width="1.5" PointX="6.4718819849527822" PointY="16.19545350232881" />
+        <EntityTypeShape EntityType="GoalInternationalModel.PatientVisitDetailsV4P3" Width="1.5" PointX="10.260116149792502" PointY="30.287980704702427" />
+        <EntityTypeShape EntityType="GoalInternationalModel.PatientVisitDetailsV3P1" Width="1.5" PointX="2.5055068742975157" PointY="14.861092514759438" />
+        <EntityTypeShape EntityType="GoalInternationalModel.PatientVisitDetailsV3P2" Width="1.5" PointX="11.999633291736075" PointY="29.150057150586534" />
+        <EntityTypeShape EntityType="GoalInternationalModel.PatientVisitDetailsV3P3" Width="1.5" PointX="0.75" PointY="11.25" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx
+        <EntityTypeShape EntityType="GoalInternational"3.375"tailsV2P"18"5.375"tityType"18.75"alInternationalModel.PatientVisitDetailsV2P3" Width="1.5" PointX="1.9858076041498256" PointY="26.925435943028628" />8.8058061603483768" PointY="24.860887047304253" />:Designer>
+</edmx:Edmx>

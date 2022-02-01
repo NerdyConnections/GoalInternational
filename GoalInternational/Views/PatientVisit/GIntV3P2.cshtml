@@ -1,0 +1,366 @@
+﻿@model GoalInternational.Models.GIntV3P2Model
+
+@{
+    ViewBag.Title = "GIntV3P2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Html.EnableClientValidation(false);
+}
+
+
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+
+    });
+</script>
+
+
+@using (Html.BeginForm("SaveValidateV3P2", "PatientVisit", FormMethod.Post, new { @id = "frmV3P2" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.UserID)
+    @Html.HiddenFor(model => model.PatientID)
+    @Html.HiddenFor(model => model.SignOff)
+
+    <div class="1">
+
+        <!-- <div class="link-blue"><a class="link-blue" href="javascript:void(0)">Download Process Document</a></div>-->
+
+
+        <h1>@GoalInternational.Languages.GIntV2P2.G1</h1>
+        <h3>
+            <strong>
+                @GoalInternational.Languages.GIntV2P2.G2<br>
+            </strong>@GoalInternational.Languages.GIntV2P2.G3 @Model.PatientID<br><br>
+        </h3>
+    </div>
+
+    <div class="row">
+        <div class="form-group form-group-sm col-sm-12">
+            <label style="font-size: 18px">
+                <strong>
+                    @GoalInternational.Languages.GIntV2P2.G4
+                </strong>
+            </label>
+        </div>
+        <div class="form-group form-group-sm col-sm-3">
+            <label class="" title="@GoalInternational.Languages.GIntV2P2.G6">
+                @GoalInternational.Languages.GIntV2P2.G5  <br>
+                @GoalInternational.Languages.GIntV2P2.G6
+            </label>
+            @Html.TextBoxFor(m => m.Systolic, new { @class = "form-control" })
+            mmHg&nbsp;<br />@Html.ValidationMessageFor(m => m.Systolic, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group form-group-sm col-sm-3">
+            <label class="" title="@GoalInternational.Languages.GIntV2P2.G7">
+                <br>
+                @GoalInternational.Languages.GIntV2P2.G7                        <br>
+            </label>
+
+            @Html.TextBoxFor(m => m.Diastolic, new { @class = "form-control" })
+            mmHg&nbsp;<br />@Html.ValidationMessageFor(m => m.Diastolic, "", new { @class = "text-danger" })
+        </div>
+
+
+
+    </div>
+
+
+    <div class="row">
+        <div class="form-group form-group-sm col-sm-3">
+            <label class="" title="@GoalInternational.Languages.GIntV2P2.G8">
+                @GoalInternational.Languages.GIntV2P2.G8&nbsp;<br>
+            </label>
+
+            <label class="" title="Location Name">                      </label>
+            @Html.TextBoxFor(m => m.HeartRate, new { @class = "form-control" })
+            bpm&nbsp;<br />@Html.ValidationMessageFor(m => m.HeartRate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group form-group-sm col-sm-3">
+            <label class="" title="@GoalInternational.Languages.GIntV2P2.G9">
+                @GoalInternational.Languages.GIntV2P2.G9&nbsp;<br>
+            </label>
+
+            <label class="" title="Location Name">                      </label>
+            @Html.TextBoxFor(m => m.Weight, new { @class = "form-control" })
+            <br />@Html.ValidationMessageFor(m => m.Weight, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group form-group-sm col-sm-3">
+            <label class="" title="Location Name">
+            </label>
+
+            <label>
+                <br>
+                @Html.RadioButtonFor(m => m.WeightUnit, "kg")
+                kg  &nbsp;&nbsp;&nbsp;
+            </label>
+            <label>
+                @Html.RadioButtonFor(m => m.WeightUnit, "lbs")
+            </label>
+            lbs
+            <br />@Html.ValidationMessageFor(m => m.WeightUnit, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group form-group-sm col-sm-3">
+            <label class="" title="Location Name">
+                @GoalInternational.Languages.GIntV2P2.G10<br>
+            </label>
+
+            <label class="" title="Location Name">                      </label>
+            @Html.TextBoxFor(m => m.Height, new { @class = "form-control" })
+            <br />@Html.ValidationMessageFor(m => m.Height, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group form-group-sm col-sm-3">
+            <label class="" title="Location Name">
+            </label>
+
+            <label>
+                <br>
+                @Html.RadioButtonFor(m => m.HeightUnit, "cm")
+                cm  &nbsp;&nbsp;&nbsp;
+            </label>
+            <label>
+                @Html.RadioButtonFor(m => m.HeightUnit, "in")
+            </label>
+            in
+            <br />@Html.ValidationMessageFor(m => m.WeightUnit, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group form-group-sm col-sm-3">
+            <label class="" title="@GoalInternational.Languages.GIntV2P2.G11">
+                @GoalInternational.Languages.GIntV2P2.G11<br>
+                @GoalInternational.Languages.GIntV2P2.G12
+            </label>
+
+            @Html.TextBoxFor(m => m.WaistCircumference, new { @class = "form-control" })
+            <br />@Html.ValidationMessageFor(m => m.WaistCircumference, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group form-group-sm col-sm-3">
+            <label class="" title="Location Name">
+            </label>
+
+            <label>
+                <br>
+                <br>
+                <br>
+                @Html.RadioButtonFor(m => m.WaistCircumferenceUnit, "cm")
+                cm  &nbsp;&nbsp;&nbsp;
+            </label>
+            <label>
+                @Html.RadioButtonFor(m => m.WaistCircumferenceUnit, "in")
+            </label>
+            in &nbsp;&nbsp;&nbsp;
+            <label>
+                <br>
+                @Html.RadioButtonFor(m => m.WaistCircumferenceUnit, "N/A")
+                N/A
+            </label>
+            <br />@Html.ValidationMessageFor(m => m.WaistCircumferenceUnit, "", new { @class = "text-danger" })
+        </div>
+
+        <div style="padding:15px">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th style="text-align:left; color:#FFF" bgcolor="#000000">
+                            @GoalInternational.Languages.GIntV2P2.G13<br>
+                            @GoalInternational.Languages.GIntV2P2.G14
+                        </th>
+                        <th style="color: #FFF; text-align:center" bgcolor="#000000">@GoalInternational.Languages.Common.Yes</th>
+                        <th style="color: #FFF; text-align:center" bgcolor="#000000">@GoalInternational.Languages.Common.No</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align:left">@GoalInternational.Languages.GIntV2P2.G15<br />@Html.ValidationMessageFor(m => m.CurrentLDLTherapy1, "", new { @class = "text-danger" })</td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.CurrentLDLTherapy1, "Yes")
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.CurrentLDLTherapy1, "No")
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left">PCSK9i<br />@Html.ValidationMessageFor(m => m.CurrentLDLTherapy2, "", new { @class = "text-danger" })</td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.CurrentLDLTherapy2, "Yes")
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.CurrentLDLTherapy2, "No")
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left">@GoalInternational.Languages.GIntV2P2.G16<br />@Html.ValidationMessageFor(m => m.CurrentLDLTherapy3, "", new { @class = "text-danger" })</td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.CurrentLDLTherapy3, "Yes")
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.CurrentLDLTherapy3, "No")
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left">@GoalInternational.Languages.GIntV2P2.G17<br />@Html.ValidationMessageFor(m => m.CurrentLDLTherapy4, "", new { @class = "text-danger" })</td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.CurrentLDLTherapy4, "Yes")
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.CurrentLDLTherapy4, "No")
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left">@GoalInternational.Languages.GIntV2P2.G18<br />@Html.ValidationMessageFor(m => m.CurrentLDLTherapy5, "", new { @class = "text-danger" })</td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.CurrentLDLTherapy5, "Yes")
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.CurrentLDLTherapy5, "No")
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left">@GoalInternational.Languages.GIntV2P2.G19<br />@Html.ValidationMessageFor(m => m.CurrentLDLTherapy6, "", new { @class = "text-danger" })</td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.CurrentLDLTherapy6, "Yes")
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.CurrentLDLTherapy6, "No")
+                            </label>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <div class="row">
+
+
+        <div class="form-group form-group-md col-sm-2 pull-right">
+            <label class="" title="">&nbsp;</label>
+            @if (@Model.SignOff ?? false)
+            {
+                <input class="form-control btn btn-default btn-sm" id="btnAdvance" value=@GoalInternational.Languages.Common.NEXT style="bottom:0px" type="button">
+            }
+            else
+            {
+                <input class="form-control btn btn-default btn-d" id="btnNext" value=@GoalInternational.Languages.Common.NEXT style="bottom:0px" type="submit">
+            }
+
+        </div>
+        <div class="form-group form-group-md col-sm-2 pull-right">
+            <label class="" title="">&nbsp;</label>
+            <input type="button" class="form-control btn btn-default btn-md" id="btnSave" value=@GoalInternational.Languages.Common.SAVE style="bottom:0px">
+        </div>
+        <div class="form-group form-group-md col-sm-2 pull-right">
+            <label class="" title="">&nbsp;</label>
+            <input type="button" class="form-control btn btn-default btn-md" id="btnBack" value=@GoalInternational.Languages.Common.BACK style="bottom:0px">
+        </div>
+    </div>
+
+    <div class="row">
+
+        <span id="spanResult" style="color:red"></span>
+    </div>
+
+}
+
+@section Scripts {
+
+    <script type="text/javascript">
+        $('#btnAdvance').on('click', function (e) {
+            window.location.href = "/PatientVisit/GIntV3?PatientID=@Model.PatientID" + "&Page=3";
+        });
+        $('#btnBack').on('click', function (e) {
+            debugger;
+            window.location.href = "/PatientVisit/GIntV3?PatientID=@Model.PatientID" + "&Page=1";
+        });
+
+
+
+
+        $(document).ready(function () {
+
+            if ('@Model.SignOff' == 'True') {
+
+                $('input', 'form').attr('readonly', true);
+                $('select', 'form').attr('disabled', true).attr('readonly', true);
+                $('input[type=text], textarea').attr('readonly', true);
+                $(":radio").attr('disabled', true).attr('readonly', true);
+                $(":checkbox").attr('disabled', true).attr('readonly', true);
+                $('#btnSave').hide();
+            }
+
+            $("#btnSave").click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: '/PatientVisit/SaveV3P2',     //your action
+                    data: $('#frmV3P2').serialize(),   //your form name.it takes all the values of model
+                    dataType: 'json',
+                    success: function (data) {
+                        debugger;
+                        $("#spanResult").html(data.success.msg);
+                        console.log(data);
+                    },
+                    error: function (xhr, httpStatusMessage, customErrorMessage) {
+                        debugger;
+
+                        if (xhr.status === 410) {
+                            $("#spanResult").html(customErrorMessage);
+
+                        }
+                    }
+                })
+                return false;
+
+            });//end of save
+
+            toggleWaistCircumferenceTextbox();
+            $("input:radio[name='WaistCircumferenceUnit']").change(function () {
+                toggleWaistCircumferenceTextbox();
+            });
+
+        });//end of document ready
+
+        function toggleWaistCircumferenceTextbox() {
+            if ($('input:radio[name="WaistCircumferenceUnit"]:checked').val() == "N/A") {
+                $("#WaistCircumference").val('');
+                $('#WaistCircumference').prop('readonly', true);
+            }
+            else {
+
+                $('#WaistCircumference').prop('readonly', false);
+            }
+        }
+    </script>
+}

@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="EmailContentToSC" xml:space="preserve">
+    <value>&lt;p&gt;
+  Dear {firstName} {lastName},
+&lt;/p&gt;
+&lt;p&gt;
+  Dr. {piLastName} at your Institution {institution} has identified you as a Study Coordinator for the GoalInternational program.
+&lt;/p&gt;
+&lt;p&gt;
+  On behalf of the Canadian Heart Research Centre and the GOAL International program Steering Committee, we look forward to working with you and appreciate your contribution to this program.
+&lt;/p&gt;
+&lt;div style="font-weight:bold"&gt;
+&lt;p style="text-decoration:underline; font-weight: bold"&gt;
+  To register and access your Institution’s Online Portal, please follow the steps below:
+&lt;/p&gt;
+&lt;p&gt;
+  Follow this link: &lt;a href="{BaseURL}"&gt;GOAL International program Registration&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  Or copy and paste this url &lt;a href="{BaseURL}"&gt;{BaseURL}&lt;/a&gt; in your browser
+&lt;/p&gt;
+&lt;p&gt;
+  Enter Your email: {email}
+&lt;/p&gt;
+&lt;p&gt;
+  Enter Your Temporary Password: &lt;span style="color:red"&gt;{password}&lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  And click Login to follow a series of steps to complete your registration.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;
+  Once you complete the registration, you will be able to access your Institution's online portal at &lt;a href="{BaseURL}"&gt;{BaseURL}&lt;/a&gt;. &lt;span style="color:red"&gt;Please keep your login information confidential and do not share or forward your username and password.&lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  Please review the pertinent documents in the online portal to get acquainted with the site functionalities and program components.
+&lt;/p&gt;
+&lt;p&gt;
+  Should you have any questions, please do not hesitate to contact Diane Camara (&lt;a href="mailto:clinicaltrials@chrc.net"&gt;clinicaltrials@chrc.net&lt;/a&gt;)
+&lt;/p&gt;
+&lt;p&gt;
+  We look forward to working with you.
+&lt;/p&gt;
+&lt;p&gt;
+  With best regards,
+&lt;/p&gt;
+&lt;p&gt;
+  The CHRC GOAL International program Team
+&lt;/p&gt;</value>
+  </data>
+  <data name="EmailContentToSI" xml:space="preserve">
+    <value>&lt;p&gt;
+  Dear Dr. {lastName},
+&lt;/p&gt;
+&lt;p&gt;
+  Dr. {piLastName} at your Institution {institution} has identified you as a Sub-Investigator for the GoalInternational program.
+&lt;/p&gt;
+&lt;p&gt;
+  On behalf of the Canadian Heart Research Centre and the GOAL International program Steering Committee, we look forward to working with you and appreciate your contribution to this program.
+&lt;/p&gt;
+&lt;div style="font-weight:bold"&gt;
+&lt;p style="text-decoration:underline; font-weight: bold"&gt;
+  To register and access your Institution’s Online Portal, please follow the steps below:
+&lt;/p&gt;
+&lt;p&gt;
+  Follow this link: &lt;a href="{BaseURL}"&gt;GOAL International program Registration&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  Or copy and paste this url &lt;a href="{BaseURL}"&gt;{BaseURL}&lt;/a&gt; in your browser
+&lt;/p&gt;
+&lt;p&gt;
+  Enter Your email: {email}
+&lt;/p&gt;
+&lt;p&gt;
+  Enter Your Temporary Password: &lt;span style="color:red"&gt;{password}&lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  And click Login to follow a series of steps to complete your registration.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;
+  Once you complete the registration, you will be able to access your Institution's online portal at &lt;a href="{BaseURL}"&gt;{BaseURL}&lt;/a&gt;. &lt;span style="color:red"&gt;Please keep your login information confidential and do not share or forward your username and password.&lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  Please review the pertinent documents in the online portal to get acquainted with the site functionalities and program components.
+&lt;/p&gt;
+&lt;p&gt;
+  Should you have any questions, please do not hesitate to contact Diane Camara (&lt;a href="mailto:clinicaltrials@chrc.net"&gt;clinicaltrials@chrc.net&lt;/a&gt;)
+&lt;/p&gt;
+&lt;p&gt;
+  We look forward to working with you.
+&lt;/p&gt;
+&lt;p&gt;
+  With best regards,
+&lt;/p&gt;
+&lt;p&gt;
+  The CHRC GOAL International program Team
+&lt;/p&gt;</value>
+  </data>
+  <data name="EmailSubject" xml:space="preserve">
+    <value>Goal International  – Registration</value>
+  </data>
+  <data name="G1" xml:space="preserve">
+    <value>Add Sub-Investigator</value>
+  </data>
+  <data name="G10" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="G11" xml:space="preserve">
+    <value>Re-Enter Email</value>
+  </data>
+  <data name="G12" xml:space="preserve">
+    <value>"Re-Enter Email" and "Email" do not match</value>
+  </data>
+  <data name="G13" xml:space="preserve">
+    <value>You have successfully added a new Sub-Investigator</value>
+  </data>
+  <data name="G14" xml:space="preserve">
+    <value>The person with this email has been added before</value>
+  </data>
+  <data name="G15" xml:space="preserve">
+    <value>ADDITION SUCCESSFUL</value>
+  </data>
+  <data name="G16" xml:space="preserve">
+    <value>ADDITION FAILED</value>
+  </data>
+  <data name="G17" xml:space="preserve">
+    <value>Add Study Coordinator</value>
+  </data>
+  <data name="G18" xml:space="preserve">
+    <value>To add a Study Coordinator and provide them access to your Goal portal, please complete the mandatory fields (*) and click the "Add" button</value>
+  </data>
+  <data name="G19" xml:space="preserve">
+    <value>Mandatory fields are marked with an asterisk: *</value>
+  </data>
+  <data name="G2" xml:space="preserve">
+    <value>Instructions</value>
+  </data>
+  <data name="G20" xml:space="preserve">
+    <value>You have successfully added a new Study Coordinator</value>
+  </data>
+  <data name="G21" xml:space="preserve">
+    <value>Modify Sub-Investigator</value>
+  </data>
+  <data name="G22" xml:space="preserve">
+    <value>To remove the Sub-Investigator and discontinue their online portal access, please click the "Remove" button next to the appropriate name in the list below</value>
+  </data>
+  <data name="G23" xml:space="preserve">
+    <value>SUB-INVESTIGATOR LIST</value>
+  </data>
+  <data name="G24" xml:space="preserve">
+    <value>Search Last Name</value>
+  </data>
+  <data name="G25" xml:space="preserve">
+    <value>Search First Name</value>
+  </data>
+  <data name="G26" xml:space="preserve">
+    <value>Please Confirm</value>
+  </data>
+  <data name="G27" xml:space="preserve">
+    <value>Are you sure you want to delete this Sub Investigator?</value>
+  </data>
+  <data name="G28" xml:space="preserve">
+    <value>Deletion Failed</value>
+  </data>
+  <data name="G29" xml:space="preserve">
+    <value>Modify Study Coordinator</value>
+  </data>
+  <data name="G3" xml:space="preserve">
+    <value>To add a Sub-Investigator and provide them access to your Goal portal , please complete the mandatory fields (*) and click the "Add" button</value>
+  </data>
+  <data name="G30" xml:space="preserve">
+    <value>To remove the Study Coordinator and discontinue their online portal access, please click the "Remove" button next to the appropriate name in the list below</value>
+  </data>
+  <data name="G31" xml:space="preserve">
+    <value>STUDY COORDINATOR LIST</value>
+  </data>
+  <data name="G32" xml:space="preserve">
+    <value>Are you sure you want to delete this Study Coordinator?</value>
+  </data>
+  <data name="G33" xml:space="preserve">
+    <value>Investigator Meeting Presentations</value>
+  </data>
+  <data name="G34" xml:space="preserve">
+    <value>Introduction</value>
+  </data>
+  <data name="G35" xml:space="preserve">
+    <value>Introduction - Dr. Anatoly Langer</value>
+  </data>
+  <data name="G36" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="G37" xml:space="preserve">
+    <value>The Need for Lipid Lowering Beyond Statin Therapy</value>
+  </data>
+  <data name="G38" xml:space="preserve">
+    <value>The Data Behind PCSK9 Inhibitors</value>
+  </data>
+  <data name="G39" xml:space="preserve">
+    <value>Real-world Data from the Goal Canada Program</value>
+  </data>
+  <data name="G4" xml:space="preserve">
+    <value>The Sub-Investigator will receive an automatic email with the login instructions from</value>
+  </data>
+  <data name="G40" xml:space="preserve">
+    <value>Goal International Protocol</value>
+  </data>
+  <data name="G41" xml:space="preserve">
+    <value>Goal International eCRF</value>
+  </data>
+  <data name="G42" xml:space="preserve">
+    <value>Presentations</value>
+  </data>
+  <data name="G43" xml:space="preserve">
+    <value>Presentation 1</value>
+  </data>
+  <data name="G5" xml:space="preserve">
+    <value>The Sub-Investigator will have access to the same site functionalities and resources as the Principal Investigator</value>
+  </data>
+  <data name="G6" xml:space="preserve">
+    <value>You can modify/remove Sub-Investigators in the "Modify Sub-I" section of the left-hand menu</value>
+  </data>
+  <data name="G7" xml:space="preserve">
+    <value>ADD</value>
+  </data>
+  <data name="G8" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="G9" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+</root>

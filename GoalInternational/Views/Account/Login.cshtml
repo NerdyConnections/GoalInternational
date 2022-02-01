@@ -1,0 +1,9 @@
+﻿@using GoalInternational.Models
+@model GoalInternational.Models.LoginModel
+
+@{
+    ViewBag.Title = GoalInternational.Languages.Common.LOGIN;
+    Layout = "~/Views/Shared/_LoginMaster.cshtml";
+}
+
+   @{ Html.RenderPartial("_LoginPartial");}

@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="G1" xml:space="preserve">
+    <value>eCRF Portal</value>
+  </data>
+  <data name="G10" xml:space="preserve">
+    <value>Arabic / North African</value>
+  </data>
+  <data name="G11" xml:space="preserve">
+    <value>Black</value>
+  </data>
+  <data name="G12" xml:space="preserve">
+    <value>Caucasian / White</value>
+  </data>
+  <data name="G13" xml:space="preserve">
+    <value>Hispanic</value>
+  </data>
+  <data name="G14" xml:space="preserve">
+    <value>East / South-East Asian</value>
+  </data>
+  <data name="G15" xml:space="preserve">
+    <value>Multi-Racial</value>
+  </data>
+  <data name="G16" xml:space="preserve">
+    <value>South Asian</value>
+  </data>
+  <data name="G17" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="G18" xml:space="preserve">
+    <value>Never Smoked</value>
+  </data>
+  <data name="G19" xml:space="preserve">
+    <value>Past Smoker</value>
+  </data>
+  <data name="G2" xml:space="preserve">
+    <value>DEMOGRAPHICS AND HISTORY</value>
+  </data>
+  <data name="G20" xml:space="preserve">
+    <value>Current Smoker</value>
+  </data>
+  <data name="G21" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="G22" xml:space="preserve">
+    <value>Public</value>
+  </data>
+  <data name="G23" xml:space="preserve">
+    <value>If Private</value>
+  </data>
+  <data name="G24" xml:space="preserve">
+    <value>Employer</value>
+  </data>
+  <data name="G25" xml:space="preserve">
+    <value>Self Pay</value>
+  </data>
+  <data name="G26" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="G27" xml:space="preserve">
+    <value>CO-MORBIDITIES</value>
+  </data>
+  <data name="G28" xml:space="preserve">
+    <value>Coronary Artery Disease</value>
+  </data>
+  <data name="G29" xml:space="preserve">
+    <value>Cerebrovascular Disease</value>
+  </data>
+  <data name="G3" xml:space="preserve">
+    <value>Patient Number</value>
+  </data>
+  <data name="G30" xml:space="preserve">
+    <value>Abdominal Aortic Aneurism</value>
+  </data>
+  <data name="G31" xml:space="preserve">
+    <value>Peripheral Arterial Disease</value>
+  </data>
+  <data name="G32" xml:space="preserve">
+    <value>Diabetes Mellitus</value>
+  </data>
+  <data name="G33" xml:space="preserve">
+    <value>Treated Hypertension</value>
+  </data>
+  <data name="G34" xml:space="preserve">
+    <value>Chronic Kidney Disease</value>
+  </data>
+  <data name="G35" xml:space="preserve">
+    <value>Microvascular Disease (retinopathy, neuropathy)</value>
+  </data>
+  <data name="G36" xml:space="preserve">
+    <value>Familial Hypercholesterolemia</value>
+  </data>
+  <data name="G37" xml:space="preserve">
+    <value>Premature Family History or CV disease (1º relative – 55 yo/male, 65 yo/female)</value>
+  </data>
+  <data name="G38" xml:space="preserve">
+    <value>Atrial Fibrillation</value>
+  </data>
+  <data name="G39" xml:space="preserve">
+    <value>Congestive Heart Failure</value>
+  </data>
+  <data name="G4" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="G40" xml:space="preserve">
+    <value>Cancer</value>
+  </data>
+  <data name="G41" xml:space="preserve">
+    <value>Liver Disease</value>
+  </data>
+  <data name="G42" xml:space="preserve">
+    <value>History of Coronary Artery Disease (CAD)</value>
+  </data>
+  <data name="G43" xml:space="preserve">
+    <value>Myocardial Infarction</value>
+  </data>
+  <data name="G44" xml:space="preserve">
+    <value>Coronary artery bypass surgery</value>
+  </data>
+  <data name="G45" xml:space="preserve">
+    <value>Percutaneous coronary intervention</value>
+  </data>
+  <data name="G46" xml:space="preserve">
+    <value>Angiographic disease (&gt;50% stenosis)</value>
+  </data>
+  <data name="G47" xml:space="preserve">
+    <value>History of Cerebrovascular Disease (CeVD)</value>
+  </data>
+  <data name="G48" xml:space="preserve">
+    <value>Cerebrovascular Accident</value>
+  </data>
+  <data name="G49" xml:space="preserve">
+    <value>Transient ischemic attack</value>
+  </data>
+  <data name="G5" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="G50" xml:space="preserve">
+    <value>Carotid Surgery</value>
+  </data>
+  <data name="G51" xml:space="preserve">
+    <value>T2DM Duration</value>
+  </data>
+  <data name="G52" xml:space="preserve">
+    <value>Microvascular Disease</value>
+  </data>
+  <data name="G53" xml:space="preserve">
+    <value>Microalbuminuria</value>
+  </data>
+  <data name="G54" xml:space="preserve">
+    <value>eGFR &lt; 60 mL/min</value>
+  </data>
+  <data name="G55" xml:space="preserve">
+    <value>Neuropathy</value>
+  </data>
+  <data name="G56" xml:space="preserve">
+    <value>Retinopathy</value>
+  </data>
+  <data name="G57" xml:space="preserve">
+    <value>Familial Hypercholesterolemia LDL-C &gt; 5mmol/L prior to lipid lowering therapy and one of:</value>
+  </data>
+  <data name="G58" xml:space="preserve">
+    <value>Typical physical findings (stigmata) such as tendon xanthomata, xanthelasma, and corneal arcus</value>
+  </data>
+  <data name="G59" xml:space="preserve">
+    <value>Personal history of premature cardiovascular disease</value>
+  </data>
+  <data name="G6" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="G60" xml:space="preserve">
+    <value>Family history of premature cardiovascular disease or of marked hyperlipidemia</value>
+  </data>
+  <data name="G61" xml:space="preserve">
+    <value>Smoking History: &lt;em&gt;Select one from the drop down menu&lt;/em&gt;</value>
+  </data>
+  <data name="G62" xml:space="preserve">
+    <value>Medication Insurance Coverage:</value>
+  </data>
+  <data name="G63" xml:space="preserve">
+    <value>Medication Insurance Coverage:</value>
+  </data>
+  <data name="G64" xml:space="preserve">
+    <value>Age cannot be younger than 18 or older than 110</value>
+  </data>
+  <data name="G65" xml:space="preserve">
+    <value>Abdominal Aortic Aneurism (AAA): History of surgery/intervention</value>
+  </data>
+  <data name="G66" xml:space="preserve">
+    <value>Peripheral Arterial Disease (PAD): History of surgery/intervention</value>
+  </data>
+  <data name="G67" xml:space="preserve">
+    <value>Typical physical findings (stigmata) such as tendon xanthomata, xanthelasma, and corneal arcus. Personal history of premature cardiovascular disease. Family history of premature cardiovascular disease or of marked hyperlipidemia</value>
+  </data>
+  <data name="G68" xml:space="preserve">
+    <value>Chronic Kidney Disease GFR ≤ 45 mL/min/1.73 m2 or albumin: creatinine ratio (ACR) of ≥ 30 mg/mmol (≥ 300 mg/day)</value>
+  </data>
+  <data name="G7" xml:space="preserve">
+    <value>Age: (years)</value>
+  </data>
+  <data name="G8" xml:space="preserve">
+    <value>Ethnicity: Select one from the drop down menu</value>
+  </data>
+  <data name="G9" xml:space="preserve">
+    <value>Aboriginal Canadian (First Nations / Métis / Inuit)</value>
+  </data>
+</root>

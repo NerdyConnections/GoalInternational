@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>Acerca de</value>
+  </data>
+  <data name="ActivationEmail" xml:space="preserve">
+    <value>&lt;table width = '500' border = '0' cellspacing = '0' cellpadding = '10'&gt;
+                        &lt;tr&gt;
+                
+                            &lt;td align = 'center'&gt;&lt;strong style = 'font-size: 30px; font-family: Arial, Helvetica, sans-serif;'&gt; REGISTRO COMPLETO &lt;/strong&gt;&lt;/td&gt;
+                         
+                                 &lt;/tr&gt;
+                         
+                              
+                         
+                                 &lt;tr&gt;
+                         
+                                     &lt;td align = 'left'&gt;
+                                          Estimado  {FirstName}, &lt;br /&gt; &amp;nbsp;&lt;br /&gt;
+													Has activado con éxito tu Portal CPD personal de Amgen. &lt;br /&gt; &amp;nbsp;&lt;br /&gt;
+                                                    Toma nota de tu &lt;strong&gt; nombre de usuario &lt;/strong&gt; y &lt;strong&gt; contraseña, &lt;/strong&gt; los cuales deberás ingresar cada vez que accedas a tu portal personal en línea a través de la dirección web&lt;strong&gt;
+		
+                                                                  &lt;strong style = 'color: #125d9f' &gt; https://amgen.ccpdhm.com  &lt;/strong&gt;&lt;br /&gt;
+                                               
+                                                               &lt;/strong&gt; &lt;br /&gt;  &lt;strong&gt;
+                                                                   Por favor, asegúrate de que esta información se mantenga confidencial y no compartas ni envíes tu nombre de usuario y contraseña:&lt;br /&gt;
+                                                                   &amp;nbsp;&lt;br /&gt;
+                                                                   Tu nombre de usuario:
+                &lt;/strong&gt; &lt;span &gt;&lt;strong style = 'color: #125d9f'&gt; {userName} &lt;/strong&gt; &amp;nbsp; &lt;/span&gt; &amp;nbsp;&lt;br /&gt;  &lt;strong&gt; Tu contraseña:&lt;/strong&gt; &lt;strong style = 'color: #125d9f'&gt; {password} &lt;/strong&gt;
+                
+                                        &lt;p style = 'color: #125d9f'&gt;&lt;strong&gt; Próximos Pasos:&lt;/strong&gt;  &lt;/p&gt;
+                     
+                                     &lt;p&gt; Por favor, asegúrate de&lt;strong style = 'color: #125d9f'&gt; &lt;u&gt; habilitar las cookies &lt;/u&gt;&lt;/strong&gt; en tu navegador. En caso de tener alguna duda, consulta la guía adjunta que muestra un proceso paso a paso. &lt;/p&gt;
+										
+                                           &lt;p&gt;
+                                               Inicia sesión con tu nombre de usuario y contraseña en &lt;strong style = 'color: #125d9f'&gt; https://amgen.ccpdhm.com  &lt;/strong&gt; para que comiences a familiarizarte con el portal web y sus funcionalidades. &lt;br /&gt;
+                    &amp;nbsp;&lt;br /&gt;
+   
+    
+                    &lt;/p&gt;
+    
+                &lt;/td&gt;
+    
+            &lt;/tr&gt; 
+             
+            
+    
+            &lt;tr&gt;
+    
+                &lt;td align = 'left'&gt;
+                    Si tienes alguna pregunta o necesitas ayuda, no dudes en ponerte en contacto con nosotros por correo electrónico a la dirección &lt;strong&gt;&lt;U&gt;&lt;a  style = 'color: #125d9f' href = 'mailto:amgen@ccpdhm.com '&gt; amgen@ccpdhm.com   &lt;/a&gt;&lt;/U&gt;&lt;/strong&gt;&lt;strong&gt;
+             
+                                 &lt;br /&gt;
+             
+                             &lt;/strong&gt; &lt;br /&gt;
+                           
+                             Con un atento saludo, &lt;br /&gt;          
+             
+                             &lt;strong style = 'color: #125d9f'&gt;
+                                El Equipo del Portal Web CCPDHM &lt;br /&gt;          
+							&lt;strong&gt; E:&lt;/strong&gt; &lt;strong&gt;&lt;U&gt;&lt;a href = 'mailto:amgen@ccpdhm.com '&gt; amgen@ccpdhm.com  &lt;/a&gt;&lt;/U&gt;&lt;/strong&gt;&lt;br /&gt;
+                                
+                                               
+                                                
+                                               
+                &lt;/td&gt;
+                                              
+            &lt;/tr&gt;
+                                              
+                                              
+     &lt;/table&gt;</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>259 Yorkland Road, Suite 200,</value>
+  </data>
+  <data name="Atorvastatin" xml:space="preserve">
+    <value>Atorvastatina</value>
+  </data>
+  <data name="BACK" xml:space="preserve">
+    <value>REGRESAR</value>
+  </data>
+  <data name="CANCEL" xml:space="preserve">
+    <value>CANCELAR</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>North York, Ontario,</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="CONFIRM" xml:space="preserve">
+    <value>CONFIRMAR</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contacto</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Contáctanos</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Canadá, M2J 5B2</value>
+  </data>
+  <data name="DiastolicOutOfRange" xml:space="preserve">
+    <value>El intervalo diastólico válido es de 30 a 150.</value>
+  </data>
+  <data name="EMAIL" xml:space="preserve">
+    <value>CORREO ELECTRÓNICO</value>
+  </data>
+  <data name="EMAIL_INVALID" xml:space="preserve">
+    <value>*El correo electrónico es inválido</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ErrorOccurred" xml:space="preserve">
+    <value>Se produjo un error al procesar tu solicitud.</value>
+  </data>
+  <data name="Fluvastatin" xml:space="preserve">
+    <value>Fluvastatina</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Olvidaste tu contraseña</value>
+  </data>
+  <data name="FORGOTPASSWORD_TEXT" xml:space="preserve">
+    <value>&lt;table width = '500' border = '0' cellspacing = '0' cellpadding = '10'&gt;
+                        &lt;tr&gt;                
+                            &lt;td align = 'center'&gt;&lt;strong style = 'font-size: 30px; font-family: Arial, Helvetica, sans-serif;'&gt; ¿OLVIDASTE TU CONTRASEÑA? &lt;/strong&gt;&lt;/td&gt;                         
+                                 &lt;/tr&gt;                       
+                         
+                                 &lt;tr&gt;                         
+                                     &lt;td align = 'left'&gt;                                                                   
+                                             &lt;br /&gt;  &lt;strong&gt;
+                                                                   Por favor, asegúrate de que esta información se mantenga confidencial y no compartas ni envíes tu nombre de usuario y contraseña.&lt;br /&gt;
+                                                                   &amp;nbsp;&lt;br /&gt;
+                                                                   Tu nombre de usuario:&lt;/strong&gt; &lt;span &gt;&lt;strong style = 'color: #125d9f'&gt; {userName} &lt;/strong&gt; &amp;nbsp; &lt;/span&gt; &amp;nbsp;&lt;br /&gt;  
+                                                                   &lt;strong&gt; Tu contraseña:&lt;/strong&gt; &lt;strong style = 'color: #125d9f'&gt; {password} &lt;/strong&gt;               
+                          
+                &lt;/td&gt;    
+            &lt;/tr&gt;            
+                                 
+           &lt;/table&gt;</value>
+  </data>
+  <data name="FORGOT_PWD_HEADER" xml:space="preserve">
+    <value>OLVIDASTE TU CONTRASEÑA</value>
+  </data>
+  <data name="HeartRateOutOfRange" xml:space="preserve">
+    <value>La Frecuencia Cardiaca Válida es de 30 a 200</value>
+  </data>
+  <data name="HelpCentre" xml:space="preserve">
+    <value>Centro de Ayuda</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Índice</value>
+  </data>
+  <data name="INSTRUCTIONS" xml:space="preserve">
+    <value>INSTRUCCIONES</value>
+  </data>
+  <data name="InvalidUsername" xml:space="preserve">
+    <value>Nombre de Usuario no Válido</value>
+  </data>
+  <data name="LOGIN" xml:space="preserve">
+    <value>Inicio de Sesión</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Cerrar Sesión</value>
+  </data>
+  <data name="Lovastatin" xml:space="preserve">
+    <value>Lovastatina</value>
+  </data>
+  <data name="NA" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Te hemos enviado una nueva contraseña.</value>
+  </data>
+  <data name="NEXT" xml:space="preserve">
+    <value>SIGUIENTE</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="NoStatin" xml:space="preserve">
+    <value>Sin estatinas</value>
+  </data>
+  <data name="NotNumber" xml:space="preserve">
+    <value>No es un número</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="PASSWORD" xml:space="preserve">
+    <value>CONTRASEÑA</value>
+  </data>
+  <data name="PleaseSelect" xml:space="preserve">
+    <value>Por favor seleccione</value>
+  </data>
+  <data name="PleaseSelectOne" xml:space="preserve">
+    <value>Por favor selecciona una opción</value>
+  </data>
+  <data name="Pravastatin" xml:space="preserve">
+    <value>Pravastatina</value>
+  </data>
+  <data name="Registration_Language_Selection" xml:space="preserve">
+    <value>Registro - Selección de idioma</value>
+  </data>
+  <data name="REMOVE" xml:space="preserve">
+    <value>ELIMINAR</value>
+  </data>
+  <data name="RequiredFieldWithAsterisk" xml:space="preserve">
+    <value>* Campo requerido</value>
+  </data>
+  <data name="Rosuvastatin" xml:space="preserve">
+    <value>Rosuvastatina</value>
+  </data>
+  <data name="SAVE" xml:space="preserve">
+    <value>GUARDAR</value>
+  </data>
+  <data name="SaveError" xml:space="preserve">
+    <value>No se puede guardar en la base de datos, póngase en contacto con el equipo de soporte en info@goalinternational.com</value>
+  </data>
+  <data name="SaveSucess" xml:space="preserve">
+    <value>Los datos se han guardado en la base de datos con éxito.</value>
+  </data>
+  <data name="SelectAllApply" xml:space="preserve">
+    <value>Marque TODAS las opciones aplicables (debe seleccionar al menos UNA)</value>
+  </data>
+  <data name="SelectOneDropDown" xml:space="preserve">
+    <value>Seleccione una opción del menú desplegable</value>
+  </data>
+  <data name="SelectYesNo" xml:space="preserve">
+    <value>Seleccione Sí/No para cada una de las siguientes opciones</value>
+  </data>
+  <data name="Simvastatin" xml:space="preserve">
+    <value>Simvastatina</value>
+  </data>
+  <data name="SteeringCommittee" xml:space="preserve">
+    <value>COMITÉ DIRECTIVO</value>
+  </data>
+  <data name="SteeringCommitteeDetails" xml:space="preserve">
+    <value>&lt;ol&gt;
+    &lt;li&gt;Anatoly Langer, MD (Presidente) langera@chrc.net&lt;/li&gt;
+    &lt;li&gt;Khalid Al Faraidy, MD (Complejo Médico Militar King Fahad, Arabia Saudita) kalfaraidy@yahoo.com&lt;/li&gt;
+    &lt;li&gt;Mousa Akbar, MD (Hospital Sabah, Kuwait) mousaakbar@hotmail.com&lt;/li&gt;
+    &lt;li&gt;WWael Almahmeed, MD (Clínica de Cleveland, Abu Dhabi) wmahmeed@gmail.com&lt;/li&gt;
+    &lt;li&gt;Marco Antonio Alcocer-Gamba, MD (Sociedad Mexicana de Cardiología, México) marco.alcocerg@gmail.com&lt;/li&gt;
+    &lt;li&gt;Otavio Berwanger, MD (Hospital Albert Einstein) otavioberwanger@gmail.com&lt;/li&gt;
+&lt;/ol&gt;</value>
+  </data>
+  <data name="SUBMIT" xml:space="preserve">
+    <value>ENVIAR</value>
+  </data>
+  <data name="SystolicOutOfRange" xml:space="preserve">
+    <value>El Intervalo Sistólico Válido es de 60 a 250.</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Tiempo</value>
+  </data>
+  <data name="ValidApoBRange" xml:space="preserve">
+    <value>* Intervalo válido (0.05-50 g/L o 5-5000 mg/dL)</value>
+  </data>
+  <data name="ValidateApoB" xml:space="preserve">
+    <value>* Intervalo válido (0.01 g/L- 10 g/L)</value>
+  </data>
+  <data name="ValidateDate" xml:space="preserve">
+    <value>La fecha debe ser igual o anterior a la fecha actual</value>
+  </data>
+  <data name="ValidateDateFormat" xml:space="preserve">
+    <value>No es una fecha válida</value>
+  </data>
+  <data name="ValidateTriglycerides" xml:space="preserve">
+    <value>* Intervalo válido (0.5-25 mmol/L o 30-2215 mg/dL)</value>
+  </data>
+  <data name="ValidHDLCRange" xml:space="preserve">
+    <value>* Intervalo válido (0.5-25 mmol/L o 20-967 mg/dL)</value>
+  </data>
+  <data name="ValidHeightRange" xml:space="preserve">
+    <value>El Intervalo de Altura Válido es (100-230 cm o 39-90 pulgadas)</value>
+  </data>
+  <data name="ValidLabValues" xml:space="preserve">
+    <value>Se debe completar LDL-C, No HDL-C o Apo-B</value>
+  </data>
+  <data name="ValidLDLCRange" xml:space="preserve">
+    <value>* Intervalo válido (1.4-20 mmol/L o 55-800 mg/dL)</value>
+  </data>
+  <data name="ValidNHDLCRange" xml:space="preserve">
+    <value>* Intervalo válido (2.5-25 mmol/L o 100-967 mg/dL)</value>
+  </data>
+  <data name="ValidTotalCholesterolRange" xml:space="preserve">
+    <value>* Intervalo válido (2-25 mmol/L o 80-967 mg/dL)</value>
+  </data>
+  <data name="ValidV2V3V4LDLCRange" xml:space="preserve">
+    <value>* Intervalo válido (0.1-20 mmol/L o 1-800 mg/dL)</value>
+  </data>
+  <data name="ValidV2V3V4NHDLCRange" xml:space="preserve">
+    <value>* Intervalo válido (1-25 mmol/L o 30-967 mg/dL)</value>
+  </data>
+  <data name="ValidV2V3V4TotalCholesterolRange" xml:space="preserve">
+    <value>* Intervalo válido (1-25 mmol/L o 35-967 mg/dL)</value>
+  </data>
+  <data name="ValidWaistRange" xml:space="preserve">
+    <value>El intervalo de Cintura Válido es (18-80 pulgadas o 45-200 cm)</value>
+  </data>
+  <data name="ValidWeightRange" xml:space="preserve">
+    <value>El intervalo de Peso Válido es (30-300 kg o 66-660 lb)</value>
+  </data>
+  <data name="years_10" xml:space="preserve">
+    <value>10 años</value>
+  </data>
+  <data name="years_11" xml:space="preserve">
+    <value>11 años</value>
+  </data>
+  <data name="years_12" xml:space="preserve">
+    <value>12 años</value>
+  </data>
+  <data name="years_13" xml:space="preserve">
+    <value>13 años</value>
+  </data>
+  <data name="years_14" xml:space="preserve">
+    <value>14 años</value>
+  </data>
+  <data name="years_15" xml:space="preserve">
+    <value>15 años</value>
+  </data>
+  <data name="years_16" xml:space="preserve">
+    <value>16 años</value>
+  </data>
+  <data name="years_17" xml:space="preserve">
+    <value>17 años</value>
+  </data>
+  <data name="years_18" xml:space="preserve">
+    <value>18 años</value>
+  </data>
+  <data name="years_19" xml:space="preserve">
+    <value>19 años</value>
+  </data>
+  <data name="years_2" xml:space="preserve">
+    <value>2 años</value>
+  </data>
+  <data name="years_20" xml:space="preserve">
+    <value>20 años</value>
+  </data>
+  <data name="years_21" xml:space="preserve">
+    <value>21 años</value>
+  </data>
+  <data name="years_22" xml:space="preserve">
+    <value>22 años</value>
+  </data>
+  <data name="years_23" xml:space="preserve">
+    <value>23 años</value>
+  </data>
+  <data name="years_24" xml:space="preserve">
+    <value>24 años</value>
+  </data>
+  <data name="years_25" xml:space="preserve">
+    <value>25 años</value>
+  </data>
+  <data name="years_3" xml:space="preserve">
+    <value>3 años</value>
+  </data>
+  <data name="years_4" xml:space="preserve">
+    <value>4 años</value>
+  </data>
+  <data name="years_5" xml:space="preserve">
+    <value>5 años</value>
+  </data>
+  <data name="years_6" xml:space="preserve">
+    <value>6 años</value>
+  </data>
+  <data name="years_7" xml:space="preserve">
+    <value>7 años</value>
+  </data>
+  <data name="years_8" xml:space="preserve">
+    <value>8 años</value>
+  </data>
+  <data name="years_9" xml:space="preserve">
+    <value>9 años</value>
+  </data>
+  <data name="years_greater_25" xml:space="preserve">
+    <value>&gt; 25 años</value>
+  </data>
+  <data name="year_1" xml:space="preserve">
+    <value>1 año</value>
+  </data>
+  <data name="year_less_1" xml:space="preserve">
+    <value>&lt;1 año</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Sí</value>
+  </data>
+  <data name="AtLeastOneCVD" xml:space="preserve">
+    <value>Debe tener uno de los siguientes criterios de inclusion, Enfermedad cardiovascular, Enfermedad cerebrovascular, Aneurisma aórtico abdominal, Enfermedad Arterial Periférica, familial hypercholesterolemia</value>
+  </data>
+  <data name="DateNotBefore" xml:space="preserve">
+    <value>La fecha no puede ser anterior al 2019-04-01</value>
+  </data>
+  <data name="VisitDateNotBeforeConsentDate" xml:space="preserve">
+    <value>La fecha no puede ser anterior a la fecha de consentimiento del paciente</value>
+  </data>
+  <data name="Pitavastatin" xml:space="preserve">
+    <value>Pitavastatina</value>
+  </data>
+  <data name="LDLCYesNoErrMsg" xml:space="preserve">
+    <value>Por favor, no comience esta visita (virtual o en persona) a menos que tenga el LDL-C de este tema dibujado dentro de los últimos 3 meses, o desde la última visita.</value>
+  </data>
+  <data name="Introduction" xml:space="preserve">
+    <value>&lt;p&gt;No inicie la visita (virtual o en persona) a menos que haya obtenido el LDL-C del paciente en los últimos 3 meses o desde la última visita.&lt;/p&gt;&lt;p&gt;No puede ingresar el valor de LDL-C del análisis de sangre realizado en la visita anterior de este sujeto y no puede ingresar el LDL-C si se tomó después de la fecha de esta visita.
+Si no tiene el LDL-C de este sujeto hoy, espere hasta que lo tenga y complete esta visita con la fecha actual.&lt;/p&gt;&lt;p&gt;Después de la inscripción (visita 1), cada visita de seguimiento debe tener una diferencia de al menos 3 meses o más y en cada visita se debe obtener el LDL-C antes de la visita y registrarlo como parte de la visita.&lt;/p&gt;</value>
+  </data>
+  <data name="LabDateErrMsg" xml:space="preserve">
+    <value>La fecha del laboratorio no puede ser posterior a la fecha de la visita.</value>
+  </data>
+</root>

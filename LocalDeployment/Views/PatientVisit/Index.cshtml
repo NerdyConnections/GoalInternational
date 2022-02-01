@@ -1,0 +1,505 @@
+﻿@using GoalInternational.Util
+
+@{
+    ViewBag.Title = GoalInternational.Languages.Common.Index;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    /*using the styles below to hide export buttons, showing 1 of xx , etc..  at the top of table, nothing else you have to configure */
+     #PatientVisitTable_length { /*hiding the show 10 entries*/
+        visibility: hidden;
+    }
+
+    #PatientVisitTable_filter { /*hiding the search box*/
+        visibility: hidden;
+    }
+
+    #PatientVisitTable_wrapper .buttons { /*hide export buttons*/
+        visibility: hidden;
+    }
+     .cellStyle { /*set table td color*/
+       
+        text-align: center;
+        font-weight:bold;
+        color:black;
+        vertical-align: middle;
+    }
+     .dataTables_empty{
+
+         display:none; /*do not display No data is available, you cannot internationalize this*/
+     }
+       .tooltip-inner{
+        max-width:85px;
+        width:85px;
+        text-align: left;
+        padding-left:6px;
+
+
+    }
+    .tooltip-inner p {
+        text-align: left;
+    }
+    .tooltip-inner p.centerText {
+        text-align: center;
+    }
+     
+
+</style>
+<h1>@GoalInternational.Languages.PatientVisit.eCRF</h1>
+<h3>@GoalInternational.Languages.PatientVisit.Instructions</h3>
+<ol>
+    <li>@GoalInternational.Languages.PatientVisit.Instruction_1</li>
+    <li>@GoalInternational.Languages.PatientVisit.Instruction_2</li>
+    <li>
+       @GoalInternational.Languages.PatientVisit.Instruction_3<br>
+    </li>
+</ol>
+
+
+
+    <table width="100%" cellspacing="0" cellpadding="5px" border="1" id="PatientVisitTable">
+        <thead>
+            <tr>
+                <th colspan="9" style="padding:10px; font-weight: bold; color: #FFF; font-size: 18px;" bgcolor="#003366">
+                    <span style="font-size: 24px">@GoalInternational.Languages.PatientVisit.PatientVisitView</span>&nbsp; <br>
+                   
+                </th>
+            </tr>
+            @{ if (ViewBag.AllowAddPatients)
+                {
+            <tr>
+                <th colspan="9" style="padding:10px" height="60" bgcolor="#003366">
+                    <div class="row">
+                        <div class="col-sm-4 pull-left">
+                            <button type="button" class="form-control btn btn-primary btn-md" id="btnAddNewPatient" style="font-weight: bold; font-size:18px"><span class="glyphicon glyphicon-plus-sign" style="font-size: 13px"></span> @GoalInternational.Languages.PatientVisit.G1</button>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+                    } }
+            <tr>
+                <th style="padding:5px; font-weight: bold; font-size: 14px; text-align:center;" width="11%" bgcolor="#CCCCCC">@GoalInternational.Languages.PatientVisit.G2</th>
+            
+                <th style="padding:5px; font-weight: bold; font-size: 14px; text-align:center;" width="10%" bgcolor="#CCCCCC">@GoalInternational.Languages.PatientVisit.G3</th>
+                <th style="padding:5px; font-weight: bold; font-size: 14px; text-align:center;" width="19%" bgcolor="#CCCCCC">
+                    @GoalInternational.Languages.PatientVisit.G4&nbsp;<br>
+                    @GoalInternational.Languages.Common.Time: <strong>0</strong>
+                </th>
+                <th style="padding:5px; font-weight: bold;font-size: 14px; text-align:center;" width="20%" bgcolor="#CCCCCC">
+                    @GoalInternational.Languages.PatientVisit.G6&nbsp;<br>
+                    @GoalInternational.Languages.Common.Time: <strong>@GoalInternational.Languages.PatientVisit.G5</strong>
+                </th>
+                <th style="padding:5px; font-weight: bold;font-size: 14px; text-align:center;" width="20%" bgcolor="#CCCCCC">
+                    @GoalInternational.Languages.PatientVisit.G7&nbsp;<br>
+                    @GoalInternational.Languages.Common.Time: <strong>@GoalInternational.Languages.PatientVisit.G11</strong><br />
+                    @GoalInternational.Languages.PatientVisit.G12
+                </th>
+                <th style="padding:5px; font-weight: bold;font-size: 14px; text-align:center;" width="20%" bgcolor="#CCCCCC">
+                    @GoalInternational.Languages.PatientVisit.G8&nbsp;<br>
+                    @GoalInternational.Languages.Common.Time: <strong>@GoalInternational.Languages.PatientVisit.G13</strong><br />
+                    @GoalInternational.Languages.PatientVisit.G14
+                </th>
+            </tr>
+            </thead>
+
+           <tbody>
+
+           </tbody>
+    </table>
+  
+<!--end of patient visit table-->
+  <input hidden id="hdDeletePatientID" value=""/>
+
+
+<input hidden id="hdUserID" value="@UserHelper.GetLoggedInUser().UserID" />
+<button id="btn-modal" type="button" class="btn btn-info btn-lg hide" data-toggle="modal" data-target="#myModal2">@GoalInternational.Languages.PatientVisit.G9</button>
+
+<!-- Modal -->
+<div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">@GoalInternational.Languages.PatientVisit.G10</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                   
+                    </p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button"  class="btn btn-default" data-dismiss="modal">@GoalInternational.Languages.Common.No</button> <button type="button" class="btn btn-default" id="btnRemovePatientRecord" data-dismiss="modal">@GoalInternational.Languages.Common.Yes</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+        <link href="/Content/zebra_tooltips.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/zebra_tooltips.js" type="text/javascript"></script>
+    <link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <!--pdf/excell/copy buttons cdn scripts-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/b-1.5.1/b-colvis-1.5.1/b-flash-1.5.1/b-html5-1.5.1/b-print-1.5.1/r-2.2.1/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/b-1.5.1/b-colvis-1.5.1/b-flash-1.5.1/b-html5-1.5.1/b-print-1.5.1/r-2.2.1/datatables.min.js"></script>
+    <!--end of buttons cdn scripts-->
+
+    <!--cdn for checkboxes-->
+    <link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.9/css/dataTables.checkboxes.css" rel="stylesheet" />
+    <script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.9/js/dataTables.checkboxes.min.js"></script>
+    <!--end of checkboxes-->
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script>
+
+
+        var Popup, dataTable;
+        $(document).ready(function () {
+
+          //  $('[data-toggle="tooltip"]').tooltip();
+
+        /*
+            $('[data-toggle="tooltip"]').tooltip(); //activate the tooltip for cancellation
+            $('.cellStyle').tooltip();
+            $('[data-toggle="tooltip"]').tooltip(); //activate the tooltip for cancellation
+            */
+            /*
+            $('[data-toggle="tooltip"]').tooltip({placement: function(tip){
+                $(tip).css('z-index',999999);
+                return 'bottom';
+            }});
+            */
+
+            //checkbox display if the data is true or false
+            var ddlProgramRequestAdmin = function (data, type, full, meta) {
+
+                var is_checked = data == true ? "checked" : "";
+                var id = full.ProgramRequestID;
+                id = id.toString();
+
+                return "<select><option>Under Review</option><option>Active – Regional Ethics Review Pending</option><option>Active – Regional Ethics Approved</option><option>Completed – Items Pending</option><option>Completed – Session Closed </option>>option>Cancelled</option><option>Speaker Not Available</option><option>Speaker Declines</option><option></option></select> ";
+            }
+            //datatable definitions Begins Here
+            dataTable = $("#PatientVisitTable").DataTable({
+                dom: '<"buttons"B><"clear"><lf<t>ip>',//put a div tag with class=buttons around the buttons //put a div tag with class=clear immediately after the buttons
+                /*  buttons: [
+                     {
+                          extend: 'copy',
+                          text: 'Copy to clipboard'
+
+                      }, {
+                          extend: 'excel',
+                          text: 'Download to Excel'
+
+                      }, 'pdf'
+                  ],*/
+
+                bFilter: false,  //search box  for individual column search it must be true, otherwise does not work, you can hide search box using css and column search still works
+                bJQueryUI: true,
+                bInfo: true,  //showing 1 of x entries in x entries
+                sPaginationType: "full_numbers",//how pages button appears
+                bLengthChange: true,//show 10/20/30 entries dropdown
+                "bSort": false,//whether the columns are sortable or not
+                "bAutoWidth": false,
+                "asStripClasses": null,
+                "ajax": {
+                    "url": "/PatientVisit/GetAllPatientVisits?UserID=" + @UserHelper.GetLoggedInUser().UserID,
+                    "type": "GET",
+                    "datatype": "json"
+                },
+
+                "columns": [
+                    {
+                        "data": "PatientID", "render": function (data,type,row) {
+                            debugger;
+
+
+
+                            return " <span   data-html=\"true\" data-placement=\"top\" data-toggle=\"tooltip\" title=\"<p>" + row.PatientInitials + ", " + row.Gender + ", " + row.Age + "</p>\">"  + data + "</span>";
+                       //     return " <a href=\"javascript:return false;\" class=\"zebra_tooltips\"   title=\"<p>" + row.PatientFirstName + ", " + row.PatientLastName + "</p>\">"  + data + "</a>";
+
+
+                            // return "<span class='glyphicon glyphicon-pencil btnCancelSession' style='font-size: 13px;'  data-toggle='modal' data-target='#CAncePopUp'  onclick=javascript:PopupForm('@Url.Action("Edit","Speaker")?user_id=" + data + "','#SpeakerData')></span>";
+                            //  return "<a class='btn btn-default' data-toggle='modal' data-target='.bootstrapmodal' onclick=PopupForm('@Url.Action("Edit","Admin")/" + data + "')><i class='fa fa-pencil'></i> </a>";
+
+                        },
+                        "orderable": true,
+                        "searchable": false,
+                        "width": "25px"
+                    },
+
+
+                        {"data": "PatientID", "render": function (data,type,row) {
+                            if (row.CanVisitBeCancelled==true)
+                            {
+
+                                return "<!--PatientID=" + + data + "-->" + "<button type=\"button\"  class=\"form-control btn btn-danger btn-sm\" id=\"" + data + "\" onclick=\"DeletePatientVisitPopup(" + data+ ")\">Remove</button><br/>";
+                            }else{
+
+                                return "<!--PatientID=" + + data + "-->";
+                            }
+
+                           // return "<span class='glyphicon glyphicon-pencil btnCancelSession' style='font-size: 13px;'  data-toggle='modal' data-target='#CAncePopUp'  onclick=javascript:PopupForm('@Url.Action("Edit","Speaker")?user_id=" + data + "','#SpeakerData')></span>";
+                            //  return "<a class='btn btn-default' data-toggle='modal' data-target='.bootstrapmodal' onclick=PopupForm('@Url.Action("Edit","Admin")/" + data + "')><i class='fa fa-pencil'></i> </a>";
+
+                        },
+                        "orderable": false,
+                        "searchable": false,
+                        "width": "25px"
+                    },
+
+                     {//Visit 1
+
+                         "data": "PatientID", "render": function (data,type,row) {
+                             if (row.GIntV1Status==0) //grey
+                            {
+                                 return "<!--PatientID=" +  data + "-->" + "<button type=\"button\"   class=\"form-control btn  btn-sm\" id=\"GIntV1_PatientID_" + data + "\"><span class=\"glyphicon glyphicon-folder-open\" style=\"font-size:24px; color:#666\"></span></button><br/>" +  "@GoalInternational.Languages.PatientVisit.Status" + "<br/>" + row.GIntV1StatusStr;;
+                             }else if (row.GIntV1Status== 1 || row.GIntV1Status== 2 ){//yellow
+                               return "<!--PatientID=" +  data + "-->" + "<button type=\"button\"   class=\"form-control btn  btn-sm\" id=\"GIntV1_PatientID_" + data + "\" onclick=javascript:location.href='@Url.Action("GIntV1", "PatientVisit")?PatientID=" + data + "&Page=" + row.GIntV1SavedPage + "'><span class=\"glyphicon glyphicon-folder-open\" style=\"font-size:24px; color:#FC0\"></span></button><br/>" +  "@GoalInternational.Languages.PatientVisit.Status" + "<br/>" + row.GIntV1StatusStr;;
+                             }else{//green
+
+                                 return "<!--PatientID=" +  data + "-->" + "<button type=\"button\"   class=\"form-control btn  btn-sm\" id=\"GIntV1_PatientID_" + data + "\" onclick=javascript:location.href='@Url.Action("GIntV1", "PatientVisit")?PatientID=" + data + "&Page=" + row.GIntV1SavedPage + "'><span class=\"glyphicon glyphicon-folder-open\" style=\"font-size:24px; color:#090\"></span></button><br/>" +  "@GoalInternational.Languages.PatientVisit.Status" + "<br/>" + row.GIntV1StatusStr;;
+                             }
+
+                         },
+                         "orderable": false,
+                         "searchable": false,
+                         "width": "25px"
+
+                     },
+              {//Visit 2
+
+                         "data": "PatientID", "render": function (data,type,row) {
+                             if (row.GIntV2Status==0 || row.GIntV2Status == 6) //grey
+                            {
+                                 return "<!--PatientID=" +  data + "-->" + "<button type=\"button\"   class=\"form-control btn  btn-sm\" id=\"GIntV2_PatientID_" + data + "\"><span class=\"glyphicon glyphicon-folder-open\" style=\"font-size:24px; color:#666\"></span></button><br/>" +  "@GoalInternational.Languages.PatientVisit.Status" + "<br/>" + row.GIntV2StatusStr;;
+                             }else if (row.GIntV2Status== 1 || row.GIntV2Status== 2 ){//yellow
+                                 return "<!--PatientID=" +  data + "-->" + "<button type=\"button\"   class=\"form-control btn  btn-sm\" id=\"GIntV2_PatientID_" + data + "\" onclick=javascript:location.href='@Url.Action("GIntV2", "PatientVisit")?PatientID=" + data  + "&Page=" + row.GIntV2SavedPage+ "'><span class=\"glyphicon glyphicon-folder-open\" style=\"font-size:24px; color:#FC0\"></span></button><br/>" +  "@GoalInternational.Languages.PatientVisit.Status" + "<br/>" + row.GIntV2StatusStr;;
+                             }else{//green
+
+                                 return "<!--PatientID=" +  data + "-->" + "<button type=\"button\"   class=\"form-control btn  btn-sm\" id=\"GIntV2_PatientID_" + data + "\" onclick=javascript:location.href='@Url.Action("GIntV2", "PatientVisit")?PatientID=" + data + "&Page=" + row.GIntV2SavedPage + "'><span class=\"glyphicon glyphicon-folder-open\" style=\"font-size:24px; color:#090\"></span></button><br/>" +  "@GoalInternational.Languages.PatientVisit.Status" + "<br/>" + row.GIntV2StatusStr;;
+                             }
+
+                         },
+                         "orderable": false,
+                         "searchable": false,
+                         "width": "25px"
+
+                     },
+                     {//Visit 3
+
+                         "data": "PatientID", "render": function (data,type,row) {
+                             if (row.GIntV3Status==0 || row.GIntV3Status == 6) //grey
+                            {
+                                 return "<!--PatientID=" +  data + "-->" + "<button type=\"button\"   class=\"form-control btn  btn-sm\" id=\"GIntV3_PatientID_" + data + "\"><span class=\"glyphicon glyphicon-folder-open\" style=\"font-size:24px; color:#666\"></span></button><br/>" +  "@GoalInternational.Languages.PatientVisit.Status" + "<br/>" + row.GIntV3StatusStr;;
+                             }else if (row.GIntV3Status== 1 || row.GIntV3Status== 2 ){//yellow
+                                 return "<!--PatientID=" +  data + "-->" + "<button type=\"button\"   class=\"form-control btn  btn-sm\" id=\"GIntV3_PatientID_" + data + "\" onclick=javascript:location.href='@Url.Action("GIntV3", "PatientVisit")?PatientID=" + data  + "&Page=" + row.GIntV3SavedPage + "'><span class=\"glyphicon glyphicon-folder-open\" style=\"font-size:24px; color:#FC0\"></span></button><br/>" +  "@GoalInternational.Languages.PatientVisit.Status" + "<br/>" + row.GIntV3StatusStr;;
+                             }else{//green
+
+                                 return "<!--PatientID=" +  data + "-->" + "<button type=\"button\"   class=\"form-control btn  btn-sm\" id=\"GIntV3_PatientID_" + data + "\" onclick=javascript:location.href='@Url.Action("GIntV3", "PatientVisit")?PatientID=" + data  + "&Page=" + row.GIntV3SavedPage + "'><span class=\"glyphicon glyphicon-folder-open\" style=\"font-size:24px; color:#090\"></span></button><br/>" +  "@GoalInternational.Languages.PatientVisit.Status" + "<br/>" + row.GIntV3StatusStr;;
+                             }
+
+                         },
+                         "orderable": false,
+                         "searchable": false,
+                         "width": "25px"
+
+                     },    {//Visit 4
+
+                         "data": "PatientID", "render": function (data,type,row) {
+                             if (row.GIntV4Status==0 || row.GIntV4Status == 6) //grey
+                            {
+                                 return "<!--PatientID=" +  data + "-->" + "<button type=\"button\"   class=\"form-control btn  btn-sm\" id=\"GIntV4_PatientID_" + data + "\"><span class=\"glyphicon glyphicon-folder-open\" style=\"font-size:24px; color:#666\"></span></button><br/>" +  "@GoalInternational.Languages.PatientVisit.Status" + "<br/>" + row.GIntV4StatusStr;;
+                             }else if (row.GIntV4Status== 1 || row.GIntV4Status== 2 ){//yellow
+                                 return "<!--PatientID=" +  data + "-->" + "<button type=\"button\"   class=\"form-control btn  btn-sm\" id=\"GIntV4_PatientID_" + data + "\" onclick=javascript:location.href='@Url.Action("GIntV4", "PatientVisit")?PatientID=" + data  + "&Page=" + row.GIntV4SavedPage+ "'><span class=\"glyphicon glyphicon-folder-open\" style=\"font-size:24px; color:#FC0\"></span></button><br/>" +  "@GoalInternational.Languages.PatientVisit.Status" + "<br/>" + row.GIntV4StatusStr;;
+                             }else{//green
+
+                                 return "<!--PatientID=" +  data + "-->" + "<button type=\"button\"   class=\"form-control btn  btn-sm\" id=\"GIntV4_PatientID_" + data + "\" onclick=javascript:location.href='@Url.Action("GIntV4", "PatientVisit")?PatientID=" + data  + "&Page=" + row.GIntV4SavedPage+ "'><span class=\"glyphicon glyphicon-folder-open\" style=\"font-size:24px; color:#090\"></span></button><br/>" +  "@GoalInternational.Languages.PatientVisit.Status" + "<br/>" + row.GIntV4StatusStr;;
+                             }
+
+                         },
+                         "orderable": false,
+                         "searchable": false,
+                         "width": "25px"
+
+                     }
+
+                ],
+                "createdRow": function (row, data, index) {
+
+                    $('td', row).addClass('cellStyle');//add a class to each td so we can change background color
+
+                },
+
+                "language": {
+
+                    "infoEmpty": "@GoalInternational.Languages.PatientVisit.NoPatientVisitRecords"   //use resource bundle to display no data message.
+                },
+                "fnDrawCallback": function( oSettings ) {
+                    $('[data-toggle="tooltip"]').tooltip(
+
+                        {placement : 'top'}  //tooltip fix without this fnDrawCallback tooltip won't work, need to call tooltip after table is drawn
+                        );
+                   // alert( 'DataTables has redrawn the table' );
+                }
+            });//end of datatable definitions
+
+            //move search input textboxes to the second thead, the first thead is a band column, the second is  column names, search textboxes should be placed below that
+          //  $('#DashboardTable tfoot tr').appendTo('#DashboardTable thead:eq(1)');
+            // $('tr', '.table').find('td').css('background', 'transparent')
+
+
+            var table = $('#PatientVisitTable').DataTable();
+
+
+
+            ////search code
+            //table.columns().every(function () {
+            //    var that = this;
+
+            //    $('input', this.footer()).on('keyup change', function () {
+            //        if (that.search() !== this.value) {
+            //            that
+            //                .search(this.value)
+            //                .draw();
+            //        }
+            //    });
+            //});
+            //end of search
+
+
+
+
+        });//end document.ready()
+        $('#btnRemovePatientRecord').on('click', function (e) {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("RemovePatientVisit", "PatientVisit")',
+                data: {PatientID:$('input[id="hdDeletePatientID"]').val(),UserID:$('input[id="hdUserID"]').val()},
+                dataType: "json",
+                success: function (data) {
+
+                    debugger;
+                    var table = $('#PatientVisitTable').DataTable();
+                    table.ajax.reload();
+
+
+
+
+                },
+                error: function () {
+
+                }
+            });
+        });
+        $('#btnAddNewPatient').on('click', function (e) {
+           location.href='/PatientVisit/GIntV1?PatientID=0&Page=1'
+        });
+        function DeletePatientVisitPopup(PatientID) {
+           // alert("patientid:" + PatientID);
+            //  var PatientID = btnDeletePatientVisit.id;
+            $('input[id="hdDeletePatientID"]').val(PatientID);//set the hidden variable for the patientid to be remove, need it to make the database deletion
+           // alert("hidden patientid:" +  $('input[id="hdDeletePatientID"]').val());
+            var body="<p>Are you sure you want to remove patient record "  + $('input[id="hdDeletePatientID"]').val() + " ?</p>";
+            $('.modal-body').html(body);
+           // $('#hdDeletePatientID').val(PatientID);
+            $("#btn-modal").click();//activate the pop up
+        }//end of DeletePatientVisit
+
+        var Popup1;
+        function PopupForm(url, div_id) {//get the contents of the modal box, the modal must reside in the same page as the calling function
+
+            var formDiv = $(div_id);
+            //  var formDiv = $('#editSpeaker');
+            $.get(url)
+            .done(function (response) {
+
+                formDiv.html(response);
+
+
+            });
+        }
+
+
+
+        function SubmitForm(form) {
+
+            $.validator.unobtrusive.parse(form);
+
+            if ($(form).valid()) {
+                $.ajax({
+                    type: "POST",
+                    url: form.action,
+                    data: $(form).serialize(),
+                    async: false,
+                    success: function (data) {
+
+                        if (data.result) {
+                           // console.log("result: " + data.result)
+                            // alert('success: result' + result.d)
+                            window.location="/Dashboard/Index";
+                            $('#CancelSessionPopUp').modal('hide');
+                            dataTable.ajax.reload();
+
+                        }
+                        else {
+                           // console.log("result: " + data.result)
+                            // alert('failure: result' + result)
+                            //error check switched to server side
+                         //   $('#lblError').html('must at least 5 days prior to session date');
+                           // dataTable.ajax.reload();
+                            console.log("Error while process cancellation")
+                        }
+                    }
+                });
+            }
+            return false;
+        }
+
+        function SubmitModifyEventForm(form) {
+
+            $.validator.unobtrusive.parse(form);
+
+            if ($(form).valid()) {
+                $.ajax({
+                    type: "POST",
+                    url: form.action,
+                    data: $(form).serialize(),
+                    async: false,
+                    success: function (data) {
+
+                        if (data.result) {
+                            // console.log("result: " + data.result)
+                            // alert('success: result' + result.d)
+                            window.location="/Dashboard/Index";
+                            $('#ModifySessionPopUp').modal('hide');
+                            dataTable.ajax.reload();
+
+                        }
+                        else {
+                            // console.log("result: " + data.result)
+                            // alert('failure: result' + result)
+                            //error check switched to server side
+                            //   $('#lblError').html('must at least 5 days prior to session date');
+                            // dataTable.ajax.reload();
+                            console.log("Error while process modify event form")
+                        }
+                    }
+                });
+            }
+            return false;
+        }
+
+    </script>
+}
+
+

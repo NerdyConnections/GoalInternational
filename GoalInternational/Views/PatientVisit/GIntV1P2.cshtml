@@ -1,0 +1,723 @@
+﻿@model GoalInternational.Models.GIntV1P2Model
+@using GoalInternational.Util
+@{
+    ViewBag.Title = "GIntV1P1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<script type="text/javascript">
+     
+
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+           $("input[id$='imgVisitDate']").datepicker({
+               
+               altField: $("input[id$='VisitDate']"),
+               numberOfMonths: 1,
+               changeMonth: true,
+               changeYear: true,
+               dateFormat: "yy/mm/dd",
+               yearRange: "2000:2030"
+           });
+
+       });
+</script> 
+
+
+@using (Html.BeginForm("SaveValidateV1P2", "PatientVisit", FormMethod.Post, new { @id = "frmV1P2" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.UserID)
+    @Html.HiddenFor(model => model.PatientID)
+    @Html.HiddenFor(model => model.SignOff)
+   
+        <div class="1">
+
+            <!-- <div class="link-blue"><a class="link-blue" href="javascript:void(0)">Download Process Document</a></div>-->
+
+
+           
+            <h3>
+                <strong>
+                    @GoalInternational.Languages.GIntV1P2.G2<br>
+                </strong>@GoalInternational.Languages.GIntV1P2.G3: @Model.PatientID <br><br>
+            </h3>
+        </div>
+
+        <div class="row">
+            <div class="form-group form-group-sm col-sm-12">
+                <label class="" title="@GoalInternational.Languages.GIntV1P2.G4">@GoalInternational.Languages.GIntV1P2.G2</label>
+                <div>
+                    <label>
+                        @Html.RadioButtonFor(m => m.Gender, "Male", new { id = "chkMale" })
+                        &nbsp;&nbsp;@GoalInternational.Languages.GIntV1P2.G5
+                    </label>
+                </div>
+                <div>
+                    <label>
+                       @Html.RadioButtonFor(m => m.Gender, "Female", new { id = "chkFemale" })
+                        &nbsp;&nbsp;@GoalInternational.Languages.GIntV1P2.G6
+                    </label>
+                </div>
+
+                <div>@Html.ValidationMessageFor(m => m.GenderValid, "", new { @class = "errorMssg" })</div>
+            </div>
+        </div>
+
+
+        <div class="row" style="padding-top:10px">
+            <div class="form-group form-group-sm col-sm-12">@GoalInternational.Languages.GIntV1P2.G7</div>
+            <div class="form-group form-group-sm col-sm-12">
+                <strong></strong>
+                <div class="form-group form-group-sm col-sm-2">
+
+                    @Html.TextBoxFor(m => m.Age, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Age, "", new { @class = "errorMssg" })
+                </div>
+            </div>
+            </div>
+
+            <div class="form-group form-group-sm col-sm-12">@GoalInternational.Languages.GIntV1P2.G8</div>
+            <div class="form-group form-group-sm col-sm-12">
+                <strong></strong>
+                <div class="form-group form-group-sm col-sm-2">
+
+                    @Html.DropDownListFor(model => model.Ethnicity, new SelectList(ListHelper.GetEthnicityList(), "Value", "Text"), @GoalInternational.Languages.Common.PleaseSelect, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Ethnicity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group form-group-sm col-sm-12">@Html.Raw(@GoalInternational.Languages.GIntV1P2.G61)</div>
+            <div class="form-group form-group-sm col-sm-12">
+                <strong></strong>
+                <div class="form-group form-group-sm col-sm-2">
+
+                    @Html.DropDownListFor(model => model.SmokingHistory, new SelectList(ListHelper.GetSmokingHistoryList(), "Value", "Text"), @GoalInternational.Languages.Common.PleaseSelect, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.SmokingHistory, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group form-group-sm col-sm-12">@GoalInternational.Languages.GIntV1P2.G63</div>
+            <div class="form-group form-group-sm col-sm-3">
+                <div class="form-group form-group-sm col-sm-9">
+
+                    @Html.DropDownListFor(model => model.MedicationInsuranceCoverage, new SelectList(ListHelper.GetMedicationInsuranceCoverageList(), "Value", "Text"), @GoalInternational.Languages.Common.PleaseSelect, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.MedicationInsuranceCoverage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group form-group-sm col-sm-3" id="insuranceIfPrivateDiv">
+                <label class="" title="">@GoalInternational.Languages.GIntV1P2.G23:</label>
+                <div>
+                    <label>
+                        @Html.RadioButtonFor(m => m.InsuranceTypeIfPrivate, "Employer")
+                        &nbsp;&nbsp;@GoalInternational.Languages.GIntV1P2.G24
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        @Html.RadioButtonFor(m => m.InsuranceTypeIfPrivate, "Self pay")
+                        &nbsp;&nbsp;@GoalInternational.Languages.GIntV1P2.G25
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        @Html.RadioButtonFor(m => m.InsuranceTypeIfPrivate, "Other")
+                        &nbsp;&nbsp;@GoalInternational.Languages.GIntV1P2.G26  <br />
+                        @Html.ValidationMessageFor(m => m.InsuranceTypeIfPrivate, "", new { @class = "errorMssg" })
+                        @Html.TextBoxFor(m => m.InsuranceTypeIfOther, new { @class = "form-control", @style = "display:none" })
+                        @Html.ValidationMessageFor(m => m.InsuranceTypeIfOther, "", new { @class = "errorMssg" })
+                    </label>
+                </div>
+
+                <div></div>
+            </div>
+            <div style="padding:15px">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th style="text-align:left; color:#FFF" bgcolor="#000000">
+                                @GoalInternational.Languages.GIntV1P2.G27<br>
+                                @GoalInternational.Languages.Common.SelectYesNo
+                            </th>
+                            <th style="color: #FFF; text-align:center" bgcolor="#000000">@GoalInternational.Languages.Common.Yes</th>
+                            <th style="color: #FFF; text-align:center" bgcolor="#000000">@GoalInternational.Languages.Common.No</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV1P2.G28 &nbsp;&nbsp;<br/>@Html.ValidationMessageFor(m => m.CoMorbidities1, "", new { @class = "text-danger" })</td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities1, "Yes")
+                                </label>
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities1, "No")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV1P2.G29 &nbsp;&nbsp;<br />@Html.ValidationMessageFor(m => m.CoMorbidities2, "", new { @class = "text-danger" })</td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities2, "Yes")
+                                </label>
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities2, "No")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">
+                                @GoalInternational.Languages.GIntV1P2.G30 <a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="@GoalInternational.Languages.GIntV1P2.G65"><span class="glyphicon glyphicon-info-sign" style="font-size: 13px"></span></a>
+                                <br />@Html.ValidationMessageFor(m => m.CoMorbidities3, "", new { @class = "text-danger" })
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities3, "Yes")
+                                </label>
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities3, "No")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">
+                                @GoalInternational.Languages.GIntV1P2.G31 <a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="@GoalInternational.Languages.GIntV1P2.G66"><span class="glyphicon glyphicon-info-sign" style="font-size: 13px"></span></a>
+                                <br />@Html.ValidationMessageFor(m => m.CoMorbidities4, "", new { @class = "text-danger" })
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities4, "Yes")
+                                </label>
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities4, "No")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV1P2.G32 &nbsp;
+                            <br />@Html.ValidationMessageFor(m => m.CoMorbidities5, "", new { @class = "text-danger" })</td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities5, "Yes")
+                                </label>
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities5, "No")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV1P2.G33
+                                <br />@Html.ValidationMessageFor(m => m.CoMorbidities6, "", new { @class = "text-danger" })
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities6, "Yes")
+                                </label>
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities6, "No")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">
+                                @GoalInternational.Languages.GIntV1P2.G34 <a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="@GoalInternational.Languages.GIntV1P2.G68"><span class="glyphicon glyphicon-info-sign" style="font-size: 13px"></span></a>
+                                <br />@Html.ValidationMessageFor(m => m.CoMorbidities7, "", new { @class = "text-danger" })
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities7, "Yes")
+                                </label>
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities7, "No")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV1P2.G35
+                            
+                                <br />@Html.ValidationMessageFor(m => m.CoMorbidities8, "", new { @class = "text-danger" })
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities8, "Yes")
+                                </label>
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities8, "No")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">
+                                @GoalInternational.Languages.GIntV1P2.G36 <a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="@GoalInternational.Languages.GIntV1P2.G67"><span class="glyphicon glyphicon-info-sign" style="font-size: 13px"></span></a>
+                                <br />@Html.ValidationMessageFor(m => m.CoMorbidities9, "", new { @class = "text-danger" })
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities9, "Yes")
+                                </label>
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities9, "No")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV1P2.G37
+                                <br />@Html.ValidationMessageFor(m => m.CoMorbidities10, "", new { @class = "text-danger" })
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities10, "Yes")
+                                </label>
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities10, "No")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV1P2.G38 &nbsp;
+                                <br />@Html.ValidationMessageFor(m => m.CoMorbidities11, "", new { @class = "text-danger" })
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities11, "Yes")
+                                </label>
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities11, "No")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV1P2.G39&nbsp;
+                                <br />@Html.ValidationMessageFor(m => m.CoMorbidities12, "", new { @class = "text-danger" })
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities12, "Yes")
+                                </label>
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities12, "No")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV1P2.G40 &nbsp;
+                                <br />@Html.ValidationMessageFor(m => m.CoMorbidities13, "", new { @class = "text-danger" })
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities13, "Yes")
+                                </label>
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities13, "No")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV1P2.G41&nbsp;
+                                <br />@Html.ValidationMessageFor(m => m.CoMorbidities14, "", new { @class = "text-danger" })
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities14, "Yes")
+                                </label>
+                            </td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.CoMorbidities14, "No")
+                                </label>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <br/>@Html.ValidationMessageFor(m => m.ValidateCoMorbidities, "", new { @class = "errorMssg" })
+            </div>
+
+            <div style="padding:15px; display:none" id="CADTable">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th style="text-align:left; color:#FFF" bgcolor="#000000">
+                                <span class="smWhite">
+                                    @GoalInternational.Languages.GIntV1P2.G42<br>
+                                    @GoalInternational.Languages.Common.SelectAllApply
+                                </span>
+                            </th>
+                            <th style="color: #FFF; text-align:center" valign="middle" bgcolor="#000000" align="center"><span class="glyphicon glyphicon-ok" style="font-size: 13px"></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><span class="bodyText">@GoalInternational.Languages.GIntV1P2.G43</span>&nbsp;</td>
+                            <td>@Html.CheckBoxFor(model => model.CAD1)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><span class="bodyText">@GoalInternational.Languages.GIntV1P2.G44</span></td>
+                            <td>@Html.CheckBoxFor(model => model.CAD2)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><span class="bodyText">@GoalInternational.Languages.GIntV1P2.G45</span></td>
+                            <td>@Html.CheckBoxFor(model => model.CAD3)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><span class="bodyText">@GoalInternational.Languages.GIntV1P2.G46</span></td>
+                            <td>@Html.CheckBoxFor(model => model.CAD4)</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <div>@Html.ValidationMessageFor(m => m.CAD, "", new { @class = "text-danger" })</div>
+            </div>
+
+            <div style="padding:15px; display:none" id="CeVDTable">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th style="text-align:left; color:#FFF" bgcolor="#000000">
+                                <span class="smWhite">
+                                    @GoalInternational.Languages.GIntV1P2.G47<br>
+                                    @GoalInternational.Languages.Common.SelectAllApply
+                                </span>
+                            </th>
+                            <th style="color: #FFF; text-align:center" valign="middle" bgcolor="#000000" align="center"><span class="glyphicon glyphicon-ok" style="font-size: 13px"></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><span class="bodyText">@GoalInternational.Languages.GIntV1P2.G48</span></td>
+                            <td>@Html.CheckBoxFor(model => model.CeVD1)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><span class="bodyText">@GoalInternational.Languages.GIntV1P2.G49</span></td>
+                            <td>@Html.CheckBoxFor(model => model.CeVD2)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><span class="bodyText">@GoalInternational.Languages.GIntV1P2.G50</span></td>
+                            <td>@Html.CheckBoxFor(model => model.CeVD3)</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <div>@Html.ValidationMessageFor(m => m.CeVD, "", new { @class = "text-danger" })</div>
+            </div>
+
+            <div style="padding:15px">
+                <table class="table table-bordered" display:none" id="T2DMTable">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th style="text-align:left; color:#FFF" bgcolor="#000000">
+                                <strong>@GoalInternational.Languages.GIntV1P2.G51</strong>&nbsp;<em>
+                                    <br>
+                                    @GoalInternational.Languages.Common.SelectOneDropDown
+                                </em>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left">
+                                @Html.DropDownListFor(model => model.T2DM, new SelectList(ListHelper.GetT2DMDurations(), "Value", "Text"), @GoalInternational.Languages.Common.PleaseSelect, new { id = "ddlT2DM", @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.T2DM, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+            <div style="padding:15px">
+                <table class="table table-bordered"  display:none" id="MicrovascularTable">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th style="text-align:left; color:#FFF" bgcolor="#000000">
+                                <span class="smWhite">
+                                    @GoalInternational.Languages.GIntV1P2.G52<br>
+                                   @GoalInternational.Languages.Common.SelectAllApply
+                                </span>
+                            </th>
+                            <th style="color: #FFF; text-align:center" valign="middle" bgcolor="#000000" align="center"><span class="glyphicon glyphicon-ok" style="font-size: 13px"></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><span class="bodyText">@GoalInternational.Languages.GIntV1P2.G53</span></td>
+                            <td>@Html.CheckBoxFor(model => model.MicrovascularDisease1)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><span class="bodyText">@GoalInternational.Languages.GIntV1P2.G54</span></td>
+                            <td>@Html.CheckBoxFor(model => model.MicrovascularDisease2)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><span class="bodyText">@GoalInternational.Languages.GIntV1P2.G55</span></td>
+                            <td>@Html.CheckBoxFor(model => model.MicrovascularDisease3)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><span class="bodyText">@GoalInternational.Languages.GIntV1P2.G56</span></td>
+                            <td>@Html.CheckBoxFor(model => model.MicrovascularDisease4)</td>
+                        </tr>
+                    </tbody>
+                   
+                </table>
+                <div>@Html.ValidationMessageFor(m => m.MicrovascularDisease, "", new { @class = "text-danger" })</div>
+            </div>
+          
+                <table class="table table-bordered"  display:none" id="FHTable">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th style="text-align:left; color:#FFF" bgcolor="#000000">
+                                @GoalInternational.Languages.GIntV1P2.G57<br>
+                                @GoalInternational.Languages.Common.SelectAllApply
+                            </th>
+                            <th style="color: #FFF; text-align:center" valign="middle" bgcolor="#000000" align="center"><span class="glyphicon glyphicon-ok" style="font-size: 13px"></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV1P2.G58</td>
+                            <td>@Html.CheckBoxFor(model => model.FH1)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV1P2.G59</td>
+                            <td>@Html.CheckBoxFor(model => model.FH2)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV1P2.G60</td>
+                            <td>@Html.CheckBoxFor(model => model.FH3)</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <div>@Html.ValidationMessageFor(m => m.FH, "", new { @class = "text-danger" })</div>
+
+
+
+
+
+
+<div class="row">
+
+
+    <div class="form-group form-group-md col-sm-2 pull-right">
+        <label class="" title="">&nbsp;</label>
+        @if (@Model.SignOff ?? false)
+        {
+            <input class="form-control btn btn-default btn-sm" id="btnAdvance" value=@GoalInternational.Languages.Common.NEXT style="bottom:0px" type="button">
+        }
+        else
+        {
+            <input class="form-control btn btn-default btn-d" id="btnNext" value=@GoalInternational.Languages.Common.NEXT style="bottom:0px" type="submit">
+        }
+       
+    </div>
+    <div class="form-group form-group-md col-sm-2 pull-right">
+        <label class="" title="">&nbsp;</label>
+        <input type="button" class="form-control btn btn-default btn-md" id="btnSave" value=@GoalInternational.Languages.Common.SAVE style="bottom:0px">
+    </div>
+    <div class="form-group form-group-md col-sm-2 pull-right">
+        <label class="" title="">&nbsp;</label>
+        <input type="button" class="form-control btn btn-default btn-md" id="btnBack" value=@GoalInternational.Languages.Common.BACK style="bottom:0px">
+    </div>
+</div>
+
+<div class="row">
+
+    <span id="spanResult" style="color:red"></span>
+</div>
+
+}
+
+@section Scripts {
+
+    <script type="text/javascript">
+        $('#btnAdvance').on('click', function (e) {
+            window.location.href = "/PatientVisit/GintV1?PatientID=@Model.PatientID" + "&Page=3";
+        });
+        $('#btnBack').on('click', function (e) {
+            debugger;
+            window.location.href = "/PatientVisit/GintV1?PatientID=@Model.PatientID" + "&Page=1";
+        });
+
+        
+
+        $('#MedicationInsuranceCoverage').change(function () {
+            if ($(this).val() == "Private") {
+                $("#insuranceIfPrivateDiv").show();
+                //$("#insuranceIfPrivateDiv").find("[name='InsuranceTypeIfPrivate'][value='Self pay']").prop('checked', true);
+                $('#InsuranceTypeIfOther').hide();
+                $('#InsuranceTypeIfOther').val('');
+            } else {
+                $("#insuranceIfPrivateDiv").hide();
+                $("#insuranceIfPrivateDiv").find("[name='InsuranceTypeIfPrivate']").removeAttr('checked');
+                $('#InsuranceTypeIfOther').val('');
+            }
+        });
+        $('input[type=radio][name="InsuranceTypeIfPrivate"]').change(function () {
+            showAndHideInsuranceTypeIfOther();
+        });
+
+
+        $('input[name="CoMorbidities1"]').change(function () {          
+            showAndHideCADTable();
+            $("#CADTable").find("input").attr("checked", false);
+        });
+
+        $('input[name="CoMorbidities2"]').change(function () {
+            showAndHideCeVDTable();
+            $("#CeVDTable").find("input").attr("checked", false);
+        });
+
+        $('input[name="CoMorbidities5"]').change(function () {
+            showAndHideT2DMTable();
+
+            //reset dropdown so first option is selected
+
+            $("#ddlT2DM").find('option:eq(0)').prop('selected', true);
+
+           // $("#T2DMTable").find("input").attr("checked", false);
+        });
+
+        //MicrovascularTable
+        $('input[name="CoMorbidities8"]').change(function () {
+            showAndHideMicrovascularTable();
+            $("#MicrovascularTable").find("input").attr("checked", false);
+        });
+        //FH Table
+        $('input[name="CoMorbidities9"]').change(function () {
+            showAndHideFHTable();
+            $("#FHTable").find("input").attr("checked", false);
+        });
+
+     $(document).ready(function () {
+
+        if ('@Model.SignOff'=='True')
+        {
+
+            $('input', 'form').attr('readonly', true);
+            $('select', 'form').attr('disabled', true).attr('readonly', true);
+            $('input[type=text], textarea').attr('readonly', true);
+            $( ":radio" ).attr('disabled', true).attr('readonly', true);
+            $( ":checkbox" ).attr('disabled', true).attr('readonly', true);
+            $('#btnSave').hide();
+        }
+
+        $("#btnSave").click(function () {
+           $.ajax({
+                type: "POST",
+                url: '/PatientVisit/SaveV1P2',     //your action
+                data: $('#frmV1P2').serialize(),   //your form name.it takes all the values of model
+                dataType: 'json',
+                success: function (data) {
+                    debugger;
+                    $("#spanResult").html(data.success.msg);
+                    console.log(data);
+                },
+                error: function (xhr, httpStatusMessage, customErrorMessage) {
+                    debugger;
+
+                    if (xhr.status === 410) {
+                        $("#spanResult").html(customErrorMessage);
+
+                    }
+                }
+            })
+            return false;
+          
+       });//end of save
+
+        
+        showAndHideCADTable();
+        showAndHideCeVDTable();
+        showAndHideT2DMTable();
+        showAndHideMicrovascularTable();
+        showAndHideFHTable();
+
+
+        if ($('#MedicationInsuranceCoverage').val() == "Private") {
+            $("#insuranceIfPrivateDiv").show();
+        } else {
+            $("#insuranceIfPrivateDiv").hide();
+        }
+        showAndHideInsuranceTypeIfOther();
+
+     });//end of document ready
+
+        function showAndHideCADTable() {
+            if ($('input[name="CoMorbidities1"]:checked').val() == "Yes") {
+                $("#CADTable").show();
+            } else {
+                console.log("grace")
+                $("#CADTable").hide();
+            }
+        }
+
+        function showAndHideCeVDTable() {
+            if ($('input[name="CoMorbidities2"]:checked').val() == "Yes") {
+                $("#CeVDTable").show();
+            } else {
+                $("#CeVDTable").hide();
+            }           
+        }
+        function showAndHideT2DMTable() {
+            if ($('input[name="CoMorbidities5"]:checked').val() == "Yes") {
+                $("#T2DMTable").show();
+            } else {
+                $("#T2DMTable").hide();
+            }
+        }
+        function showAndHideMicrovascularTable() {
+            if ($('input[name="CoMorbidities8"]:checked').val() == "Yes") {
+                $("#MicrovascularTable").show();
+            } else {
+                $("#MicrovascularTable").hide();
+            }
+        }
+        function showAndHideFHTable() {
+            if ($('input[name="CoMorbidities9"]:checked').val() == "Yes") {
+                $("#FHTable").show();
+            } else {
+                $("#FHTable").hide();
+            }
+        }
+
+        function showAndHideInsuranceTypeIfOther() {
+            if ($('input[type=radio][name="InsuranceTypeIfPrivate"]:checked').val() == 'Other') {
+                $('#InsuranceTypeIfOther').show();
+            }
+            else {
+                $('#InsuranceTypeIfOther').hide();
+                $('#InsuranceTypeIfOther').val('');
+            }
+        }
+
+
+    </script>
+}

@@ -1,0 +1,140 @@
+﻿@model GoalInternational.Models.NotMeModel
+
+@using (Html.BeginForm("NotMe", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+
+    @Html.AntiForgeryToken()
+
+    <div class="pnl-portal">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- <h1 id="lblTitle"></h1>-->
+                <h1>@GoalInternational.Languages.NotMePartial.G1</h1>
+                <div class="lead1">@GoalInternational.Languages.NotMePartial.G2</div>
+                <div class="btn-back"><span class="glyphicon glyphicon-chevron-left"></span><span>@GoalInternational.Languages.Common.BACK</span></div>
+                <!--<div class="lead1" style="color: #534d4d"></div>-->
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="form-group form-group-sm col-sm-4">
+                <label class="" style="font-size: 18px" title="First Name">@GoalInternational.Languages.NotMePartial.G3</label>
+                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @id = "txtFirstName", @placeholder = "" })
+                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "errorMssg" })
+            </div>
+            <div class="form-group form-group-sm col-sm-4">
+                <label class="" style="font-size: 18px" title="Last Name">@GoalInternational.Languages.NotMePartial.G4</label>
+                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", @id = "txtLastName", @placeholder = "" })
+                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "errorMssg" })
+            </div>
+
+            <div class="form-group form-group-sm col-sm-4">
+                <label class="" style="font-size: 18px" title="Clinic Name">@GoalInternational.Languages.NotMePartial.G5</label>
+                @Html.TextBoxFor(model => model.ClinicName, new { @class = "form-control", @id = "clinicName", @placeholder = "" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group form-group-sm col-sm-4">
+                <label class="" style="font-size: 18px" title="Clinic Name">@GoalInternational.Languages.NotMePartial.G6</label>
+                @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @id = "address", @placeholder = "" })
+            </div>
+
+            <div class="form-group form-group-sm col-sm-2">
+                <label class="" style="font-size: 18px" title="Clinic Name">@GoalInternational.Languages.NotMePartial.G7</label>
+                @Html.TextBoxFor(model => model.City, new { @class = "form-control", @id = "city", @placeholder = "" })
+            </div>
+
+            <div class="form-group form-group-sm col-sm-2">
+                <label class="" style="font-size: 18px" title="Clinic Name">@GoalInternational.Languages.NotMePartial.G8</label>
+                @Html.TextBoxFor(model => model.Province, new { @class = "form-control", @id = "province", @placeholder = "" })
+            </div>
+
+            <div class="form-group form-group-sm col-sm-2">
+                <label class="" style="font-size: 18px" title="Clinic Name">@GoalInternational.Languages.NotMePartial.G9</label>
+                @Html.TextBoxFor(model => model.PostalCode, new { @class = "form-control", @id = "postalCode", @placeholder = "" })
+            </div>
+
+            <div class="form-group form-group-sm col-sm-2">
+                <label class="" style="font-size: 18px" title="Clinic Name">@GoalInternational.Languages.NotMePartial.G10</label>
+                @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", @id = "phoneNumber", @placeholder = "" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group form-group-sm col-sm-2">
+                <label class="" style="font-size: 18px" title="Clinic Name">@GoalInternational.Languages.NotMePartial.G11</label>
+                @Html.TextBoxFor(model => model.CellPhone, new { @class = "form-control", @id = "cellphone", @placeholder = "" })
+            </div>
+
+            <div class="form-group form-group-sm col-sm-2">
+                <label class="" style="font-size: 18px" title="Clinic Name">@GoalInternational.Languages.NotMePartial.G12</label>
+                @Html.TextBoxFor(model => model.Fax, new { @class = "form-control", @id = "fax", @placeholder = "" })
+            </div>
+
+            <div class="form-group form-group-sm col-sm-2">
+                <label class="" style="font-size: 18px" title="Clinic Name">@GoalInternational.Languages.NotMePartial.G13</label>
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @id = "email", @placeholder = "" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "errorMssg" })
+            </div>
+        </div>
+
+        <div class="row">
+            <!--<div class="form-group form-group-lg float-left col-sm-10" style="color:red">
+                @Html.ViewBag.SubmitMessage
+            </div>-->
+
+            <div class="form-group form-group-lg col-sm-2 pull-right">
+                <input type="submit" class="form-control btn btn-primary btn-sm" value="@GoalInternational.Languages.Common.SUBMIT" />              
+            </div>
+        </div>
+    </div>
+}
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
+                @Html.ViewBag.SubmitMessage
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">@GoalInternational.Languages.NotMePartial.G15</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    function SubmitForm(form) {
+        $.validator.unobtrusive.parse(form);
+       
+        event.preventDefault();  //prevent form become invalid
+        if ($(form).valid()) {
+            $.ajax({
+                type: "POST",
+                url: form.action,
+                data: $(form).serialize(),
+                datatype: 'json',
+            }).done(function (partialViewResult) {
+                //debugger;
+                //console.log("ajax call is done");
+                $("#ContentContainer").html(partialViewResult);
+                $("#myModal").modal('show');
+            });
+        }
+        return false;
+    }
+            
+    $(document).ready(function () {
+       
+        $('#myModal').on('hidden.bs.modal', function () {
+            window.history.back();
+        })
+        
+    });
+</script>

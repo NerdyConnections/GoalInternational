@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="G1" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="G10" xml:space="preserve">
+    <value>Resource Centre:</value>
+  </data>
+  <data name="G11" xml:space="preserve">
+    <value>A manual outlining the web-portal functionalities</value>
+  </data>
+  <data name="G12" xml:space="preserve">
+    <value>Physician Specific Requirements</value>
+  </data>
+  <data name="G13" xml:space="preserve">
+    <value>Payee Form</value>
+  </data>
+  <data name="G14" xml:space="preserve">
+    <value>Documents and Forms</value>
+  </data>
+  <data name="G15" xml:space="preserve">
+    <value>Protocol, country relevant guidelines, Central Ethics Approval Forms and the Informed Consent Form where required</value>
+  </data>
+  <data name="G16" xml:space="preserve">
+    <value>Supporting Functions and General Documents and Materials</value>
+  </data>
+  <data name="G17" xml:space="preserve">
+    <value>e-CRF Portal</value>
+  </data>
+  <data name="G18" xml:space="preserve">
+    <value>simple and streamlined e-CRF for eligible patient enrollment and follow up</value>
+  </data>
+  <data name="G19" xml:space="preserve">
+    <value>The GOAL International Program team is happy to assist you with any questions. Please do not hesitate to contact us at any time:</value>
+  </data>
+  <data name="G2" xml:space="preserve">
+    <value>On behalf of the Canadian Heart Research Centre (CHRC) and the international steering committee, welcome to your personal online portal and thank you for your participation.</value>
+  </data>
+  <data name="G20" xml:space="preserve">
+    <value>Contact Us</value>
+  </data>
+  <data name="G21" xml:space="preserve">
+    <value>We look forward to collaborating with you.</value>
+  </data>
+  <data name="G22" xml:space="preserve">
+    <value>With best regards,</value>
+  </data>
+  <data name="G23" xml:space="preserve">
+    <value>Anatoly Langer MD, M.Sc., FRCP (C), FACC</value>
+  </data>
+  <data name="G24" xml:space="preserve">
+    <value>Chair, Canadian Heart Research Centre</value>
+  </data>
+  <data name="G25" xml:space="preserve">
+    <value>Professor of Medicine, University of Toronto</value>
+  </data>
+  <data name="G26" xml:space="preserve">
+    <value>Principal Investigator, GOAL International Program</value>
+  </data>
+  <data name="G3" xml:space="preserve">
+    <value>The GOAL International Program will involve over 100 physicians and 2,500 patients in five countries. GOAL International Program is supported by Amgen as investigator sponsored study (ISS).</value>
+  </data>
+  <data name="G4" xml:space="preserve">
+    <value>GOAL International Program will identify high risk cardiovascular patients who have not achieved recommended LDL-C level despite statin therapy (± other lipid lowering therapy) and will provide further insights into the challenges physicians face in lowering LDL-C to desirable level based on country specific guidelines or recommendations.</value>
+  </data>
+  <data name="G5" xml:space="preserve">
+    <value>The online portal has been created to provide participating physicians with program materials, convenient way to manage program documents and complete the electronic case report forms (e-CRFs). Please keep your username and password confidential.</value>
+  </data>
+  <data name="G6" xml:space="preserve">
+    <value>In order to download documents, you will need to enable cookies in your browser. Please follow the link for additional information:</value>
+  </data>
+  <data name="G7" xml:space="preserve">
+    <value>Enabling Cookies</value>
+  </data>
+  <data name="G8" xml:space="preserve">
+    <value>Please take a few minutes to familiarize yourself with the program requirements and the site functionalities.</value>
+  </data>
+  <data name="G9" xml:space="preserve">
+    <value>Your online portal consists of the following:</value>
+  </data>
+</root>

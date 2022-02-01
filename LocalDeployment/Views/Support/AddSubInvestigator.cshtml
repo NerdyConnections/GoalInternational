@@ -1,0 +1,125 @@
+﻿@model GoalInternational.Models.SupportModel
+
+@{
+    ViewBag.Title = GoalInternational.Languages.Support.G1;
+}
+
+<h1>@GoalInternational.Languages.Support.G1</h1>
+<h3>@GoalInternational.Languages.Support.G2</h3>
+<ol>
+    <li>
+        @GoalInternational.Languages.Support.G3<br>
+    </li>
+    <li>
+        @GoalInternational.Languages.Support.G4 <a href="http://www.goalcanada.ca/Portal/webmaster@chrc.net">webmaster@chrc.net</a>&nbsp;<br>
+    </li>
+    <li>
+       @GoalInternational.Languages.Support.G5<br>
+    </li>
+    <li>
+        @GoalInternational.Languages.Support.G6<br>
+    </li>
+</ol><br>
+
+
+@using (Html.BeginForm("AddSubInvestigator", "Support", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+
+    @Html.AntiForgeryToken()
+    <div class="row" style="border:5px solid #036; margin:10px; padding:10px; padding-top:15px">
+        <div class="form-group form-group-sm col-sm-6">
+            <label class="" title="@GoalInternational.Languages.Support.G8">@GoalInternational.Languages.Support.G8*:</label>
+            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @id = "txtFirstName", @placeholder = "" })
+            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "errorMssg" })
+        </div>
+        <div class="form-group form-group-sm col-sm-6">
+            <label class="" title="@GoalInternational.Languages.Support.G9">@GoalInternational.Languages.Support.G9*:</label>
+            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", @id = "txtLastName", @placeholder = "" })
+            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "errorMssg" })
+        </div>
+        <div class="form-group form-group-sm col-sm-6">
+            <label class="" title="@GoalInternational.Languages.Support.G10">@GoalInternational.Languages.Support.G10*:</label>
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @id = "txtEmail", @placeholder = "" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "errorMssg" })
+        </div>
+        <div class="form-group form-group-sm col-sm-6">
+            <label class="" title="@GoalInternational.Languages.Support.G11">@GoalInternational.Languages.Support.G11*:</label>
+            @Html.TextBoxFor(model => model.ConfirmedEmail, new { @class = "form-control", @id = "txtConfirmedEmail", @placeholder = "" })
+            @Html.ValidationMessageFor(m => m.ConfirmedEmail, "", new { @class = "errorMssg" })
+        </div>
+
+
+        <div class="form-group form-group-sm col-sm-2 pull-right">
+
+            <input type="submit" class="form-control btn btn-primary btn-sm" value="@GoalInternational.Languages.Support.G7" />
+
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="successLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="successful_modal">
+                                <p><strong>@GoalInternational.Languages.Support.G15</strong></p>
+                                <p>@GoalInternational.Languages.Support.G13</p>
+                            </div>
+                            <div id="failed_modal" style="color:red">
+                                <p><strong>@GoalInternational.Languages.Support.G16</strong></p>
+                                <p>@GoalInternational.Languages.Support.G14</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">@GoalInternational.Languages.Common.OK</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+}
+
+<script>
+    var addedSuccess = true;
+    function SubmitForm(form) {
+        $.validator.unobtrusive.parse(form);
+
+        //event.preventDefault();  //prevent form become invalid
+        if ($(form).valid()) {
+            $.ajax({
+                type: "POST",
+                url: form.action,
+                data: $(form).serialize(),
+                datatype: 'json',
+            }).done(function (data) {
+                if (data.success == "true") {
+                    $("#successful_modal").show();
+                    $("#failed_modal").hide();
+                    addedSuccess = true;
+                } else {
+                    $("#successful_modal").hide();
+                    $("#failed_modal").show();
+                    addedSuccess = false;
+                }
+
+                $("#myModal").modal('show');            
+            });
+        }
+        return false;
+    }
+
+
+    $(document).ready(function () {
+        $('#myModal').on('hidden.bs.modal', function () {
+            if (addedSuccess) {
+                $(this).closest('form').find("input[type=text]").val("");
+            }
+        })
+
+    });
+</script>

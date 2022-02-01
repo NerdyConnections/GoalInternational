@@ -1,0 +1,116 @@
+﻿
+@using (Html.BeginForm("SetLanguage", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+
+    @Html.AntiForgeryToken()
+
+    <div class="pnl-login">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- <h1 id="lblTitle"></h1>-->
+                <h1>@GoalInternational.Languages.Common.Registration_Language_Selection</h1>
+
+                <div class="btn-back"><span class="glyphicon glyphicon-chevron-left"></span><span>@GoalInternational.Languages.Common.BACK</span></div>
+                <!--<div class="lead1" style="color: #534d4d"></div>-->
+            </div>
+        </div>
+
+
+
+
+
+    
+
+        <div class="row" style="padding-top:20px">
+
+            <div class="form-group form-group-sm col-sm-2 col-sm-offset-3">
+                @Html.RadioButton("Language", "english")
+                <span style="font-size: 24px">&nbsp;&nbsp;English</span>
+            </div>
+            <div class="form-group form-group-sm col-sm-2">
+                @Html.RadioButton("Language", "spanish")
+                <span style="font-size: 24px">&nbsp;&nbsp;Español</span>
+            </div>
+
+            <div class="form-group form-group-sm col-sm-2">
+                @Html.RadioButton("Language", "portuguese")
+                <span style="font-size: 24px">
+                    &nbsp;&nbsp;
+                    Português
+                </span>
+            </div>
+
+
+        </div>
+
+
+        <div class="row">
+            <div class="form-group form-group-sm col-sm-4 col-sm-offset-3">
+                <p style="display:none; color:red; font-size:24px;" id="errorMsg">@GoalInternational.Languages.Common.PleaseSelectOne</p>
+            </div>
+            
+        </div>
+
+
+        <div class="row">
+
+        </div>
+        <div class="row"></div>
+
+        <div class="row"></div>
+
+
+
+        <div class="row" style="padding-top:15px">
+            <div class="form-group form-group-lg col-sm-2 pull-right">
+                <!-- Trigger the modal with a button -->
+                <button type="submit" class="form-control btn btn-primary btn-sm" id="nextBn">@GoalInternational.Languages.Common.NEXT</button>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">&nbsp;</div>
+        </div>
+</div>
+}
+
+<script type="text/javascript">
+
+      
+
+
+    $(document).ready(function () {
+        $("#nextBn").click(function (e) {          
+            if ($("input:radio:checked").length == 0) {
+                e.preventDefault();
+                $("#errorMsg").show();
+            }           
+        });
+
+        $("input:radio").change(function () {
+            $("#errorMsg").hide();
+        });
+
+            function SubmitForm(form) {
+                
+                $.validator.unobtrusive.parse(form);
+                if ($(form).valid()) {
+                    $.ajax({
+
+                        type: "POST",
+                        url: form.action,
+                        data: form.serialize(),
+                        datatype: 'json',
+
+
+                    }).done(function (partialViewResult) {
+                        debugger;
+                        console.log("ajax call is done");
+                        $("#ContentContainer").html(partialViewResult);
+                    });//end of ajax call
+                }
+                return false;
+            }//end of submit form
+        });//end of document.ready
+</script>

@@ -1,0 +1,280 @@
+﻿@model GoalInternational.Models.GIntV1P1Model
+@using GoalInternational.Util
+@{
+    ViewBag.Title = "GIntV1P1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string patientId = Model.PatientID == 0 ? "" : Model.PatientID.ToString();
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
+
+<script src="~/Scripts/datepicker-es-MX.js"></script>
+<script src="~/Scripts/datepicker-pt-BR.js"></script>
+<script src="~/Scripts/datepicker-en-US.js"></script>
+@using (Html.BeginForm("SaveValidateV1P1", "PatientVisit", FormMethod.Post, new { @id = "frmV1P1" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.PatientID)
+    @Html.HiddenFor(model => model.SignOff)
+    <div class="1">
+
+        <!-- <div class="link-blue"><a class="link-blue" href="javascript:void(0)">Download Process Document</a></div>-->
+
+
+        <h1>@GoalInternational.Languages.GIntV1P1.G1</h1>
+        <h3>
+            <strong>
+                @GoalInternational.Languages.GIntV1P1.G2<br>
+            </strong>@GoalInternational.Languages.GIntV1P1.G3 @patientId
+            <br>
+        </h3>
+        <div class="panel panel-default" style="background-color: #036;color: #FFF;">
+            <div class="panel-body">
+                @Html.Raw(GoalInternational.Languages.Common.Introduction) 
+            </div>
+        </div>
+          
+        </div>
+        <div class="row" style="padding-top:15px">
+            @*<div class="form-group form-group-sm col-sm-12" style="padding-top:0px">
+                    <label class="" title="Last Name">@GoalInternational.Languages.GIntV1P1.G4 </label>
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "errorMssg" })
+                </div>
+                <div class="form-group form-group-sm col-sm-12">
+                    <label class="" title="first Name">	@GoalInternational.Languages.GIntV1P1.G5 </label>
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "errorMssg" })
+                </div>*@
+            <!--
+                    <div class="form-group form-group-sm col-sm-12" style="padding-top:0px">
+                        <label class="" title="Last Name">@GoalInternational.Languages.GIntV1P1.G23 </label>
+                        @Html.TextBoxFor(m => m.Initials, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Initials, "", new { @class = "errorMssg" })
+                    </div>-->
+            @*  <div class="form-group form-group-sm col-sm-12">
+                    <label class="" title="Phone">@GoalInternational.Languages.GIntV1P1.G6</label>
+                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "errorMssg" })
+                </div>*@
+
+
+            @*<div class="form-group form-group-sm col-sm-12">
+                    <label class="" title="Additional Phone">@GoalInternational.Languages.GIntV1P1.G7</label>
+                    @Html.TextBoxFor(m => m.AdditionalPhone, new { @class = "form-control" })
+                </div>*@
+
+            <p>&nbsp;</p>
+            <div class="form-group form-group-sm col-sm-12">
+                <div style="border:#093 solid 5px; padding:10px">
+                    <label>
+                        <span style="font-weight: bold">
+                            @GoalInternational.Languages.GIntV1P1.G8
+                        </span><br>
+                    </label>
+                    <ol>
+                        <li>@GoalInternational.Languages.GIntV1P1.PleaseConfirm @Html.CheckBoxFor(model => model.Inclusion_1) @GoalInternational.Languages.GIntV1P1.G9</li>
+                        <li>@GoalInternational.Languages.GIntV1P1.PleaseConfirm @Html.CheckBoxFor(model => model.Inclusion_2) @GoalInternational.Languages.GIntV1P1.G10</li>
+                        <li>@GoalInternational.Languages.GIntV1P1.PleaseConfirm @Html.CheckBoxFor(model => model.Inclusion_3) @GoalInternational.Languages.GIntV1P1.G11</li>
+                        <li>@GoalInternational.Languages.GIntV1P1.PleaseConfirm @Html.CheckBoxFor(model => model.Inclusion_4) @GoalInternational.Languages.GIntV1P1.G12</li>
+                        <li>@GoalInternational.Languages.GIntV1P1.PleaseConfirm @Html.CheckBoxFor(model => model.Inclusion_5) @GoalInternational.Languages.GIntV1P1.G13</li>
+                    </ol>
+                    <p>
+                        <strong>
+                            @Html.ValidationMessageFor(m => m.InclusionValid, "", new { @class = "errorMssg" })
+                        </strong>&nbsp;
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-group form-group-sm col-sm-12">
+                <div style="border:#C00 solid 5px; padding:10px">
+                    <label>
+                        <span style="font-weight: bold">
+                            @GoalInternational.Languages.GIntV1P1.G15
+                        </span><br>
+                    </label>
+                    <ol>
+                        <li>@GoalInternational.Languages.GIntV1P1.G16</li>
+                        <li>@GoalInternational.Languages.GIntV1P1.G17</li>
+                        <li>@GoalInternational.Languages.GIntV1P1.G18</li>
+                    </ol>
+                    <p>
+                        <strong>
+                            @Html.CheckBoxFor(model => model.Exclusion)
+                            &nbsp;&nbsp; @Html.Raw(@GoalInternational.Languages.GIntV1P1.G19)
+                        </strong>&nbsp;
+                        <br />@Html.ValidationMessageFor(m => m.ExclusionValid, "", new { @class = "errorMssg" })
+                    </p>
+                </div>
+            </div>
+            <p>&nbsp;</p>
+
+            <div class="form-group form-group-sm col-sm-12">
+
+                <label class="">@GoalInternational.Languages.GIntV1P1.G24</label>
+                <input type="image" onclick="return false;" src="~/Images/calendar.png" id="imgPatientConsentDate" style="vertical-align:middle;" />
+                &nbsp;&nbsp;
+                @Html.TextBoxFor(m => m.PatientConsentDate, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PatientConsentDate, "", new { @class = "errorMssg" })
+
+            </div>
+            <p>&nbsp;</p>
+
+            <div class="form-group form-group-sm col-sm-12">
+
+                <label class="">@GoalInternational.Languages.GIntV1P1.G20</label>
+                <input type="image" onclick="return false;" src="~/Images/calendar.png" id="imgVisitDate" style="vertical-align:middle;" />
+                &nbsp;&nbsp;
+                @Html.TextBoxFor(m => m.VisitDate, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.VisitDate, "", new { @class = "errorMssg" })
+
+            </div>
+            <p>&nbsp;</p>
+
+          
+                <div class="form-group form-group-sm col-sm-12">
+                    <label class="" title="@GoalInternational.Languages.GIntV1P1.G25">@GoalInternational.Languages.GIntV1P1.G25</label>
+                    <div>
+                        <label>
+                            @Html.RadioButtonFor(m => m.LDLCYesNo, "Yes", new { id = "rbLDLCYes" })
+                            &nbsp;&nbsp;@GoalInternational.Languages.Common.Yes
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            @Html.RadioButtonFor(m => m.LDLCYesNo, "No", new { id = "rbLDLCNo" })
+                            &nbsp;&nbsp;@GoalInternational.Languages.Common.No
+                        </label>
+                    </div>
+
+                    <div>@Html.ValidationMessageFor(m => m.LDLCYesNo, "", new { @class = "errorMssg" })</div>
+                </div>
+            </div>
+
+        
+
+        <div class="row">
+
+
+            <div class="form-group form-group-md col-sm-2 pull-right">
+                <label class="" title="">&nbsp;</label>
+                @if (@Model.SignOff ?? false)
+                {
+                    <input class="form-control btn btn-default btn-sm" id="btnAdvance" value="NEXT" style="bottom:0px" type="button">
+                }
+                else
+                {
+                    <input class="form-control btn btn-default btn-d" id="btnNext" value="NEXT" style="bottom:0px" type="submit">
+                }
+
+            </div>
+            <div class="form-group form-group-md col-sm-2 pull-right">
+                <label class="" title="">&nbsp;</label>
+                <input type="button" class="form-control btn btn-default btn-md" id="btnSave" value="SAVE" style="display:none;bottom:0px">
+            </div>
+
+
+        </div>
+        <div class="row">
+
+            <span id="spanResult" style="color:red"></span>
+        </div>
+}
+@section Scripts {
+
+
+
+    <script type="text/javascript">
+        $('#btnAdvance').on('click', function (e) {
+            window.location.href = "/PatientVisit/GintV1?PatientID=@Model.PatientID" + "&Page=2";
+        });
+        //datepick code
+        $(document).ready(function () {
+            var options = $.extend(
+                {},  // empty object
+
+               // $.datepicker.regional["@UserHelper.GetLoggedInUser().SpecifiedCulture"],       // Dynamically
+                 $.datepicker.regional["@Session["SpecifiedCulture"]"],       // Dynamically
+                {
+                    altField: $("input[id$='VisitDate']"),
+                    numberOfMonths: 1,
+                    changeMonth: true,
+                    changeYear: true,
+                    dateFormat: "yy/mm/dd",
+                    yearRange: "2000:2030"
+
+                } // your custom options
+            );
+            var pcoptions = $.extend(
+               {},  // empty object
+
+              // $.datepicker.regional["@UserHelper.GetLoggedInUser().SpecifiedCulture"],       // Dynamically
+                $.datepicker.regional["@Session["SpecifiedCulture"]"],       // Dynamically
+               {
+                   altField: $("input[id$='PatientConsentDate']"),
+                   numberOfMonths: 1,
+                   changeMonth: true,
+                   changeYear: true,
+                   dateFormat: "yy/mm/dd",
+                   yearRange: "2000:2030"
+
+               } // your custom options
+           );
+            $("input[id$='imgVisitDate']").datepicker(options);
+            $("input[id$='imgPatientConsentDate']").datepicker(pcoptions);
+            //$("input[id$='imgVisitDate']").datepicker({
+
+            //    altField: $("input[id$='VisitDate']"),
+            //    numberOfMonths: 1,
+            //    changeMonth: true,
+            //    changeYear: true,
+            //    dateFormat: "yy/mm/dd",
+            //    yearRange: "2000:2030"
+            //});
+
+            var SignOff = '@Model.SignOff';
+
+            if (SignOff === 'True') {
+                $("#btn-submit").attr('disabled', 'disabled').css('opacity', 0.5);
+                $("#CompanyInstructions").attr('disabled', 'disabled').css('opacity', 0.5);
+
+
+                $('input[type = radio], input[type = checkbox], input[type = text], input[type = textarea], select').attr('disabled', 'disabled').attr('readonly', 'readonly');
+                $('#btnSave').hide();
+
+            }
+            $("#btnSave").click(function () {
+
+                $.ajax({
+                    type: "POST",
+                    url: '/PatientVisit/SaveV1P1',     //your action
+                    data: $('#frmV1P1').serialize(),   //your form name.it takes all the values of model
+                    dataType: 'json',
+                    success: function (data) {
+                        debugger;
+                        $("#spanResult").html(data.success.msg);
+                        console.log(data);
+                    },
+                    error: function (xhr, httpStatusMessage, customErrorMessage) {
+                        debugger;
+
+                        if (xhr.status === 410) {
+                            $("#spanResult").html(customErrorMessage);
+
+                        }
+                    }
+                })
+                return false;
+            });
+
+        });
+    </script>
+    <style>
+        .ui-datepicker {
+            width: 19em;
+        }
+    </style>
+
+}

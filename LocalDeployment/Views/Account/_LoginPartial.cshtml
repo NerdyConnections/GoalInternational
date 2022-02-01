@@ -1,0 +1,79 @@
+﻿@model GoalInternational.Models.LoginModel
+@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+
+    @Html.AntiForgeryToken()
+
+    <div class="pnl-login">
+        <div class="row">
+            <div class="col-md-12 col-sm-offset-3">
+                <h1>&nbsp;</h1>
+                <h1>
+                    @GoalInternational.Languages.LoginPartial.G1<br>
+                    @GoalInternational.Languages.LoginPartial.G2
+                </h1>
+                <div class="lead1">@GoalInternational.Languages.LoginPartial.G3</div>
+                <div class="col-md-12" style="padding-left:0px">
+                    <div class="form-group form-group-sm float-left margin-right-4">
+                        <label class="control-label">@GoalInternational.Languages.Common.EMAIL</label>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control ctrl-login", @id = "ctrlEmail", @placeholder = "" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "errorMsg" })
+                    </div>
+                    <div class="form-group form-group-sm float-left">
+                        <label class="control-label">@GoalInternational.Languages.Common.PASSWORD </label>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control ctrl-login", @id = "ctrlPassword", @placeholder = "" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "errorMsg" })
+                    </div>
+                </div>
+
+                <div class="col-md-12" style="padding-left:0px">
+                    <input type="submit" class="form-control" id="ctrlLogin" value="@GoalInternational.Languages.Common.LOGIN" />
+                </div>
+                <div id="lblMessage" class="col-md-12">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                </div>
+
+
+                <div class="col-md-12">
+                    <a href="/Account/ForgotPassword" id="ctrlForgotPasword" style="color: #036" title="Forgot your password?">@GoalInternational.Languages.LoginPartial.G4</a>
+                </div>
+
+                <div class="col-md-12">
+                    <a href="mailto:spindlerc@chrc.net" title="Need Assistance?" id="ctrlNeedAssistance" style="color: #036">@GoalInternational.Languages.LoginPartial.G5</a>
+                    <!--<a href="#" id="ctrlRegister">First time user? REGISTER</a>-->
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+
+        function SubmitForm(form) {
+
+            $.validator.unobtrusive.parse(form);
+            if ($(form).valid()) {
+                $.ajax({
+                    type: "POST",
+                    url: form.action,
+                    data: $(form).serialize(),
+                    datatype: 'json'
+                }).done(function (partialViewResult) {
+                    if (typeof partialViewResult.Url == "undefined") {
+                        $("#ContentContainer").html(partialViewResult);
+                    } else {
+                        window.location = partialViewResult.Url;
+                    }                   
+                });
+            }
+            return false;
+        }
+
+</script>

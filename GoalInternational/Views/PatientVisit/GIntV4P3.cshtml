@@ -1,0 +1,748 @@
+﻿@model GoalInternational.Models.GIntV4P3Model
+@using GoalInternational.Util
+@{
+    ViewBag.Title = "GIntV4P3";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
+
+<script src="~/Scripts/datepicker-es-MX.js"></script>
+<script src="~/Scripts/datepicker-pt-BR.js"></script>
+<script src="~/Scripts/datepicker-en-US.js"></script>
+
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        var options = $.extend(
+          {},  // empty object
+         $.datepicker.regional["@Session["SpecifiedCulture"]"],      // Dynamically
+          {
+              altField: $("input[id$='LabDate']"),
+              numberOfMonths: 1,
+              changeMonth: true,
+              changeYear: true,
+              dateFormat: "yy/mm/dd",
+              yearRange: "2000:2030"
+
+          } // your custom options
+      );
+        $("input[id$='imgLabDate']").datepicker(options);
+
+           //$("input[name=LipidTherapy2]").change(function () {
+           //    alert("clicked");
+        //});
+        //set up reason table based on input
+           if ($('input:radio[name="LipidTherapy1"]:checked').val() == "No" && $('input:radio[name="LipidTherapy2"]:checked').val() == "No") {
+               $("#tblReasonNotPCSK9i").show();
+           }
+           else {
+
+               $("#tblReasonNotPCSK9i").hide();
+           }
+
+           if ($('input:radio[name="LipidTherapy5"]:checked').val() == "No") {
+               $("#tblReasonNotEzetimibe").show();
+           }
+           else {
+
+               $("#tblReasonNotEzetimibe").hide();
+           }
+           $("input:radio[name='LipidTherapy1']").change(function () {
+               if ($('input:radio[name="LipidTherapy1"]:checked').val() == "No" && $('input:radio[name="LipidTherapy2"]:checked').val() == "No") {
+                   $("#tblReasonNotPCSK9i").show();
+               }
+               else {
+
+                   $("#tblReasonNotPCSK9i").hide();
+               }
+               $("input:radio[name='ReasonNotPCSK9i']").prop("checked", false);
+           });
+           $("input:radio[name='LipidTherapy2']").change(function () {
+               if ($('input:radio[name="LipidTherapy1"]:checked').val() == "No" && $('input:radio[name="LipidTherapy2"]:checked').val() == "No") {
+                   $("#tblReasonNotPCSK9i").show();
+               }
+               else {
+
+                   $("#tblReasonNotPCSK9i").hide();
+               }
+               $("input:radio[name='ReasonNotPCSK9i']").prop("checked", false);
+           });
+           $("input:radio[name='LipidTherapy5']").change(function () {
+               if ($('input:radio[name="LipidTherapy5"]:checked').val() == "No") {
+                   $("#tblReasonNotEzetimibe").show();
+               }
+               else {
+                   $("#tblReasonNotEzetimibe").hide();
+               }
+               $("input:radio[name='ReasonNotEzetimibe']").prop("checked", false);
+           });
+           //$('input[name="LipidTherapy1"]').on('click', function () {
+           //    console.log("$('iLipidTherapy1 value:" + $('input["LipidTherapy1"]:checked').val());
+           //    console.log("$('iLipidTherapy2 value:" + $('input["LipidTherapy2"]:checked').val());
+           //    debugger;
+           //    if ($('input["LipidTherapy1"]:checked').val() == "No" || $('input["LipidTherapy2"]:checked').val() == "No") {
+           //        $("#tblReasonNotPCSK9i").show();
+           //    }
+
+        //});
+
+           hideAndShowAddTherapies();
+           $("#LDLC").keyup(function () {
+               hideAndShowAddTherapies();
+           });
+
+           function hideAndShowAddTherapies() {
+               if (($("input[name=LDLCUnit]:checked").val() == "mmol/L" && parseFloat($("#LDLC").val().replace(',', '.')) >= 1.4)
+                    || ($("input[name=LDLCUnit]:checked").val() == "mg/dL" && parseFloat($("#LDLC").val().replace(',', '.')) >= 55)) {
+               //if (($("input[name=LDLCUnit]:checked").val() == "mmol/L" && $("#LDLC").val() >= 1.4)
+                 //      || ($("input[name=LDLCUnit]:checked").val() == "mg/dL" && $("#LDLC").val() >= 55)) {
+                   $("#divAddTherapies").show();
+               } else {
+                   $("#divAddTherapies").hide();
+                   $("#divAddTherapies").find("input:radio").prop("checked", false);
+
+                   $("#tblReasonNotEzetimibe").hide();
+                   $("input:radio[name='ReasonNotEzetimibe']").prop("checked", false);
+
+                   $("#tblReasonNotPCSK9i").hide();
+                   $("input:radio[name='ReasonNotPCSK9i']").prop("checked", false);
+               }
+           }
+
+            //get statin dosages based on statin therapy
+           function SelectedIndexChanged() {
+               var dID = $("#StatinTherapy").val();
+               $.getJSON("/Home/LoadStatinDoseByStatin", { statinTherapy: dID, SpecifiedCulture: "@UserHelper.GetLoggedInUser().SpecifiedCulture" },
+                    function (data) {
+                        var select = $("#StatinDose");
+                        select.empty();
+                        select.append($('<option/>', {
+                            value: 0,
+                            text: "@GoalInternational.Languages.Common.PleaseSelect"
+                        }));
+                        $.each(data, function (index, itemData) {
+
+                            select.append($('<option/>', {
+                                value: itemData.Value,
+                                text: itemData.Text
+                            }));
+
+
+                        });
+                    }).done(function () {
+                        //set dosage information after the statin therapy is set by mvc and its relevant dosage options are populated by getJSON.
+                        $('select#StatinDose').val('@Model.StatinDose');
+                    });
+
+           }
+        //populate statin doses based on the selected value of statin therapy, then select the proper dose if available
+        if ($("#StatinTherapy").val() != null)
+        {
+            console.log("populate statin doses based on therapy")
+            console.log("statin therapy:" + $("#StatinTherapy").val())
+            SelectedIndexChanged();
+
+            console.log("select statin dose")
+
+
+
+
+        }
+
+           $("#StatinTherapy").change(function () {
+
+               debugger;
+               var dID = $(this).val();
+
+               $.ajax({
+
+                   type: "GET",
+                   url: "/Home/LoadStatinDoseByStatin",
+                   data: { statinTherapy: dID, SpecifiedCulture: "@UserHelper.GetLoggedInUser().SpecifiedCulture" },
+                   datatype: 'json',
+                   success: function (data) {
+                       //Do stuff with the JSON data
+                       var select = $("#StatinDose");
+                       select.empty();
+                       select.append($('<option/>', {
+                           value: 0,
+                           text: "@GoalInternational.Languages.Common.PleaseSelect"
+                       }));
+                       $.each(data, function (index, itemData) {
+                           select.append($('<option/>', {
+                               value: itemData.Value,
+                               text: itemData.Text
+                           }));
+                       });
+                       console.log("success");
+                   }
+
+               })
+
+
+                   //.done(function () {
+                     //    debugger;
+                       //     console.log("ajax call is done");
+                         //   $('select#StatinDose').val('@Model.StatinDose');
+           //});
+
+               @*$.getJSON("/Home/LoadStatinDoseByStatin", { statinTherapy: dID, SpecifiedCulture: "@UserHelper.GetLoggedInUser().SpecifiedCulture" },
+                      function (data) {
+                          var select = $("#StatinDose");
+                          select.empty();
+                          select.append($('<option/>', {
+                              value: 0,
+                              text: "@GoalInternational.Languages.Common.PleaseSelect"
+                          }));
+                          $.each(data, function (index, itemData) {
+                              select.append($('<option/>', {
+                                  value: itemData.Value,
+                                  text: itemData.Text
+                              }));
+                          });
+                      }).done(function () {
+
+                          $('select#StatinDose').val('@Model.StatinDose');
+                      });*@
+
+           });
+        //$("#tblReasonNotEzetimibe").hide();
+        //$("#tblReasonNotPCSK9i").hide();
+
+        //display Reason table if both  pcsk9i option are not selected
+
+       // alert("done loading page:" + "@Model.StatinDose");
+
+       });//end of document ready
+
+</script>
+
+
+@using (Html.BeginForm("SaveValidateV4P3", "PatientVisit", FormMethod.Post, new { @id = "frmV4P3" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.UserID)
+    @Html.HiddenFor(model => model.PatientID)
+    @Html.HiddenFor(model => model.SignOff)
+    @Html.HiddenFor(model => model.V4P2CurrentLDLTherapy4)
+    @Html.HiddenFor(model => model.V4P2CurrentLDLTherapy2)
+
+    @Html.HiddenFor(model => model.VisitDate)
+    <div class="1">
+
+        <!-- <div class="link-blue"><a class="link-blue" href="javascript:void(0)">Download Process Document</a></div>-->
+
+
+        <h3>
+            <strong>
+                @GoalInternational.Languages.GIntV2P3.G1<br>
+            </strong>@GoalInternational.Languages.GIntV2P3.G2 @Model.PatientID  <br>
+            <br>
+        </h3>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="form-group form-group-sm col-sm-12">
+            <label style="color: #900; font-weight: bold;"><strong>@GoalInternational.Languages.GIntV2P3.G3</strong></label><strong>
+            </strong>
+        </div>
+
+        <div class="form-group form-group-sm col-sm-12">
+            <label class="" title="@GoalInternational.Languages.GIntV2P3.G4">@GoalInternational.Languages.GIntV2P3.G4</label>&nbsp;<input type="image" onclick="return false;" src="~/Images/calendar.png" id="imgLabDate" style="vertical-align:middle;" />
+            <br />
+            @Html.TextBoxFor(m => m.LabDate, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.LabDate, "", new { @class = "errorMssg" })
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="form-group form-group-sm col-sm-6">
+                <label class="" title="@GoalInternational.Languages.GIntV1P4.G5">
+                    @GoalInternational.Languages.GIntV1P4.G5<br>
+                </label>
+                @Html.TextBoxFor(m => m.TotalCholesterol, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.TotalCholesterol, "", new { @class = "errorMssg" })
+                <div>
+                    @Html.RadioButtonFor(m => m.TotalCholesterolUnit, "mmol/L") mmol/L&nbsp;
+                    @Html.RadioButtonFor(m => m.TotalCholesterolUnit, "mg/dL") mg/dL
+                </div>
+                @Html.ValidationMessageFor(m => m.TotalCholesterolUnit, "", new { @class = "errorMssg" })
+            </div>
+
+            <div class="form-group form-group-sm col-sm-6">
+                <label class="" title="@GoalInternational.Languages.GIntV1P4.G6">
+                    @GoalInternational.Languages.GIntV1P4.G6:<br>
+                </label>
+                @Html.TextBoxFor(m => m.LDLC, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.LDLC, "", new { @class = "errorMssg" })
+                <div>
+                    @Html.RadioButtonFor(m => m.LDLCUnit, "mmol/L") mmol/L&nbsp;
+                    @Html.RadioButtonFor(m => m.LDLCUnit, "mg/dL") mg/dL
+                </div>
+                @Html.ValidationMessageFor(m => m.LDLCUnit, "", new { @class = "errorMssg" })
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="form-group form-group-sm col-sm-6">
+                <label class="" title="@GoalInternational.Languages.GIntV1P4.G7">
+                    @GoalInternational.Languages.GIntV1P4.G7:&nbsp;<br>
+                </label>
+                @Html.TextBoxFor(m => m.HDLC, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.HDLC, "", new { @class = "errorMssg" })
+                <div>
+                    @Html.RadioButtonFor(m => m.HDLCUnit, "mmol/L") mmol/L&nbsp;
+                    @Html.RadioButtonFor(m => m.HDLCUnit, "mg/dL") mg/dL
+                </div>
+                @Html.ValidationMessageFor(m => m.HDLCUnit, "", new { @class = "errorMssg" })
+            </div>
+            <div class="form-group form-group-sm col-sm-6">
+                <label class="" title="@GoalInternational.Languages.GIntV1P4.G8">
+                    @GoalInternational.Languages.GIntV1P4.G8:&nbsp;<br>
+                </label>
+                @Html.TextBoxFor(m => m.NHDLC, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.NHDLC, "", new { @class = "errorMssg" })
+                <div>
+                    @Html.RadioButtonFor(m => m.NHDLCUnit, "mmol/L") mmol/L&nbsp;
+                    @Html.RadioButtonFor(m => m.NHDLCUnit, "mg/dL") mg/dL
+                </div>
+                @Html.ValidationMessageFor(m => m.NHDLCUnit, "", new { @class = "errorMssg" })
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="form-group form-group-sm col-sm-6">
+                <label class="" title="@GoalInternational.Languages.GIntV1P4.G9">
+                    @GoalInternational.Languages.GIntV1P4.G9	&nbsp;<br>
+                </label>
+                @Html.TextBoxFor(m => m.Triglycerides, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Triglycerides, "", new { @class = "errorMssg" })
+                <div>
+                    @Html.RadioButtonFor(m => m.TriglyceridesUnit, "mmol/L") mmol/L&nbsp;
+                    @Html.RadioButtonFor(m => m.TriglyceridesUnit, "mg/dL") mg/dL
+                </div>
+                @Html.ValidationMessageFor(m => m.TriglyceridesUnit, "", new { @class = "errorMssg" })
+            </div>
+
+
+
+            <div class="form-group form-group-sm col-sm-6">
+                <label class="" title="@GoalInternational.Languages.GIntV1P4.G10">
+                    @GoalInternational.Languages.GIntV1P4.G10	&nbsp;<br>
+                </label>
+                @Html.TextBoxFor(m => m.ApoB, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ApoB, "", new { @class = "errorMssg" })
+                <div>
+                    @Html.RadioButtonFor(m => m.ApoBUnit, "g/L") g/L&nbsp;
+                    @Html.RadioButtonFor(m => m.ApoBUnit, "mg/dL") mg/dL&nbsp;
+                    @Html.RadioButtonFor(m => m.ApoBUnit, "N/A") N/A
+                </div>
+                @Html.ValidationMessageFor(m => m.ApoBUnit, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+    <div class="row">
+        <div class="form-group form-group-sm col-sm-12">
+            @Html.ValidationMessageFor(m => m.LabValues, "", new { @class = "errorMssg" })
+        </div>
+    </div><br/>
+
+    <div class="row">
+        <div class="form-group form-group-sm col-sm-3">
+            @GoalInternational.Languages.GIntV2P3.G11
+            @Html.DropDownListFor(model => model.StatinTherapy, new SelectList(ListHelper.GetStatinTherapyList(), "Value", "Text"), @GoalInternational.Languages.Common.PleaseSelect, new { id = "StatinTherapy", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.StatinTherapy, "", new { @class = "text-danger", onchange = "SelectedIndexChanged()" })
+        </div>
+        <div class="form-group form-group-sm col-sm-3">
+            <br>
+            @Html.DropDownListFor(Model => Model.StatinDose, new SelectList(Enumerable.Empty<SelectListItem>(), "Value", "Text"), @GoalInternational.Languages.Common.PleaseSelect, new { id = "StatinDose", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.StatinDose, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row" id="divAddTherapies" style="">
+        <div style="padding-top:15px">
+
+
+
+
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th style="text-align:left; color:#FFF" bgcolor="#000000">
+                            @GoalInternational.Languages.GIntV2P3.G12<br>
+                            @GoalInternational.Languages.GIntV2P3.G13
+                        </th>
+                        <th style="color: #FFF; text-align:center" bgcolor="#000000">@GoalInternational.Languages.Common.Yes</th>
+                        <th style="color: #FFF; text-align:center" bgcolor="#000000">@GoalInternational.Languages.Common.No</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        if (Model.V4P2CurrentLDLTherapy2.Equals("No"))
+                        {
+                            <tr>
+                                <td style="text-align:left">@GoalInternational.Languages.GIntV2P3.G40<br />@Html.ValidationMessageFor(m => m.LipidTherapy1, "", new { @class = "text-danger" })</td>
+                                <td>
+                                    <label>
+                                        @Html.RadioButtonFor(m => m.LipidTherapy1, "Yes")
+                                    </label>
+                                </td>
+                                <td>
+                                    <label>
+                                        @Html.RadioButtonFor(m => m.LipidTherapy1, "No")
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:left">@GoalInternational.Languages.GIntV2P3.G41<br />@Html.ValidationMessageFor(m => m.LipidTherapy2, "", new { @class = "text-danger" })</td>
+                                <td>
+                                    <label>
+                                        @Html.RadioButtonFor(m => m.LipidTherapy2, "Yes")
+                                    </label>
+                                </td>
+                                <td>
+                                    <label>
+                                        @Html.RadioButtonFor(m => m.LipidTherapy2, "No")
+                                    </label>
+                                </td>
+                            </tr>
+                        }
+                    }
+
+
+
+
+                    <tr>
+                        <td style="text-align:left">@GoalInternational.Languages.GIntV2P3.G14<br />@Html.ValidationMessageFor(m => m.LipidTherapy3, "", new { @class = "text-danger" })</td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.LipidTherapy3, "Yes")
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.LipidTherapy3, "No")
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left">@GoalInternational.Languages.GIntV2P3.G15<br />@Html.ValidationMessageFor(m => m.LipidTherapy4, "", new { @class = "text-danger" })</td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.LipidTherapy4, "Yes")
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.LipidTherapy4, "No")
+                            </label>
+                        </td>
+                    </tr>
+                    @{
+                        if (Model.V4P2CurrentLDLTherapy4.Equals("No"))
+                        {
+                            <tr>
+                                <td style="text-align:left">@GoalInternational.Languages.GIntV2P3.G16 <br />@Html.ValidationMessageFor(m => m.LipidTherapy5, "", new { @class = "text-danger" })</td>
+                                <td>
+                                    <label>
+                                        @Html.RadioButtonFor(m => m.LipidTherapy5, "Yes")
+                                    </label>
+                                </td>
+                                <td>
+                                    <label>
+                                        @Html.RadioButtonFor(m => m.LipidTherapy5, "No")
+                                    </label>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    <tr>
+                        <td style="text-align:left">@GoalInternational.Languages.GIntV2P3.G17 <br />@Html.ValidationMessageFor(m => m.LipidTherapy6, "", new { @class = "text-danger" })</td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.LipidTherapy6, "Yes")
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                @Html.RadioButtonFor(m => m.LipidTherapy6, "No")
+                            </label>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+        <div class="row">
+
+            <div style="padding-top:15px" id="tblReasonNotEzetimibe">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th colspan="2" style="text-align:left; color:#FFF" bgcolor="#000000">
+                                @GoalInternational.Languages.GIntV2P3.G18&nbsp;<strong>@GoalInternational.Languages.GIntV2P3.G19</strong>&nbsp;@GoalInternational.Languages.GIntV2P3.G20<br>
+                                @GoalInternational.Languages.GIntV2P3.G21<br>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV2P3.G22</td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.ReasonNotEzetimibe, "Patient Refusal")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV2P3.G23</td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.ReasonNotEzetimibe, "Patient intolerant")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV2P3.G24</td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.ReasonNotEzetimibe, "Not Needed")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV2P3.G25</td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.ReasonNotEzetimibe, "Co-morbidities")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV2P3.G26</td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.ReasonNotEzetimibe, "Cost")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV2P3.G27</td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.ReasonNotEzetimibe, "Patient is on PCSK9i")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left" height="41">@GoalInternational.Languages.GIntV2P3.G28</td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.ReasonNotEzetimibe, "Patient will return for Rx/Will provide Rx at next paient visit")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align:left" height="41" bgcolor="#B4CDDC">@GoalInternational.Languages.GIntV2P3.G29</td>
+                        </tr>
+                    </tbody>
+                </table>
+                @Html.ValidationMessageFor(m => m.ReasonNotEzetimibe, "", new { @class = "errorMssg" })
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div style="padding-top:15px" id="tblReasonNotPCSK9i">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th colspan="2" style="text-align:left; color:#FFF" bgcolor="#000000">
+                                @GoalInternational.Languages.GIntV2P3.G30 <strong><strong>PCSK9i</strong></strong> @GoalInternational.Languages.GIntV2P3.G31<br>
+                                @GoalInternational.Languages.GIntV2P3.G32<br>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV2P3.G33</td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.ReasonNotPCSK9i, "Patient Refusal")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV2P3.G34</td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.ReasonNotPCSK9i, "Patient intolerant")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV2P3.G35</td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.ReasonNotPCSK9i, "Not Needed")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV2P3.G36</td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.ReasonNotPCSK9i, "Co-morbidities")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">@GoalInternational.Languages.GIntV2P3.G37</td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.ReasonNotPCSK9i, "Cost")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left" height="41">@GoalInternational.Languages.GIntV2P3.G38</td>
+                            <td>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.ReasonNotPCSK9i, "Patient will return for Rx/Will provide Rx at next patient visit")
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align:left" height="41" bgcolor="#B4CDDC">@GoalInternational.Languages.GIntV2P3.G39</td>
+                        </tr>
+                    </tbody>
+                </table>
+                @Html.ValidationMessageFor(m => m.ReasonNotPCSK9i, "", new { @class = "errorMssg" })
+            </div>
+
+        </div>
+
+
+        <div class="row">
+
+
+            <div class="form-group form-group-md col-sm-2 pull-right">
+                <label class="" title="">&nbsp;</label>
+                @if (@Model.SignOff ?? false)
+                {
+                    <input class="form-control btn btn-default btn-sm" id="btnAdvance" value=@GoalInternational.Languages.Common.NEXT style="bottom:0px" type="button">
+                }
+                else
+                {
+                    <input class="form-control btn btn-default btn-d" id="btnNext" value=@GoalInternational.Languages.Common.NEXT style="bottom:0px" type="submit">
+                }
+
+            </div>
+            <div class="form-group form-group-md col-sm-2 pull-right">
+                <label class="" title="">&nbsp;</label>
+                <input type="button" class="form-control btn btn-default btn-md" id="btnSave" value=@GoalInternational.Languages.Common.SAVE style="bottom:0px">
+            </div>
+            <div class="form-group form-group-md col-sm-2 pull-right">
+                <label class="" title="">&nbsp;</label>
+                <input type="button" class="form-control btn btn-default btn-md" id="btnBack" value=@GoalInternational.Languages.Common.BACK style="bottom:0px">
+            </div>
+        </div>
+
+        <div class="row">
+
+            <span id="spanResult" style="color:red"></span>
+        </div>
+
+}
+
+@section Scripts {
+
+    <script type="text/javascript">
+        $('#btnAdvance').on('click', function (e) {
+            //if visit 1 is submitted go back to page 1, don't know go to submit page again.
+            window.location.href = "/PatientVisit/GintV4?PatientID=@Model.PatientID" + "&Page=1";
+        });
+        $('#btnBack').on('click', function (e) {
+            debugger;
+            window.location.href = "/PatientVisit/GintV4?PatientID=@Model.PatientID" + "&Page=2";
+        });
+
+
+        $("input[name='LipidTherapy1']").change(function () {
+            if ($("input[name='LipidTherapy1']:checked").val() == "Yes") {
+                $("input[name='LipidTherapy2'][value='No']").prop('checked', true);
+            }
+        });
+        $("input[name='LipidTherapy2']").change(function () {
+            if ($("input[name='LipidTherapy2']:checked").val() == "Yes") {
+                $("input[name='LipidTherapy1'][value='No']").prop('checked', true);
+            }
+        });
+
+
+
+        $(document).ready(function () {
+            ApoBUnit();
+            $("input:radio[name=ApoBUnit]").change(function () {
+                ApoBUnit();
+            });
+
+
+        if ('@Model.SignOff'=='True')
+        {
+            $('input', 'form').attr('readonly', true);
+            $('select', 'form').attr('disabled', true).attr('readonly', true);
+            $('input[type=text], textarea').attr('readonly', true);
+            $( ":radio" ).attr('disabled', true).attr('readonly', true);
+            $( ":checkbox" ).attr('disabled', true).attr('readonly', true);
+            $('#btnSave').hide();
+        }
+
+        $("#btnSave").click(function () {
+           $.ajax({
+                type: "POST",
+                url: '/PatientVisit/SaveV4P3',     //your action
+                data: $('#frmV4P3').serialize(),   //your form name.it takes all the values of model
+                dataType: 'json',
+                success: function (data) {
+                    debugger;
+                    $("#spanResult").html(data.success.msg);
+                    console.log(data);
+                },
+                error: function (xhr, httpStatusMessage, customErrorMessage) {
+                    debugger;
+
+                    if (xhr.status === 410) {
+                        $("#spanResult").html(customErrorMessage);
+
+                    }
+                }
+            })
+            return false;
+
+        });//end of save
+
+     });//end of document ready
+
+        function ApoBUnit() {
+            if ($("input:radio[name=ApoBUnit]:checked").val() == "N/A") {
+                $("#ApoB").val("").attr("readonly", true);
+            } else {
+                $("#ApoB").attr("readonly", false);
+            }
+        }
+    </script>
+}

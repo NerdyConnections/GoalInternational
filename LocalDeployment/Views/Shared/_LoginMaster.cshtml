@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="/Scripts/jquery-3.1.0.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="/Scripts/jquery.easing.min.js" defer=""></script>
+    <script src="/Scripts/helper.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=BenchNine" rel="stylesheet">
+    
+   
+    <link href="/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/Login.css?t=34535" rel="stylesheet">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        a:link {
+            color: #036;
+        }
+
+        a:hover {
+            color: #036;
+        }
+         div.text-danger ul li, .errorMssg {
+            color:#ff0000;
+        }
+            
+    </style>
+</head>
+<body style="background-image: url('/Images/Goal_bg.jpg');" cz-shortcut-listen="true">
+    <div class="overlay"></div>
+  
+        <div class="navbar navbar-inverse overlay-z2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div id="logo">
+                                <div class="logo-img">
+                                    <img src="~/Images/GICHRCLogo.png" width="250" />
+                                    <!--object id="logo-svg" type="image/svg+xml" data="/Images/GOALint-logo.svg"></!--object-->
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav float-right">
+                                <li><a href="mailto:clinicaltrials@chrc.net">@GoalInternational.Languages.Common.ContactUs</a></li>
+                                <li>@Html.ActionLink(@GoalInternational.Languages.Common.LogOut, "LogOff", "Account", routeValues: null, htmlAttributes: new { id = "ctrlLogOut" })</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="row">
+                    <div class="col-md-12">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="display: none;">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div id="logo">
+                                <div class="logo-img">
+                                    <img src="~/Images/GICHRCLogo.png" width="250" />
+                                   
+
+                                </div>
+                                <div class="logo-txt-sub"></div>
+                                <div class="logo-txt-welcome">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav float-right" style="display: none;">
+                                <li><a href="#" title="Help Centre">@GoalInternational.Languages.Common.HelpCentre</a></li>
+                                <li><a href="#" title="Contact Us">@GoalInternational.Languages.Common.ContactUs</a></li>
+                                <li><a href="#" title="Log Out">@GoalInternational.Languages.Common.LogOut</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+   
+  
+
+
+    <div id="ContentContainer" class="container overlay-z2">
+        @RenderBody()
+        </div>
+    <div style='width:100%;height:160px;'></div><!--prevent footer cover content-->
+        <footer>
+            <div class="container overlay-z2 footer">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-4">
+                        <div class="logo-img-ftr">
+                            <object class="logo-img-ftr-svg" type="image/svg+xml" data="/Images/CHRClogos_mer.svg"></object>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4  col-sm-4 col-md-2">
+                        <a href="mailto:clinicaltrials@chrc.net" title="clinicaltrials@chrc.net" style="margin-right: 20px; color:#FFF">clinicaltrials@chrc.net</a>
+                        <br class="">
+                        @GoalInternational.Languages.Common.Address
+                        <br class="r-break">
+                        @GoalInternational.Languages.Common.City
+                        <br class="r-break">
+                        @GoalInternational.Languages.Common.Country
+                        <br class="r-break">
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script type="text/javascript">
+            //$(document).ready(function () {
+            //    $('body').css('background-image', 'url(img/bg1-prog.jpg)');
+
+            //    $('#btnAddSessionContact').on('click', function (e) {
+            //        loadModal('#abc', 'Add Session Contact', '> Modal Content', 'modal-lg');
+            //    });
+            //});
+
+
+
+
+
+            $(document).ready(function () {
+                $('.nav,.navbar-toggle').hide();
+
+                $('a').each(function () {
+                    $(this).attr('title', $(this).html());
+                });
+
+                $('body').css('background-image', 'url(/Images/Goal_bg.jpg)');
+
+
+
+
+            });
+
+
+
+            $(document).keypress(function (e) {
+                if (e.which == 13) {
+                    $('#ctrlLogin').trigger('click');
+                }
+            });
+        </script>
+
+</body>
+</html>

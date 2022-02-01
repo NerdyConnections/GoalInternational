@@ -1,0 +1,111 @@
+﻿@model GoalInternational.Models.GIntV2SubmitModel
+
+@{
+    ViewBag.Title = "GIntV2Submit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script language="javascript" type="text/javascript">
+    function submitForm() {
+        $("#frmSubmit").submit();
+    }
+</script>
+<button id="btn-modalRegCompleted" type="button" class="btn btn-info btn-lg hide" data-toggle="modal" data-target="#myModal2">@GoalInternational.Languages.GIntV1Submit.G1</button>
+<!-- Modal -->
+<div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">@GoalInternational.Languages.GIntV1Submit.G16</h4>
+            </div>
+            <div class="modal-body">
+                <p>@GoalInternational.Languages.GIntV1Submit.G21</p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">@GoalInternational.Languages.Common.Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var showpopup = @(ViewBag.RegCompletedPopup ? 1:0);
+        debugger;
+        if (showpopup)
+        {
+            debugger;
+            $("#btnSubmit").attr('disabled', true).attr('readonly', true);
+            $("#btn-modalRegCompleted").click();
+        }
+        $('#btnReview').on('click', function (e) {
+
+            window.location.href = "/PatientVisit/GintV2?PatientID=@Model.PatientID" + "&Page=1";
+        });
+    });
+</script>
+@using (Html.BeginForm("SubmitV2", "PatientVisit", FormMethod.Post, new { @id = "frmSubmit" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.UserID)
+    @Html.HiddenFor(model => model.PatientID)
+    @Html.HiddenFor(model => model.SignOff)
+
+    <input type="hidden" name="PatientID" value="@Model.PatientID" />
+    <div class="1">
+
+        <!-- <div class="link-blue"><a class="link-blue" href="javascript:void(0)">Download Process Document</a></div>-->
+
+
+
+        <h3>
+            <strong>
+                @GoalInternational.Languages.GIntV1Submit.G4<br>
+            </strong>@GoalInternational.Languages.GIntV1Submit.G5 @Model.PatientID<br>
+        </h3>
+    </div>
+
+    <div class="row" style="padding-top:15px">
+
+        <div class="form-group form-group-sm col-sm-12">
+            <label style="color: #900; font-weight: bold; font-size:20px">
+                <strong>
+                    @GoalInternational.Languages.GIntV1Submit.G6
+                    @GoalInternational.Languages.GIntV1Submit.G7 <u>@GoalInternational.Languages.GIntV1Submit.G9</u> @GoalInternational.Languages.GIntV1Submit.G10 <u>@GoalInternational.Languages.GIntV1Submit.G11</u> @GoalInternational.Languages.GIntV1Submit.G12
+
+                    <br>
+                    @GoalInternational.Languages.GIntV1Submit.G19
+                </strong>
+            </label>
+        </div>
+        <p>&nbsp;</p>
+        @if (Model.CanUserSubmit)
+        {
+            <div class="form-group form-group-sm col-sm-12">
+                <div style="border:#093 solid 5px; padding:20px">
+                    <input type="button" class="btn btn-success btn-lg" id="btnSubmit" value="@GoalInternational.Languages.Common.SUBMIT" onClick='submitForm()' style="bottom:0px; width:100%; font-weight:bold">
+                    <p>&nbsp;</p>
+                    @GoalInternational.Languages.GIntV1Submit.G13
+                </div>
+            </div>
+        }
+        <div class="form-group form-group-sm col-sm-12">
+            <div style="border:#F90 solid 5px; padding:20px">
+                <input type="button" class=" btn btn-warning btn-lg" id="btnReview" value="@GoalInternational.Languages.GIntV1Submit.G14" style="bottom:0px; width:100%; font-weight:bold">
+                <p>&nbsp;</p>
+                @GoalInternational.Languages.GIntV1Submit.G15
+            </div>
+        </div>
+
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    </div>
+
+
+
+}
+

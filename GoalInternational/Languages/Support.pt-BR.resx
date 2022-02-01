@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="EmailContentToSC" xml:space="preserve">
+    <value>&lt;p&gt;
+  Prezado {firstName} {lastName},
+&lt;/p&gt;
+&lt;p&gt;
+  Dr. {piLastName} sua instituição {institution} o identificou como um Coordenador de Estudo para o programa Goal International.
+&lt;/p&gt;
+&lt;p&gt;
+  Em nome do Centro Canadense de Pesquisas do Coração e do Comitê Diretor do programa GOAL International, ansiamos trabalhar com você e apreciamos sua contribuição para estes programa.
+&lt;/p&gt;
+&lt;div style="font-weight:bold"&gt;
+&lt;p style="text-decoration:underline; font-weight: bold"&gt;
+  Para registrar e acessar o Portal On-line de sua Instituição, siga as etapas abaixo:
+&lt;/p&gt;
+&lt;p&gt;
+  Siga este link: &lt;a href="{BaseURL}"&gt;Registro no programa GOAL International&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  Ou copie e cole esta url &lt;a href="{BaseURL}"&gt;{BaseURL}&lt;/a&gt; em seu navegador
+&lt;/p&gt;
+&lt;p&gt;
+  Insira seu e-mail: {email}
+&lt;/p&gt;
+&lt;p&gt;
+  Insira sua Senha Temporária: &lt;span style="color:red"&gt;{password}&lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  E clique em Login para seguir uma série de etapas para concluir seu registro.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;
+  Uma vez que você conclua o registro, será capaz de acessar o portal on-line de sua Instituição em &lt;a href="{BaseURL}"&gt;{BaseURL}&lt;/a&gt;. &lt;span style="color:red"&gt;Mantenha suas informações de login confidenciais e não compartilhe ou encaminhe seu nome de usuário e senha.&lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  Revise os documentos pertinentes no portal on-line para se familiarizar com as funcionalidades do site e componentes do programa.
+&lt;/p&gt;
+&lt;p&gt;
+  Caso tenha quaisquer dúvidas, não deixe de contatar Diane Camara (&lt;a href="mailto:clinicaltrials@chrc.net"&gt;clinicaltrials@chrc.net&lt;/a&gt;)
+&lt;/p&gt;
+&lt;p&gt;
+  Estamos ansiosos para trabalhar com você.
+&lt;/p&gt;
+&lt;p&gt;
+  Atenciosamente,
+&lt;/p&gt;
+&lt;p&gt;
+  Equipe do programa Internacional GOAL do CHRC
+&lt;/p&gt;</value>
+  </data>
+  <data name="EmailContentToSI" xml:space="preserve">
+    <value>&lt;p&gt;
+  Prezado Dr. {lastName},
+&lt;/p&gt;
+&lt;p&gt;
+  Dr. {piLastName} sua Instituição {institution} o identificou como um Subinvestigador para o programa Goal International.
+&lt;/p&gt;
+&lt;p&gt;
+  Em nome do Centro Canadense de Pesquisas do Coração e do Comitê Diretor do programa GOAL International, estamos ansiosos para trabalhar com você e apreciamos sua contribuição para este programa.
+&lt;/p&gt;
+&lt;div style="font-weight:bold"&gt;
+&lt;p style="text-decoration:underline; font-weight: bold"&gt;
+  Para se registrar e acessar o Portal On-line de sua Instituição, siga as etapas abaixo:
+&lt;/p&gt;
+&lt;p&gt;
+  Siga este link: &lt;a href="{BaseURL}"&gt;Registro no Programa GOAL International&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  Ou copie e cole esta url &lt;a href="{BaseURL}"&gt;{BaseURL}&lt;/a&gt; em seu navegador
+&lt;/p&gt;
+&lt;p&gt;
+  Insira seu e-mail: {email}
+&lt;/p&gt;
+&lt;p&gt;
+  Insira sua Senha Temporária: &lt;span style="color:red"&gt;{password}&lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  E clique em Login para seguir uma série de etapas para concluir seu registro.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;
+  Uma vez que você conclua o registro, será capaz de acessar o portal on-line de sua Instituição em &lt;a href="{BaseURL}"&gt;{BaseURL}&lt;/a&gt;. &lt;span style="color:red"&gt;Mantenha suas informações de login confidenciais e não compartilhe ou encaminhe seu nome de usuário e senha.&lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  Revise os documentos pertinentes no portal on-line para se familiarizar com as funcionalidades do site e componentes do programa.
+&lt;/p&gt;
+&lt;p&gt;
+  Caso tenha quaisquer dúvidas, não deixe de contatar Diane Camara (&lt;a href="mailto:clinicaltrials@chrc.net"&gt;clinicaltrials@chrc.net&lt;/a&gt;)
+&lt;/p&gt;
+&lt;p&gt;
+  Estamos ansiosos para trabalhar com você.
+&lt;/p&gt;
+&lt;p&gt;
+  Atenciosamente,
+&lt;/p&gt;
+&lt;p&gt;
+  Equipe do programa Internacional GOAL do CHRC
+&lt;/p&gt;</value>
+  </data>
+  <data name="EmailSubject" xml:space="preserve">
+    <value>Goal International  – Registro</value>
+  </data>
+  <data name="G1" xml:space="preserve">
+    <value>Adiciona Subinvestigador</value>
+  </data>
+  <data name="G10" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="G11" xml:space="preserve">
+    <value>Insira novamente o E-mail</value>
+  </data>
+  <data name="G12" xml:space="preserve">
+    <value>"Insira novamente o E-mail" e "E-mail" não correspondem</value>
+  </data>
+  <data name="G13" xml:space="preserve">
+    <value>Você adicionou com sucesso um novo Subinvestigador</value>
+  </data>
+  <data name="G14" xml:space="preserve">
+    <value>A pessoa com este e-mail foi adicionado anteriormente</value>
+  </data>
+  <data name="G15" xml:space="preserve">
+    <value>ADIÇÃO COM SUCESSO</value>
+  </data>
+  <data name="G16" xml:space="preserve">
+    <value>ADIÇÃO FALHOU</value>
+  </data>
+  <data name="G17" xml:space="preserve">
+    <value>Adicionar Coordenador do Estudo</value>
+  </data>
+  <data name="G18" xml:space="preserve">
+    <value>Para adicionar um Coordenador do Estudo e prover a ele acesso a sua portal Goal, preencha os campos obrigatórios (*) e clique no botão "Adicionar"</value>
+  </data>
+  <data name="G19" xml:space="preserve">
+    <value>Os campos obrigatórios são marcados com um asterisco: *</value>
+  </data>
+  <data name="G2" xml:space="preserve">
+    <value>Instruções</value>
+  </data>
+  <data name="G20" xml:space="preserve">
+    <value>Você adicionou com sucesso um novo Coordenador do Estudo</value>
+  </data>
+  <data name="G21" xml:space="preserve">
+    <value>Modificar Subinvestigador</value>
+  </data>
+  <data name="G22" xml:space="preserve">
+    <value>Para remover o Subinvestigador e descontinuar o acesso dele ao portal on-line, clique no botão "Remover" próximo ao nome adequado na lista abaixo</value>
+  </data>
+  <data name="G23" xml:space="preserve">
+    <value>LISTA DE SUBINVESTIGADORES</value>
+  </data>
+  <data name="G24" xml:space="preserve">
+    <value>Sobrenome Buscado</value>
+  </data>
+  <data name="G25" xml:space="preserve">
+    <value>Primeiro Nome Buscado</value>
+  </data>
+  <data name="G26" xml:space="preserve">
+    <value>Confirmar</value>
+  </data>
+  <data name="G27" xml:space="preserve">
+    <value>Tem certeza de que deseja excluir este Subinvestigador?</value>
+  </data>
+  <data name="G28" xml:space="preserve">
+    <value>A exclusão falhou</value>
+  </data>
+  <data name="G29" xml:space="preserve">
+    <value>Modificar Coordenador do Estudo</value>
+  </data>
+  <data name="G3" xml:space="preserve">
+    <value>Para adicionar um Subinvestigador e prover a ele acesso a seu portal Goal, preencha os campos obrigatórios (*) e clique no botão "Adicionar"</value>
+  </data>
+  <data name="G30" xml:space="preserve">
+    <value>Para remover o Coordenador do Estudo e descontinuar o acesso dele a seu portal on-line, clique no botão "Remover" próximo ao nome adequado na lista abaixo</value>
+  </data>
+  <data name="G31" xml:space="preserve">
+    <value>LISTA DE COORDENADORES DO ESTUDO</value>
+  </data>
+  <data name="G32" xml:space="preserve">
+    <value>Tem ceretza de que deseja excluir este Coordenador do Estudo?</value>
+  </data>
+  <data name="G4" xml:space="preserve">
+    <value>O Subinvestigador receberá um e-mail automático com as instruções de login de</value>
+  </data>
+  <data name="G5" xml:space="preserve">
+    <value>O Subinvestigador terá acesso às mesmas funcionalidades e recursos do site que o Investigador Principal</value>
+  </data>
+  <data name="G6" xml:space="preserve">
+    <value>Você pode modificar/remover Subinvestigadores na seção "Modifica Subi" no menu ao lado esquerdo</value>
+  </data>
+  <data name="G7" xml:space="preserve">
+    <value>ADICIONAR</value>
+  </data>
+  <data name="G8" xml:space="preserve">
+    <value>Primeiro Nome</value>
+  </data>
+  <data name="G9" xml:space="preserve">
+    <value>Sobrenome</value>
+  </data>
+</root>
