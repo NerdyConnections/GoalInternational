@@ -100,7 +100,7 @@ namespace GoalInternational.DAL
                             }
                         }
                     }
-
+                    SetExpireVisits(item);
                     item.Visit1StatusDescription = GetVisitStatusDescription(item.Visit1Status);
                     item.Visit2StatusDescription = GetVisitStatusDescription(item.Visit2Status);
                     item.Visit3StatusDescription = GetVisitStatusDescription(item.Visit3Status);
@@ -109,6 +109,64 @@ namespace GoalInternational.DAL
             
 
             return list;
+        }
+        public void SetExpireVisits(AdminReportModel item)
+        {
+            if (item.Visit2Status == 0 || item.Visit2Status == 1)
+            {
+
+                if (item.Visit1Status == 3)  //only try to attempt to open if visit 1 is completed , visit 1 cannot be no show so no need to check status =5
+                {
+                    //  item.GIntV2Status = 1;//covid 19 measure- open visit 2 immediately , uncomment code below and delete this line if back to normal
+
+                    DateTime Completiondate;
+                    DateTime PatientConsentDate;  //or enrollment date according to anatoly
+
+                    //if (DateTime.TryParse(item.GIntV1CompletionDateStr, out Completiondate))
+                    //updated to use visit 1 date to do calcuation not submission date
+                    if (DateTime.TryParse(item.Visit1VisitDate, out Completiondate))//if v1 completion date is available
+                    {
+
+                        //  if (DateTime.Now.Date >= Completiondate.AddMonths(4).Date && DateTime.Now.Date <= Completiondate.AddMonths(8).Date)  //the visit 1 elapsed more than 4 months; Completiondate: patient's visit date on v1
+                        //open visit 2 once visit 1 is completed more than 3 months -Anatoly: July 8th 2021
+                        if (DateTime.Now.Date >= Completiondate.AddMonths(3).Date)
+                        {
+                            //blocking visit if v2 is not start or not complete in 8 months from patient consent date
+                            if (DateTime.TryParse(item.PatientConsentDate, out PatientConsentDate))
+                            {
+                                if (DateTime.Now.Date >= PatientConsentDate.AddMonths(8).Date)
+                                {
+                                    //visit 2 is blocked since it is not started or complete in 8 month
+                                    item.Visit2Status = 8;
+                                }
+                                else//open when v1 is completed for over 3 months and it is not 8 months passed patient consent date
+                                {
+                                   // item.GIntV2Status = 1;//do nothing this is a report
+                                }
+                            }
+                        }
+                     
+                    }
+
+                    //}
+                }
+
+            }
+
+            //if visit 2 is started evaluation if it should be blocked
+            if (item.Visit2Status == 2)
+            {
+                DateTime PatientConsentDate;
+                if (DateTime.TryParse(item.PatientConsentDate, out PatientConsentDate))
+                {
+                    if (DateTime.Now.Date >= PatientConsentDate.AddMonths(8).Date)
+                    {
+                        //blocking visit if v2 is not start or not complete in 8 months from patient consent date
+                        item.Visit2Status = 8;
+                    }
+
+                }
+            }
         }
         public List<UserReportModel> GetUserReport()
         {
@@ -226,6 +284,8 @@ namespace GoalInternational.DAL
                     return Languages.PatientVisit.Overdue;
                 case 7:
                     return "Protocol Violations";
+                case 8:
+                    return "Expired";
                 default:
                     return "";
             }
