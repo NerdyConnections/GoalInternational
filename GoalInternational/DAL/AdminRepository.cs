@@ -168,6 +168,32 @@ namespace GoalInternational.DAL
 
                 }
             }
+            if (item.Visit3Status == 2)
+            {
+                DateTime PatientConsentDate;
+                if (DateTime.TryParse(item.PatientConsentDate, out PatientConsentDate))
+                {
+                    if (DateTime.Now.Date >= PatientConsentDate.AddMonths(16).Date)
+                    {
+                        //blocking visit if v2 is not start or not complete in 8 months from patient consent date
+                        item.Visit2Status = 8;
+                    }
+
+                }
+            }
+            if (item.Visit4Status == 2)
+            {
+                DateTime PatientConsentDate;
+                if (DateTime.TryParse(item.PatientConsentDate, out PatientConsentDate))
+                {
+                    if (DateTime.Now.Date >= PatientConsentDate.AddMonths(24).Date)
+                    {
+                        //blocking visit if v2 is not start or not complete in 8 months from patient consent date
+                        item.Visit4Status = 8;
+                    }
+
+                }
+            }
         }
         public List<UserReportModel> GetUserReport()
         {
