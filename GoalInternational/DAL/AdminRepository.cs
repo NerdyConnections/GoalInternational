@@ -112,6 +112,7 @@ namespace GoalInternational.DAL
         }
         public void SetExpireVisits(AdminReportModel item)
         {
+            //only set Expire Status to a visit if it is not ready and not started or started (status=2)
             if (item.Visit2Status == 0 || item.Visit2Status == 1)
             {
 
