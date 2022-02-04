@@ -478,7 +478,7 @@ namespace GoalInternational.DAL
                             case 6:
                                 item.GIntV1StatusStr = Languages.PatientVisit.Overdue;
                                 break;
-                            default:
+                            default://Visit 1 dont get expiry status, it is created immediately when a patient is added
                                 item.GIntV1StatusStr = Languages.PatientVisit.NotReady;
                                 break;
 
@@ -507,7 +507,7 @@ namespace GoalInternational.DAL
                             case 6://overdue
                                 item.GIntV2StatusStr = Languages.PatientVisit.Overdue;
                                 break;  
-                              case 8: //block
+                              case 8: //Expiry Status
                                  item.GIntV2StatusStr = Languages.PatientVisit.Blocked;
                                 break;
                             default:
@@ -539,7 +539,7 @@ namespace GoalInternational.DAL
                             case 6:
                                 item.GIntV3StatusStr = Languages.PatientVisit.Overdue;
                                 break;
-                             case 8: //block
+                             case 8: //Expiry Status
                                  item.GIntV3StatusStr = Languages.PatientVisit.Blocked;
                                 break;
                         default:
@@ -571,7 +571,7 @@ namespace GoalInternational.DAL
                             case 6:
                                 item.GIntV4StatusStr = Languages.PatientVisit.Overdue;
                                 break;
-                            case 8: //block
+                            case 8: //Expiry Status
                                     item.GIntV4StatusStr = Languages.PatientVisit.Blocked;
                                  break;
                         default:
