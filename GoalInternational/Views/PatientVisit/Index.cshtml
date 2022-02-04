@@ -302,7 +302,8 @@
                             {
                                  return "<!--PatientID=" +  data + "-->" + "<button type=\"button\"   class=\"form-control btn  btn-sm\" id=\"GIntV3_PatientID_" + data + "\"><span class=\"glyphicon glyphicon-folder-open\" style=\"font-size:24px; color:#666\"></span></button><br/>" +  "@GoalInternational.Languages.PatientVisit.Status" + "<br/>" + row.GIntV3StatusStr;;
                              }else if (row.GIntV3Status== 1 || row.GIntV3Status== 2 ){//yellow
-                                 return "<!--PatientID=" +  data + "-->" + "<button type=\"button\"   class=\"form-control btn  btn-sm\" id=\"GIntV3_PatientID_" + data + "\" onclick=javascript:location.href='@Url.Action("GIntV3", "PatientVisit")?PatientID=" + data  + "&Page=" + row.GIntV3SavedPage + "'><span class=\"glyphicon glyphicon-folder-open\" style=\"font-size:24px; color:#FC0\"></span></button><br/>" +  "@GoalInternational.Languages.PatientVisit.Status" + "<br/>" + row.GIntV3StatusStr;;
+                                 return "<!--PatientID=" +  data + "-->" + "<button type=\"button\"   class=\"form-control btn  btn-sm\" id=\
+    ></span></button><br/>" +  "@GoalInternational.Languages.PatientVisit.Status" + "<br/>" + row.GIntV3StatusStr;;
                              }else{//green
 
                                  return "<!--PatientID=" +  data + "-->" + "<button type=\"button\"   class=\"form-control btn  btn-sm\" id=\"GIntV3_PatientID_" + data + "\" onclick=javascript:location.href='@Url.Action("GIntV3", "PatientVisit")?PatientID=" + data  + "&Page=" + row.GIntV3SavedPage + "'><span class=\"glyphicon glyphicon-folder-open\" style=\"font-size:24px; color:#090\"></span></button><br/>" +  "@GoalInternational.Languages.PatientVisit.Status" + "<br/>" + row.GIntV3StatusStr;;
