@@ -343,7 +343,7 @@ namespace GoalInternational.DAL
                     {
 
 
-                        if (item.GIntV2Status == 3)  //only try to attempt to open if visit 2 is completed or no show
+                        if (item.GIntV2Status == 3 ||item.GIntV2Status==8)  //only try to attempt to open if visit 2 is completed or expired
                         {
                             DateTime Completiondate;
                             DateTime PatientConsentDate;
@@ -370,10 +370,23 @@ namespace GoalInternational.DAL
                                         }
                                     }
                                 }
-                                // else if (DateTime.Now.Date > Completiondate.AddMonths(8).Date)
-                                //  {
-                                // item.GIntV3Status = GetV3StatusWithV1(item);
-                                // }
+
+                            }//cannot parse visit 2 date
+                            else if (item.GIntV2Status == 8)//if visit 2 date is not available and visit 2 is expired open visit 3
+                            {
+                                //blocking visit if v2 is not start or not complete in 8 months from patient consent date
+                                if (DateTime.TryParse(item.PatientConsentDateStr, out PatientConsentDate))
+                                {
+                                    if (DateTime.Now.Date >= PatientConsentDate.AddMonths(16).Date)
+                                    {
+                                        //visit 3 is blocked since it is not started or complete in 8 month
+                                        item.GIntV3Status = 8;
+                                    }
+                                    else//open when v1 is completed for over 3 months and it is not 8 months passed patient consent date
+                                    {
+                                        item.GIntV3Status = 1;//set to not started (ready to go) if visit 2 is expired but visit 3 expiry date has not been reached (16)
+                                    }
+                                }
                             }
                         }
                         // else
@@ -401,7 +414,7 @@ namespace GoalInternational.DAL
 
                     if (item.GIntV4Status == 0 || item.GIntV4Status == 1)
                     {
-                        if (item.GIntV3Status == 3)  //only try to attempt to open if visit 3 is completed or no show
+                        if (item.GIntV3Status == 3 || item.GIntV3Status == 8)  //only try to attempt to open if visit 3 is completed or no show
                         {
                             DateTime Completiondate;
                             DateTime PatientConsentDate;
@@ -435,10 +448,26 @@ namespace GoalInternational.DAL
                                 //{
                                 //    item.GIntV4Status = GetV4StatusWithV1(item);
                                 //}  
+                            }//cannot parse visit 3 date
+                            else if (item.GIntV3Status == 8)//if visit 3 date is not available and visit 3 is expired open visit 3
+                            {
+                                //blocking visit if v2 is not start or not complete in 8 months from patient consent date
+                                if (DateTime.TryParse(item.PatientConsentDateStr, out PatientConsentDate))
+                                {
+                                    if (DateTime.Now.Date >= PatientConsentDate.AddMonths(24).Date)
+                                    {
+                                        //visit 4 is blocked since it is not started or complete in 24 month
+                                        item.GIntV4Status = 8;
+                                    }
+                                    else//open when v3 is expired and enrollment has not reached 24 months
+                                    {
+                                        item.GIntV4Status = 1;//set to not started (ready to go) if visit 1 is completed and it completed more than 4 months
+                                    }
+                                }
                             }
                         }
                     }
-                    //if visit 3 is started evaluate if it should be blocked
+                    //if visit 4 is started evaluate if it should be blocked
                     if (item.GIntV4Status == 2)
                     {
                         DateTime PatientConsentDate;
